@@ -33,7 +33,7 @@ Build and Deploy the HelloWorld
 
 ## Change Push Configuration
 
-In www/js/index.js find the pushConfig and change the server url to your openshift instance alias and varaints/secrets:
+In www/js/index.js find the pushConfig and change the server url to your openshift instance alias and variant/secret:
 
 ```javascript
 var pushConfig = {
