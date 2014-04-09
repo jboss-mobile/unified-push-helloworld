@@ -20,7 +20,8 @@ System requirements
 
 Configure 
 ---------
-* register to APN
+* Have created an variant in UnifiedPush admin console
+* Have a valid provisioning profile as you will need to test on device (push notification not available on simulator)
 Open **HelloWorld.xcodeproj** and that's it.
 
 Build and Deploy the HelloWorld
