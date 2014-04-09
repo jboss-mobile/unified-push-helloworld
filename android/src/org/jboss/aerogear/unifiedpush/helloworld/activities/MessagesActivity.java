@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.Registrations;
+import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler;
 
@@ -15,13 +16,15 @@ import java.util.List;
 
 public class MessagesActivity extends Activity implements MessageHandler{
 
+    private HelloWorldApplication application;
     private ListView listView;
-    private List<String> messages = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.messages);
+
+        application = (HelloWorldApplication) getApplication();
 
         listView = (ListView) findViewById(R.id.messages);
     }
@@ -31,6 +34,8 @@ public class MessagesActivity extends Activity implements MessageHandler{
         super.onResume();
         Registrations.registerMainThreadHandler(this);
         Registrations.unregisterBackgroundThreadHandler(NotificationBarMessageHandler.instance);
+
+        displayMessages();
     }
 
     @Override
@@ -55,9 +60,13 @@ public class MessagesActivity extends Activity implements MessageHandler{
     }
 
     private void addNewMessage(String alert) {
-        messages.add(alert);
+        application.addMessage(alert);
+        displayMessages();
+    }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.message_item, messages);
+    private void displayMessages() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
+                R.layout.message_item, application.getMessages());
         listView.setAdapter(adapter);
     }
 
