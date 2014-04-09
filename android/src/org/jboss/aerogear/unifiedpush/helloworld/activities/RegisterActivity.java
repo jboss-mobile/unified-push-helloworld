@@ -42,6 +42,10 @@ public class RegisterActivity extends Activity {
                     Toast.makeText(getApplicationContext(),
                             getApplicationContext().getString(R.string.registration_successful),
                             Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(getApplicationContext(), MessagesActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
 
                 @Override

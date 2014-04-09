@@ -58,6 +58,12 @@
 
         <dependency>
             <groupId>android.support</groupId>
+            <artifactId>compatibility-v4</artifactId>
+            <version>${android.support.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>android.support</groupId>
             <artifactId>compatibility-v7-appcompat</artifactId>
             <version>${android.support.version}</version>
             <type>jar</type>
