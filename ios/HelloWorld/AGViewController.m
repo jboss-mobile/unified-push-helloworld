@@ -39,6 +39,7 @@ NSMutableArray* _messages;
 }
 
 - (void)errorRegistration {
+    [_messages removeObjectAtIndex:0];
     [_messages addObject:@"Error during registration"];
     [self.tableView reloadData];
 }

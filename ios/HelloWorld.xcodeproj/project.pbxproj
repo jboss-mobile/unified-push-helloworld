@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48524EA218F591C200640924 /* default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524E8F18F591C200640924 /* default-568h@2x~iphone.png */; };
+		48524EA318F591C200640924 /* default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524E9018F591C200640924 /* default@2x~iphone.png */; };
+		48524EA418F591C200640924 /* i.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524E9118F591C200640924 /* i.png */; };
+		48524EAD18F591C200640924 /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524E9F18F591C200640924 /* icon_29.png */; };
+		48524EAE18F591C200640924 /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524EA018F591C200640924 /* icon_40.png */; };
+		48524EAF18F591C200640924 /* icon_60.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524EA118F591C200640924 /* icon_60.png */; };
+		48524EB118F5985100640924 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524EB018F5985100640924 /* icon.png */; };
 		48DD366818F3F2C1009A02E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DD366718F3F2C1009A02E2 /* Foundation.framework */; };
 		48DD366A18F3F2C1009A02E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DD366918F3F2C1009A02E2 /* CoreGraphics.framework */; };
 		48DD366C18F3F2C1009A02E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DD366B18F3F2C1009A02E2 /* UIKit.framework */; };
@@ -35,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48524E8F18F591C200640924 /* default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		48524E9018F591C200640924 /* default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x~iphone.png"; sourceTree = "<group>"; };
+		48524E9118F591C200640924 /* i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = i.png; sourceTree = "<group>"; };
+		48524E9F18F591C200640924 /* icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29.png; sourceTree = "<group>"; };
+		48524EA018F591C200640924 /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_40.png; sourceTree = "<group>"; };
+		48524EA118F591C200640924 /* icon_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_60.png; sourceTree = "<group>"; };
+		48524EB018F5985100640924 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		48DD366418F3F2C1009A02E2 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DD366718F3F2C1009A02E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48DD366918F3F2C1009A02E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,6 +96,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48524E8E18F591C200640924 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				48524E8F18F591C200640924 /* default-568h@2x~iphone.png */,
+				48524E9018F591C200640924 /* default@2x~iphone.png */,
+				48524E9118F591C200640924 /* i.png */,
+				48524E9218F591C200640924 /* icon */,
+			);
+			path = resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		48524E9218F591C200640924 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				48524EB018F5985100640924 /* icon.png */,
+				48524E9F18F591C200640924 /* icon_29.png */,
+				48524EA018F591C200640924 /* icon_40.png */,
+				48524EA118F591C200640924 /* icon_60.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
 		48DD365B18F3F2C1009A02E2 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +166,7 @@
 		48DD366E18F3F2C1009A02E2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				48524E8E18F591C200640924 /* resources */,
 				48DD366F18F3F2C1009A02E2 /* HelloWorld-Info.plist */,
 				48DD367018F3F2C1009A02E2 /* InfoPlist.strings */,
 				48DD367318F3F2C1009A02E2 /* main.m */,
@@ -204,6 +241,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = aerogear;
 				TargetAttributes = {
+					48DD366318F3F2C1009A02E2 = {
+						DevelopmentTeam = 357BX7TCT5;
+					};
 					48DD368418F3F2C1009A02E2 = {
 						TestTargetID = 48DD366318F3F2C1009A02E2;
 					};
@@ -234,6 +274,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				48DD368018F3F2C1009A02E2 /* Images.xcassets in Resources */,
+				48524EA218F591C200640924 /* default-568h@2x~iphone.png in Resources */,
+				48524EAF18F591C200640924 /* icon_60.png in Resources */,
+				48524EA318F591C200640924 /* default@2x~iphone.png in Resources */,
+				48524EAD18F591C200640924 /* icon_29.png in Resources */,
+				48524EAE18F591C200640924 /* icon_40.png in Resources */,
+				48524EB118F5985100640924 /* icon.png in Resources */,
+				48524EA418F591C200640924 /* i.png in Resources */,
 				48DD367218F3F2C1009A02E2 /* InfoPlist.strings in Resources */,
 				48DD367B18F3F2C1009A02E2 /* Main.storyboard in Resources */,
 			);
@@ -383,6 +430,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloWorld/HelloWorld-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -393,10 +442,11 @@
 				INFOPLIST_FILE = "HelloWorld/HelloWorld-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"lib",
+					lib,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -406,6 +456,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloWorld/HelloWorld-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -416,10 +468,11 @@
 				INFOPLIST_FILE = "HelloWorld/HelloWorld-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"lib",
+					lib,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -485,6 +538,7 @@
 				48DD369818F3F2C1009A02E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		48DD369918F3F2C1009A02E2 /* Build configuration list for PBXNativeTarget "HelloWorldTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +547,7 @@
 				48DD369B18F3F2C1009A02E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
