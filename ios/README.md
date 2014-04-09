@@ -22,6 +22,11 @@ Configure
 ---------
 * Have created an variant in UnifiedPush admin console
 * Have a valid provisioning profile as you will need to test on device (push notification not available on simulator)
+* Replace the bundleId with your bundleId (the one associated of your certificate). 
+Go to HelloWorld target -> Info -> change Bundle Identifier field.
+
+![change helloworld bundle](doc/change-helloworld-bundle.png)
+
 Open **HelloWorld.xcodeproj** and that's it.
 
 Build and Deploy the HelloWorld
