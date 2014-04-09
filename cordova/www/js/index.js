@@ -41,14 +41,15 @@ var app = {
             variantSecret: "<variantSecret e.g. 1234456-234320>"
          }
       };
-
       push.register(app.onNotification, successHandler, errorHandler, pushConfig);
 
       function successHandler() {
+         app.clearMessages();
          app.addMessage('succesfull registered');
       }
 
       function errorHandler(error) {
+         app.clearMessages();
          app.addMessage('error registering ' + error);
       }
    },
@@ -60,5 +61,11 @@ var app = {
          element = document.createElement("li");
       messages.appendChild(element);
       element.innerHTML = message;
+   },
+   clearMessages: function () {
+      var messages = document.getElementById("messages");
+      while (messages.hasChildNodes()) {
+         messages.removeChild(messages.lastChild);
+      }
    }
 };
