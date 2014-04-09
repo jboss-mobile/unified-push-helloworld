@@ -1,9 +1,9 @@
 package org.jboss.aerogear.unifiedpush.helloworld.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Toast;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 
 public class SplashScreenActivity extends Activity {
@@ -17,8 +17,11 @@ public class SplashScreenActivity extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(getApplicationContext(), "Time to start UPS registration", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intent);
+                finish();
             }
         }, 3000);
     }
+
 }

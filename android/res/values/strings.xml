@@ -3,4 +3,6 @@
     <string name="app_name">AeroGear UnifiedPush HelloWorld</string>
     <string name="project_name">UnifiedPush HelloWorld</string>
     <string name="aerogear_logo">AeroGear Logo</string>
+    <string name="registration_successful">Registration Successful</string>
+    <string name="registering">Registering...</string>
 </resources>
