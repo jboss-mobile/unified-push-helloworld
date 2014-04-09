@@ -25,7 +25,7 @@ NSMutableArray* _messages;
 {
     [super viewDidLoad];
 
-     _messages = [[NSMutableArray alloc] init];
+     _messages = [@[@"Registering...."] mutableCopy];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registered) name:@"success_registered" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(errorRegistration) name:@"error_register" object:nil];
@@ -33,6 +33,7 @@ NSMutableArray* _messages;
 }
 
 - (void)registered {
+    [_messages removeObjectAtIndex:0];
     [_messages addObject:@"Sucessfully registered"];
     [self.tableView reloadData];
 }
