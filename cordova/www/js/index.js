@@ -29,12 +29,11 @@ var app = {
    // function, we must explicity call 'app.receivedEvent(...);'
    register: function () {
       var pushConfig = {
-         pushServerURL: "<pushServerURL e.g http(s)//host:port/context >",
-         alias: "<alias e.g. a username or an email address optional>",
+         pushServerURL: "https://quickstartsups-sblanc.rhcloud.com/",
          android: {
-            senderID: "<senderID e.g Google Project ID only for android>",
-            variantID: "<variantID e.g. 1234456-234320>",
-            variantSecret: "<variantSecret e.g. 1234456-234320>"
+            senderID: "517285908032",
+            variantID: "a7a1b696-a28c-4229-a231-a2742557a775",
+            variantSecret: "4f7db1dc-8d55-45c6-a89d-153df0bc7e22"
          },
          ios: {
             variantID: "<variantID e.g. 1234456-234320>",
@@ -45,10 +44,12 @@ var app = {
       push.register(app.onNotification, successHandler, errorHandler, pushConfig);
 
       function successHandler() {
+         app.clearMessages();
          app.addMessage('succesfull registered');
       }
 
       function errorHandler(error) {
+         app.clearMessages();
          app.addMessage('error registering ' + error);
       }
    },
@@ -60,5 +61,11 @@ var app = {
          element = document.createElement("li");
       messages.appendChild(element);
       element.innerHTML = message;
+   },
+   clearMessages: function () {
+      var messages = document.getElementById("messages");
+      while (messages.hasChildNodes()) {
+         messages.removeChild(messages.lastChild);
+      }
    }
 };
