@@ -27,6 +27,10 @@ public class MessagesActivity extends Activity implements MessageHandler{
         application = (HelloWorldApplication) getApplication();
 
         listView = (ListView) findViewById(R.id.messages);
+
+        if(getIntent().getExtras() != null) {
+            addNewMessage(getIntent().getExtras());
+        }
     }
 
     @Override
@@ -47,8 +51,7 @@ public class MessagesActivity extends Activity implements MessageHandler{
 
     @Override
     public void onMessage(Context context, Bundle message) {
-        String alert = message.getString("alert");
-        addNewMessage(alert);
+        addNewMessage(message);
     }
 
     @Override
@@ -59,8 +62,8 @@ public class MessagesActivity extends Activity implements MessageHandler{
     public void onError() {
     }
 
-    private void addNewMessage(String alert) {
-        application.addMessage(alert);
+    private void addNewMessage(Bundle message) {
+        application.addMessage(message.getString("alert"));
         displayMessages();
     }
 
