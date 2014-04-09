@@ -16,7 +16,7 @@
  */
 
 #import "AGAppDelegate.h"
-#import "AeroGearPush.h"
+#import <AeroGearPush/AeroGearPush.h>
 
 @implementation AGAppDelegate
 
