@@ -16,7 +16,7 @@ This project is a very simple helloworld, to show how to get started with the Un
 System requirements
 -------------------
 - iOS 7.X
-- Xcode version 5.X 
+- Xcode version 5.1.X 
 
 Configure 
 ---------
@@ -104,6 +104,10 @@ Explain quickly the registration flow + screenshot of the console where we can c
 
 FAQ
 --------------------
+
+* Which iOS version is supported by AeroGear iOS libraries?
+
+AeroGear supports iOS 7.X
 
 
 Debug the Application
