@@ -32,7 +32,7 @@ public class NotificationBarMessageHandler implements MessageHandler {
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent intent = new Intent(context, MessagesActivity.class)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
                 .putExtra("alert", msg);
 
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, 0);
