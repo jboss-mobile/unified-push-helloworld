@@ -28,9 +28,9 @@ public class MessagesActivity extends Activity implements MessageHandler{
 
         listView = (ListView) findViewById(R.id.messages);
 
-        if(getIntent().getExtras() != null) {
-            addNewMessage(getIntent().getExtras());
-        }
+            if(getIntent().getExtras() != null) {
+                addNewMessage(getIntent().getExtras());
+            }
     }
 
     @Override
@@ -43,8 +43,8 @@ public class MessagesActivity extends Activity implements MessageHandler{
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         Registrations.unregisterMainThreadHandler(this);
         Registrations.registerBackgroundThreadHandler(NotificationBarMessageHandler.instance);
     }
