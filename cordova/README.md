@@ -52,7 +52,7 @@ var pushConfig = {
 
 ```
 
-You can also copy/paste these settings from your UnifiedPUsh console
+You can also copy/paste these settings from your UnifiedPush console
 
 Install platforms
 ```
@@ -63,6 +63,9 @@ Add the plugin
 ```
 cordova plugin add org.jboss.aerogear.cordova.push
 ```
+
+For iOS you'll need a valid provisioning profile as you will need to test on device (push notification not available on simulator)
+Replace the bundleId with your bundleId (the one associated of your certificate), by editing the config.xml in the root of this project change the id attribute of the `widget` node. After that run a `cordova platform rm ios` followed by `cordova platform add ios` to change the xcode project template. 
 
 Run the application on a device
 ```
