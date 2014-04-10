@@ -45,7 +45,7 @@ var app = {
 
       function successHandler() {
          app.clearMessages();
-         app.addMessage('succesfull registered');
+         app.addMessage('successful registered');
       }
 
       function errorHandler(error) {
