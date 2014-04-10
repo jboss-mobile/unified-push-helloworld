@@ -14,7 +14,6 @@
 		48524EAE18F591C200640924 /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524EA018F591C200640924 /* icon_40.png */; };
 		48524EAF18F591C200640924 /* icon_60.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524EA118F591C200640924 /* icon_60.png */; };
 		48524EB118F5985100640924 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 48524EB018F5985100640924 /* icon.png */; };
-		48524EB318F5AEB500640924 /* AeroGearPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48524EB218F5AEB500640924 /* AeroGearPush.framework */; };
 		48DD366818F3F2C1009A02E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DD366718F3F2C1009A02E2 /* Foundation.framework */; };
 		48DD366A18F3F2C1009A02E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DD366918F3F2C1009A02E2 /* CoreGraphics.framework */; };
 		48DD366C18F3F2C1009A02E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DD366B18F3F2C1009A02E2 /* UIKit.framework */; };
@@ -29,6 +28,7 @@
 		48DD368918F3F2C1009A02E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DD366B18F3F2C1009A02E2 /* UIKit.framework */; };
 		48DD369118F3F2C1009A02E2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48DD368F18F3F2C1009A02E2 /* InfoPlist.strings */; };
 		48DD369318F3F2C1009A02E2 /* HelloWorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DD369218F3F2C1009A02E2 /* HelloWorldTests.m */; };
+		6F75F5B418F681AB00FAA36E /* AeroGearPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F75F5B318F681AB00FAA36E /* AeroGearPush.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,6 @@
 		48524EA018F591C200640924 /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_40.png; sourceTree = "<group>"; };
 		48524EA118F591C200640924 /* icon_60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_60.png; sourceTree = "<group>"; };
 		48524EB018F5985100640924 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		48524EB218F5AEB500640924 /* AeroGearPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AeroGearPush.framework; sourceTree = "<group>"; };
 		48DD366418F3F2C1009A02E2 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DD366718F3F2C1009A02E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		48DD366918F3F2C1009A02E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,6 +68,7 @@
 		48DD368E18F3F2C1009A02E2 /* HelloWorldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HelloWorldTests-Info.plist"; sourceTree = "<group>"; };
 		48DD369018F3F2C1009A02E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		48DD369218F3F2C1009A02E2 /* HelloWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldTests.m; sourceTree = "<group>"; };
+		6F75F5B318F681AB00FAA36E /* AeroGearPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AeroGearPush.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48524EB318F5AEB500640924 /* AeroGearPush.framework in Frameworks */,
+				6F75F5B418F681AB00FAA36E /* AeroGearPush.framework in Frameworks */,
 				48DD366A18F3F2C1009A02E2 /* CoreGraphics.framework in Frameworks */,
 				48DD366C18F3F2C1009A02E2 /* UIKit.framework in Frameworks */,
 				48DD366818F3F2C1009A02E2 /* Foundation.framework in Frameworks */,
@@ -140,7 +140,7 @@
 		48DD366618F3F2C1009A02E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				48524EB218F5AEB500640924 /* AeroGearPush.framework */,
+				6F75F5B318F681AB00FAA36E /* AeroGearPush.framework */,
 				48DD366718F3F2C1009A02E2 /* Foundation.framework */,
 				48DD366918F3F2C1009A02E2 /* CoreGraphics.framework */,
 				48DD366B18F3F2C1009A02E2 /* UIKit.framework */,
@@ -354,7 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -392,7 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -430,6 +430,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					$SOURCE_ROOT,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloWorld/HelloWorld-Prefix.pch";
@@ -459,6 +460,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					$SOURCE_ROOT,
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloWorld/HelloWorld-Prefix.pch";
