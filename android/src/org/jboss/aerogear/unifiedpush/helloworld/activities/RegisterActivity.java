@@ -34,6 +34,7 @@ public class RegisterActivity extends Activity {
             config.setVariantID(VARIANT_ID);
             config.setSecret(SECRET);
             config.setAlias(ALIAS);
+            config.setCategories(CATEGORIES);
 
             Registrations registrations = new Registrations();
             PushRegistrar registrar = registrations.push("register", config);
