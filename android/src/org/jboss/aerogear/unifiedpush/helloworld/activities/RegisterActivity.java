@@ -33,6 +33,7 @@ public class RegisterActivity extends Activity {
             PushConfig config = new PushConfig(new URI(UNIFIED_PUSH_URL), GCM_SENDER_ID);
             config.setVariantID(VARIANT_ID);
             config.setSecret(SECRET);
+            config.setAlias(ALIAS);
 
             Registrations registrations = new Registrations();
             PushRegistrar registrar = registrations.push("register", config);

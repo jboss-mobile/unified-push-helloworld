@@ -6,5 +6,6 @@ public interface Constants {
     String VARIANT_ID = "";
     String SECRET = "";
     String GCM_SENDER_ID = "";
+    String ALIAS = "";
 
 }
