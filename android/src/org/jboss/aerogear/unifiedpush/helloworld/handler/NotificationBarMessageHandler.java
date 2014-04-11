@@ -45,22 +45,24 @@ public class NotificationBarMessageHandler implements MessageHandler {
     }
 
     private void sendNotification(String msg) {
-        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager mNotificationManager = (NotificationManager)
+                context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent intent = new Intent(context, MessagesActivity.class)
                 .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
                 .putExtra("alert", msg);
 
-        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(context)
-                        .setAutoCancel(true)
-                        .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(context.getString(R.string.app_name))
-                        .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                        .setContentText(msg);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder mBuilder
+                = new NotificationCompat.Builder(context)
+                .setAutoCancel(true)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle(context.getString(R.string.app_name))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setContentText(msg);
 
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
