@@ -17,7 +17,6 @@
 package org.jboss.aerogear.unifiedpush.helloworld.activities;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -49,8 +48,6 @@ public class RegisterActivity extends Activity {
             PushConfig config = new PushConfig(new URI(UNIFIED_PUSH_URL), GCM_SENDER_ID);
             config.setVariantID(VARIANT_ID);
             config.setSecret(SECRET);
-            config.setAlias(ALIAS);
-            config.setCategories(CATEGORIES);
 
             Registrations registrations = new Registrations();
             PushRegistrar registrar = registrations.push("register", config);
