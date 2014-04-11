@@ -27,13 +27,12 @@ import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MessagesActivity extends Activity implements MessageHandler {
 
     private HelloWorldApplication application;
     private ListView listView;
+    private static final String IGNORE_EXTRAS = "MessageActivity.ignore_extras";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +43,10 @@ public class MessagesActivity extends Activity implements MessageHandler {
 
         listView = (ListView) findViewById(R.id.messages);
 
-        if (getIntent().getExtras() != null) {
-            addNewMessage(getIntent().getExtras());
+        if (getIntent().getExtras() != null ) {
+            if (savedInstanceState == null || !savedInstanceState.getBoolean(IGNORE_EXTRAS, false)) {
+                addNewMessage(getIntent().getExtras());
+            }
         }
     }
 
@@ -58,6 +59,14 @@ public class MessagesActivity extends Activity implements MessageHandler {
         displayMessages();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState); 
+        outState.putBoolean(IGNORE_EXTRAS, true);
+    }
+
+    
+    
     @Override
     protected void onPause() {
         super.onPause();

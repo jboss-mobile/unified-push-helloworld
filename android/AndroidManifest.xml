@@ -20,7 +20,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.MessagesActivity" />
+        <activity android:name="org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity" >
+            <intent-filter>
+                <action android:name="org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <receiver
             android:name="org.jboss.aerogear.android.unifiedpush.AeroGearGCMMessageReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
