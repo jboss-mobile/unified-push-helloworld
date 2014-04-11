@@ -23,9 +23,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
+        NSLog(@"Was opened with notification:%@",launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]);
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey][@"aps"][@"alert"] forKey:@"message_received"];
+        [defaults synchronize];
+    }
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -34,7 +43,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -61,7 +70,7 @@
     // WARNING: make sure, you start JBoss with the -b 0.0.0.0 option, to bind on all interfaces
     // from the iPhone, you can NOT use localhost :)
     [[AGDeviceRegistration alloc] initWithServerURL:[NSURL URLWithString:@"<# URL of the running AeroGear UnifiedPush Server #>"]];
-
+    
     [registration registerWithClientInfo:^(id<AGClientDeviceInformation> clientInfo) {
         // You need to fill the 'Variant Id' together with the 'Variant Secret'
         // both received when performing the variant registration with the server.

@@ -21,11 +21,11 @@
 NSMutableArray* _messages;
 @synthesize deviceToken;
 @synthesize tableView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-     _messages = [@[@"Registering...."] mutableCopy];
+    _messages = [@[@"Registering...."] mutableCopy];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registered) name:@"success_registered" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(errorRegistration) name:@"error_register" object:nil];
@@ -33,8 +33,17 @@ NSMutableArray* _messages;
 }
 
 - (void)registered {
+    NSLog(@"registered");
     [_messages removeObjectAtIndex:0];
     [_messages addObject:@"Sucessfully registered"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString* msg = [defaults objectForKey:@"message_received"];
+    [defaults removeObjectForKey:@"message_received"];
+    [defaults synchronize];
+    
+    if(msg) {
+        [_messages addObject:msg];
+    }
     [self.tableView reloadData];
 }
 
@@ -45,6 +54,7 @@ NSMutableArray* _messages;
 }
 
 - (void)messageReceived:(NSNotification*)notification {
+    NSLog(@"received");
     [_messages addObject:notification.object[@"aps"][@"alert"]];
     [self.tableView reloadData];
 }
