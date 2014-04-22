@@ -30,7 +30,6 @@ var app = {
    register: function () {
       var pushConfig = {
          pushServerURL: "<pushServerURL e.g http(s)//host:port/context >",
-         alias: "<alias e.g. a username or an email address optional>",
          android: {
             senderID: "<senderID e.g Google Project ID only for android>",
             variantID: "<variantID e.g. 1234456-234320>",

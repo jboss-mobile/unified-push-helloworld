@@ -38,7 +38,6 @@ In www/js/index.js find the pushConfig and change the server url to your openshi
 ```javascript
 var pushConfig = {
    pushServerURL: "<pushServerURL e.g http(s)//host:port/context >",
-   alias: "<alias e.g. a username or an email address optional>",
    android: {
       senderID: "<senderID e.g Google Project ID only for android>",
       variantID: "<variantID e.g. 1234456-234320>",
@@ -64,6 +63,7 @@ Add the plugin
 cordova plugin add org.jboss.aerogear.cordova.push
 ```
 
+### iOS
 For iOS you'll need a valid provisioning profile as you will need to test on device (push notification not available on simulator)
 Replace the bundleId with your bundleId (the one associated of your certificate), by editing the config.xml in the root of this project change the id attribute of the `widget` node. After that run a `cordova platform rm ios` followed by `cordova platform add ios` to change the xcode project template. 
 
