@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+ JBoss, Home of Professional Open Source
+ Copyright Red Hat, Inc., and individual contributors
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+-->
+
+<widget id="org.jboss.aerogear.unifiedpush.HelloWorld" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>AeroGear UnifiedPush HelloWorld</name>
+    <description>
+        A sample Cordova application that shows how to use the UnifiedPush server
+    </description>
+    <author email="aerogear-dev@lists.jboss.org" href="http://aerogear.org">
+        AeroGear Developer Mailing List
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
