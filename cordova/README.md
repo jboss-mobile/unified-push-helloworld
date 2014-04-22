@@ -23,6 +23,11 @@ install cordova
 npm install -g cordova
 ```
 
+To deploy on ios you need to install the ios-deploy package as well
+```
+npm install -g ios-deploy
+```
+
 Configure Cordova
 -----------------
 
