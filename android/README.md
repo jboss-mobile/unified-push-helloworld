@@ -1,11 +1,11 @@
 # helloworld-push-android: Basic Mobile Application showing the AeroGear Push feature on Android
 
 Author: Daniel Passos (dpassos)
-Level: Beginner  
+Level: Beginner
 Technologies: Java, Android
-Summary: A basic example of Push : Registration and receiving messages.  
-Target Product: Mobile  
-Product Versions: EAP 6.1, EAP 6.2, EAP 6.3  
+Summary: A basic example of Push : Registration and receiving messages.
+Target Product: Mobile
+Product Versions: EAP 6.1, EAP 6.2, EAP 6.3
 Source: https://github.com/aerogear/aerogear-push-helloworld/android
 
 ## What is it?
@@ -19,8 +19,8 @@ This project is a very simple helloworld, to show how to get started with the Un
 * Latest [Android SDK](https://developer.android.com/sdk/index.html) and [Plataform version](http://developer.android.com/tools/revisions/platforms.html)
 * Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html) and [Google Play Services](http://developer.android.com/google/play-services/index.html)
 * Latest [Maven Android SDK Deployer](https://github.com/mosabua/maven-android-sdk-deployer)
- 
-## Configure 
+
+## Configure
 
 * Have created an variant in UnifiedPush admin console
 * Have a device (push notification not available on simulator)
@@ -43,13 +43,13 @@ String GCM_SENDER_ID = "";
 
 ### Registration
 
-Explain quickly the registration flow + screenshot of the console where we can check in the Installation page if the device is registered 
+Explain quickly the registration flow + screenshot of the console where we can check in the Installation page if the device is registered
 
 ### Sending Push Notification
 
-* Showing the compose message feature 
+* Showing the compose message feature
 
-* Maybe also the CURL ? 
+* Maybe also the CURL ?
 
 
 ## FAQ
