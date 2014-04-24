@@ -22,7 +22,7 @@ This project is a very simple helloworld, to show how to get started with the Un
 
 ## Configure
 
-* Have created an variant in UnifiedPush admin console
+* Have created a variant in UnifiedPush admin console
 * Have a device (push notification not available on simulator)
 
 ## Build and Deploy the HelloWorld
