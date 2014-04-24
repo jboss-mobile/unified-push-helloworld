@@ -81,21 +81,14 @@ Application Flow
 ----------------------
 
 ## Registration
+When you start the application Cordova will fire a `deviceready` event when Cordova initialization is done and the device is ready (see `www/js/index.js`). On this event the `register` function will be executed registering the device with the UnifiedPush server. The first argument is a function that gets executed when the device receives a push event, followed by a success and errorCallback that are invoked when the register was successful or not and the last parameter is the push configuration that indicates where the push server is located and wich varaint/secret to use. When registration is successful it will display this on the UI. You can also verify that the registration was successful by going to the console there a new instance will have appeared with your deviceId, platform and status.
 
-Explain quickly the registration flow + screenshot of the console where we can check in the Installation page if the device is registered 
+## Sending message
+Now you can send a message to your device by clicking `Compose Message...` from the application page. Write a message in the text field and hit 'Send Push Message'. 
 
-## Sending Push Notification
+![import](doc/compose-message.png)
 
-* Showing the compose message feature 
-
-* Maybe also the CURL ? 
-
-
-
-
-FAQ
---------------------
-
+After a while you will see the message end up on the device. In the register function we've specified a notification event handler `app.onNotification` this handler is invoked when a push notifcation is received and adds an item (li element) to the list. 
 
 
 Run the HelloWorld in JBoss Developer Studio or Eclipse
