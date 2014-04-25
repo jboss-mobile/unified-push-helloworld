@@ -1,17 +1,11 @@
 helloworld-push-ios: Basic Mobile Application showing the AeroGear Push feature on iOS
 ======================================================================================
-Author: Corinne Krych (ckrych)
-
-Level: Beginner
-
-Technologies: Objective-C, iOS
-
-Summary: A basic example of Push : Registration and receiving messages.
-
-Target Product: Mobile
-
-Product Versions: EAP 6.1, EAP 6.2, EAP 6.3
-
+Author: Corinne Krych (ckrych)  
+Level: Beginner  
+Technologies: Objective-C, iOS  
+Summary: A basic example of Push : Registration and receiving messages.  
+Target Product: Mobile  
+Product Versions: EAP 6.1, EAP 6.2, EAP 6.3  
 Source: https://github.com/aerogear/aerogear-push-helloworld/ios
 
 What is it?
