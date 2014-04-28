@@ -1,11 +1,11 @@
 helloworld-push-ios: Basic Mobile Application showing the AeroGear Push feature on iOS
 ======================================================================================
-Author: Corinne Krych (ckrych)
-Level: Beginner
-Technologies: Objective-C, iOS
-Summary: A basic example of Push : Registration and receiving messages.
-Target Product: Mobile
-Product Versions: EAP 6.1, EAP 6.2, EAP 6.3
+Author: Corinne Krych (ckrych)  
+Level: Beginner  
+Technologies: Objective-C, iOS  
+Summary: A basic example of Push : Registration and receiving messages.  
+Target Product: Mobile  
+Product Versions: EAP 6.1, EAP 6.2, EAP 6.3  
 Source: https://github.com/aerogear/aerogear-push-helloworld/ios
 
 What is it?
@@ -32,7 +32,7 @@ Open **HelloWorld.xcodeproj** and that's it.
 Build and Deploy the HelloWorld
 -------------------------------
 
-## Change Push Configuration
+### Change Push Configuration
 
 In HelloWorld/AGAppDelegate.h find replace URL, variant and secret:
 
@@ -89,17 +89,39 @@ In HelloWorld/AGAppDelegate.h find replace URL, variant and secret:
 Application Flow
 ----------------------
 
-## Registration
+### Registration
 
-Explain quickly the registration flow + screenshot of the console where we can check in the Installation page if the device is registered
+When the application is launched, AGAppDelegate's ```application:didFinishLaunchingWithOptions:``` registers the app to receive remote notifications. 
 
-## Sending Push Notification
+```javascript
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: 
+        (UIRemoteNotificationTypeBadge |
+         UIRemoteNotificationTypeSound | 
+         UIRemoteNotificationTypeAlert)];    
+    ...
+}
+```
 
-* Showing the compose message feature
+Therefore, AGAppDelegate's ```application:didRegisterForRemoteNotificationsWithDeviceToken:``` will be called.
 
-* Maybe also the CURL ?
+When AGAppDelegate's ```application:didRegisterForRemoteNotificationsWithDeviceToken:``` is called, the device is registered to UnifiedPush Server instance. This is where configuration changes are required (see code snippet below).
 
+### Sending message
+Now you can send a message to your device by clicking `Compose Message...` from the application page. Write a message in the text field and hit 'Send Push Message'. 
 
+![import](../cordova/doc/compose-message.png)
+
+After a while you will see the message end up on the device. 
+
+When the application is running in foreground, you can catch messages in AGAppDelegate's  ```application:didReceiveRemoteNotification:```. The event is forwarded using ```NSNotificationCenter``` for decoupling AGappDelegate and AGViewController. It will be the responsability of AGViewController's ```messageReceived:``` method to render the message on UITableView.
+
+When the app is running in background, user can bring the app in the foreground by selecting the Push notification. Therefore AGAppDelegate's  ```application:didReceiveRemoteNotification:``` will be triggered and the message displayed on the list. If a background processing was needed we could have used ```application:didReceiveRemoteNotification:fetchCompletionHandler:```. Refer to [Apple documentation for more details](https://developer.apple.com/library/ios/documentation/uikit/reference/UIApplicationDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/UIApplicationDelegate/application:didReceiveRemoteNotification:fetchCompletionHandler:)
+
+For application not running, we're using AGAppDelegate's ```application:didFinishLaunchingWithOptions:```, we locally save the latest message and forward the event to AGViewController's ```messageReceived:```.
+
+**NOTE**: The local save is required here because of the asynchronous nature of ```viewDidLoad``` vs ```application:didFinishLaunchingWithOptions:```
 
 
 FAQ
