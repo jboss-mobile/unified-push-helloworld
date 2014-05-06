@@ -1,15 +1,15 @@
 aerogear-push-helloworld
 ========================
 
-This repository contains the client's implementations showing off the basic usage of AeroGear's Push feature.
+This repository contains the client's implementations showing off the basic usage of AeroGear UnifiedPush feature.
 
 
 ## Setting up an UnifiedPush Server instance
 
-Before building and deploying the clients it's necessary to set up an UnifiedPush instance. There are actually 3 options for doing this : 
+Before building and deploying the clients it's necessary to set up an _UnifiedPush Server_ instance. There are actually 3 options for doing this : 
 
-* Using the OpenShift [AeroGear UnifiedPush Server Cartridge](https://openshift.redhat.com/app/console/application_type/quickstart!15549) . This is the easiest option, if you don't have an OpenShift account yet, you can freely sign up [here](https://www.openshift.com/app/account/new). 
-* Download a released WAR, you can grab it [here](https://bintray.com/aerogear/AeroGear-UnifiedPush/AeroGear-UnifiedPush/view) and then follow [these instructions](https://github.com/aerogear/aerogear-unifiedpush-server#getting-started-with-the-server) to set up the database and to deploy it on an Application Server.
+* Using the OpenShift [AeroGear Push 0.X Quickstart](https://openshift.redhat.com/app/console/application_type/quickstart!15549) . This is the easiest option, if you don't have an OpenShift account yet, you can freely sign up [here](https://www.openshift.com/app/account/new). 
+* Download a released WAR, you can grab it [here]( http://aerogear.org/push/) and then follow [these instructions](https://github.com/aerogear/aerogear-unifiedpush-server#getting-started-with-the-server) to set up the database and to deploy it on an Application Server.
 * Build from the source : clone this [repo](https://github.com/aerogear/aerogear-unifiedpush-server) and then follow [these instructions](https://github.com/aerogear/aerogear-unifiedpush-server#getting-started-with-the-server) to set up the database and to deploy it on an Application Server.
 
 
