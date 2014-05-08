@@ -68,6 +68,60 @@ registrar.register(getApplicationContext(), new Callback<Void>() {
 
 ```
 
+### Receiving Notifications
+
+Before use GCM notifications in Android, we need include some permissions for GCM and a broadcast receiver to handle push messages from the service.
+
+To enable the permissions we added these as a child of the manifest element.
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+<permission
+    android:name="com.mypackage.C2D_MESSAGE"
+    android:protectionLevel="signature" />
+
+<uses-permission android:name="org.jboss.aerogear.unifiedpush.helloworld" />
+```
+
+and add this element as a child of the application element to register the default AeroGear Android broadcast receiver. It will receive all messages and dispatch the message to registered handlers.
+
+```xml
+<receiver
+    android:name="org.jboss.aerogear.android.unifiedpush.AeroGearGCMMessageReceiver"
+    android:permission="com.google.android.c2dm.permission.SEND" >
+    <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+        <category android:name="org.jboss.aerogear.unifiedpush.helloworld" />
+    </intent-filter>
+</receiver>
+```
+
+All push messages are received by an instance of AeroGearGCMMessageReceiver. They are processed and passed to Registrations via notifyHandlers method.
+
+The NotificationBarMessageHandler is able to receive that message and show in the Notifcation Bar
+
+In the MessagesActivity we need remove the handler when the Activity goes into the background and reenable it when it comes into the foreground.
+
+```java
+@Override
+protected void onResume() {
+    super.onResume();
+    Registrations.registerMainThreadHandler(this);
+    Registrations.unregisterBackgroundThreadHandler(NotificationBarMessageHandler.instance);
+}
+
+@Override
+protected void onPause() {
+    super.onPause();
+    Registrations.unregisterMainThreadHandler(this);
+    Registrations.registerBackgroundThreadHandler(NotificationBarMessageHandler.instance);
+}
+```
+
 ### Sending Push Notification
 
 For send a message to your device:
