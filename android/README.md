@@ -1,12 +1,12 @@
 # helloworld-push-android: Basic Mobile Application showing the AeroGear Push feature on Android
 
-Author: Daniel Passos (dpassos)
-Level: Beginner
-Technologies: Java, Android
-Summary: A basic example of Push : Registration and receiving messages.
-Target Product: Mobile
-Product Versions: EAP 6.1, EAP 6.2, EAP 6.3
-Source: https://github.com/aerogear/aerogear-push-helloworld/android
+Author: Daniel Passos (dpassos)   
+Level: Beginner   
+Technologies: Java, Android   
+Summary: A basic example of Push : Registration and receiving messages.   
+Target Product: Mobile   
+Product Versions: EAP 6.1, EAP 6.2, EAP 6.3   
+Source: https://github.com/aerogear/aerogear-push-helloworld/android   
 
 ## What is it?
 
@@ -20,16 +20,16 @@ This project is a very simple helloworld, to show how to get started with the Un
 * Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html) and [Google Play Services](http://developer.android.com/google/play-services/index.html)
 * Latest [Maven Android SDK Deployer](https://github.com/mosabua/maven-android-sdk-deployer)
 
-## Configure
+## Pre-requisites
 
-* Have created a variant in UnifiedPush admin console
-* Have a device (push notification not available on simulator)
+* Create a variant on UnifiedPush admin console
+* A physical device (push notifications are not available for emulators)
 
-## Build and Deploy the HelloWorld
+## Building and deploying
 
-### Change Push Configurations
+### Push Configuration
 
-In android/src/org/jboss/aerogear/unifiedpush/helloworld/Constants.java find replace UPS URL, variant, secret and GCM sender id:
+At android/src/org/jboss/aerogear/unifiedpush/helloworld/Constants.java find replace UPS URL, variant, secret and GCM sender id:
 
 ```
 String UNIFIED_PUSH_URL = "";
@@ -42,7 +42,7 @@ String GCM_SENDER_ID = "";
 
 ### Registration
 
-After logging in the application will call the `RegisterActivity`. The Activity life cycle `onCreate` will call the method `register` and that will try register the application to receive remote notifications.
+`RegisterActivity` is invoked right after a successful application login. The Activity life cycle `onCreate` is called first invoking the `register` method — attempting to register the application to receive push notifications.
 
 ```java
 PushConfig config = new PushConfig(new URI(UNIFIED_PUSH_URL), GCM_SENDER_ID);
@@ -70,9 +70,9 @@ registrar.register(getApplicationContext(), new Callback<Void>() {
 
 ### Receiving Notifications
 
-Before using GCM notifications on Android, we need to include some permissions for GCM and a broadcast receiver to handle push messages from the service.
+Before the usage of GCM notifications on Android, we need to include some permissions for GCM and a broadcast receiver to handle push messages from the service.
 
-To enable the permissions we add these as childs of the manifest element.
+To enable the permissions we add these as child of the manifest element.
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -87,7 +87,7 @@ To enable the permissions we add these as childs of the manifest element.
 <uses-permission android:name="org.jboss.aerogear.unifiedpush.helloworld" />
 ```
 
-and add this element as a child of the application element, to register the default AeroGear Android broadcast receiver. It will receive all messages and dispatch the message to registered handlers.
+And add this element as a child of the application element, to register the default AeroGear Android broadcast receiver. It will receive all messages and dispatch the message to registered handlers.
 
 ```xml
 <receiver
@@ -104,7 +104,7 @@ All push messages are received by an instance of `AeroGearGCMMessageReceiver`. T
 
 The `NotificationBarMessageHandler` is able to receive that message and show it in the Notification Bar.
 
-In the `MessagesActivity` we need remove the handler when the Activity goes into the background and re-enable it when it comes into the foreground.
+In the `MessagesActivity` we need to remove the handler when the Activity goes into the background and re-enable it when it comes into the foreground.
 
 ```java
 @Override
@@ -122,11 +122,11 @@ protected void onPause() {
 }
 ```
 
-### Sending Push Notification
+### Sending Push Notifications
 
-For sending a message to your device:
+Steps to send a message to your device:
 
-1. Login in the Unified Push Server
+1. Login in the UnifiedPush Server
 1. Choose an application
 1. Click _Compose Message..._
 1. Write a message in the text field and hit 'Send Push Message'.
@@ -137,7 +137,7 @@ For sending a message to your device:
 
 ### Build dependencies locally
 
-Google doesn't ship all the needed libraries to maven central. You need locally deploy them using the [maven-android-sdk-deployer](https://github.com/mosabua/maven-android-sdk-deployer).
+Google doesn't ship all the needed libraries to maven central. You need to deploy them locally with [maven-android-sdk-deployer](https://github.com/mosabua/maven-android-sdk-deployer).
 
 #### Checkout maven-android-sdk-deployer
 ```
