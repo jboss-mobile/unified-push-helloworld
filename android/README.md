@@ -1,12 +1,12 @@
 # helloworld-push-android: Basic Mobile Application showing the AeroGear Push feature on Android
 
-Author: Daniel Passos (dpassos)   
-Level: Beginner   
-Technologies: Java, Android   
-Summary: A basic example of Push : Registration and receiving messages.   
-Target Product: Mobile   
-Product Versions: EAP 6.1, EAP 6.2, EAP 6.3   
-Source: https://github.com/aerogear/aerogear-push-helloworld/android   
+Author: Daniel Passos (dpassos)
+Level: Beginner
+Technologies: Java, Android
+Summary: A basic example of Push : Registration and receiving messages.
+Target Product: Mobile
+Product Versions: EAP 6.1, EAP 6.2, EAP 6.3
+Source: https://github.com/aerogear/aerogear-push-helloworld/android
 
 ## What is it?
 
@@ -29,7 +29,7 @@ This project is a very simple helloworld, to show how to get started with the Un
 
 ### Change Push Configurations
 
-In android/src/org/jboss/aerogear/unifiedpush/helloworld/Constants.java find replace UPS URL, variant, secret and gcm sender id:
+In android/src/org/jboss/aerogear/unifiedpush/helloworld/Constants.java find replace UPS URL, variant, secret and GCM sender id:
 
 ```
 String UNIFIED_PUSH_URL = "";
@@ -42,7 +42,7 @@ String GCM_SENDER_ID = "";
 
 ### Registration
 
-After logging in the app will call the `RegisterActivity`. The Activity lifecycle `onCreate` will call the method `register` and that will try register the app to receive remote notifications.
+After logging in the application will call the `RegisterActivity`. The Activity life cycle `onCreate` will call the method `register` and that will try register the application to receive remote notifications.
 
 ```java
 PushConfig config = new PushConfig(new URI(UNIFIED_PUSH_URL), GCM_SENDER_ID);
@@ -70,7 +70,7 @@ registrar.register(getApplicationContext(), new Callback<Void>() {
 
 ### Receiving Notifications
 
-Before using GCM notifications in Android, we need to include some permissions for GCM and a broadcast receiver to handle push messages from the service.
+Before using GCM notifications on Android, we need to include some permissions for GCM and a broadcast receiver to handle push messages from the service.
 
 To enable the permissions we add these as childs of the manifest element.
 
@@ -102,9 +102,9 @@ and add this element as a child of the application element, to register the defa
 
 All push messages are received by an instance of `AeroGearGCMMessageReceiver`. They are processed and passed to Registrations via the `notifyHandlers` method.
 
-The `NotificationBarMessageHandler` is able to receive that message and show it in the Notifcation Bar.
+The `NotificationBarMessageHandler` is able to receive that message and show it in the Notification Bar.
 
-In the `MessagesActivity` we need remove the handler when the Activity goes into the background and reenable it when it comes into the foreground.
+In the `MessagesActivity` we need remove the handler when the Activity goes into the background and re-enable it when it comes into the foreground.
 
 ```java
 @Override
@@ -131,7 +131,7 @@ For sending a message to your device:
 1. Click _Compose Message..._
 1. Write a message in the text field and hit 'Send Push Message'.
 
-![UPS Componse Message](https://raw.githubusercontent.com/aerogear/aerogear-push-helloworld/master/cordova/doc/compose-message.png)
+![UPS Compose Message](https://raw.githubusercontent.com/aerogear/aerogear-push-helloworld/master/cordova/doc/compose-message.png)
 
 ## FAQ
 
