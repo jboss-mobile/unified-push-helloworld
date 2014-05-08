@@ -27,7 +27,6 @@ This project is a very simple helloworld, to show how to get started with the Un
 
 ## Build and Deploy the HelloWorld
 
-
 ### Change Push Configurations
 
 In android/src/org/jboss/aerogear/unifiedpush/helloworld/Constants.java find replace UPS URL, variant, secret and gcm sender id:
@@ -47,10 +46,14 @@ Explain quickly the registration flow + screenshot of the console where we can c
 
 ### Sending Push Notification
 
-* Showing the compose message feature
+For send a message to your device:
 
-* Maybe also the CURL ?
+1. Login in the Unified Push Server
+1. Choice an application
+1. "Compose Message..."
+1. Write a message in the text field and hit 'Send Push Message'.
 
+![UPS Componse Message](https://raw.githubusercontent.com/aerogear/aerogear-push-helloworld/master/cordova/doc/compose-message.png)
 
 ## FAQ
 
