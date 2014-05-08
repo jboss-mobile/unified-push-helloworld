@@ -42,7 +42,31 @@ String GCM_SENDER_ID = "";
 
 ### Registration
 
-Explain quickly the registration flow + screenshot of the console where we can check in the Installation page if the device is registered
+After login the app will call the RegisterActivity. The Activity lifecycle onCreate will call the method register and that will try register the app to receive remote notifications.
+
+```java
+PushConfig config = new PushConfig(new URI(UNIFIED_PUSH_URL), GCM_SENDER_ID);
+config.setVariantID(VARIANT_ID);
+config.setSecret(SECRET);
+
+Registrations registrations = new Registrations();
+PushRegistrar registrar = registrations.push("register", config);
+registrar.register(getApplicationContext(), new Callback<Void>() {
+    @Override
+    public void onSuccess(Void data) {
+        Toast.makeText(getApplicationContext(),
+                getApplicationContext().getString(R.string.registration_successful),
+                Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onFailure(Exception e) {
+        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        finish();
+    }
+});
+
+```
 
 ### Sending Push Notification
 
