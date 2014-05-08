@@ -66,6 +66,7 @@ public class RegisterActivity extends Activity {
                 @Override
                 public void onFailure(Exception e) {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    finish();
                 }
             });
 
