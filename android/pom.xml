@@ -35,7 +35,7 @@
     <properties>
         <android.version>4.1.1.4</android.version>
         <android.support.version>[19.1,)</android.support.version>
-        <aerogear.android.push.version>0.1</aerogear.android.push.version>
+        <aerogear.android.push.version>0.2</aerogear.android.push.version>
 
         <maven.android.plugin.verson>3.8.0</maven.android.plugin.verson>
         <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
