@@ -26,7 +26,6 @@ import android.support.v4.app.NotificationCompat;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity;
-import org.jboss.aerogear.unifiedpush.helloworld.activities.RegisterActivity;
 
 public class NotificationBarMessageHandler implements MessageHandler {
 
