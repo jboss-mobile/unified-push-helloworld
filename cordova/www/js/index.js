@@ -58,6 +58,8 @@ var app = {
    addMessage: function (message) {
       var messages = document.getElementById("messages"),
          element = document.createElement("li");
+      //for ui testing add an id for easy (fast) selecting
+      element.setAttribute("id", "message" + (messages.childElementCount + 1));
       messages.appendChild(element);
       element.innerHTML = message;
    },
