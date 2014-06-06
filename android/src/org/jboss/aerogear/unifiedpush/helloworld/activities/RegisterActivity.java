@@ -19,7 +19,9 @@ package org.jboss.aerogear.unifiedpush.helloworld.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
+
 import org.jboss.aerogear.android.Callback;
 import org.jboss.aerogear.android.unifiedpush.PushConfig;
 import org.jboss.aerogear.android.unifiedpush.PushRegistrar;
@@ -70,8 +72,11 @@ public class RegisterActivity extends Activity {
                 }
             });
 
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+        } catch (IllegalArgumentException | URISyntaxException e) {
+            final String msg = "Unable to reach UnifiedPushServer at \"" + UNIFIED_PUSH_URL + "\".";
+            Log.e("RegisterActivity", msg, e);
+            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+            finish();
         }
 
     }
