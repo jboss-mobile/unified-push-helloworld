@@ -24,7 +24,8 @@
     <version>0.1.0-SNAPSHOT</version>
 
     <packaging>apk</packaging>
-    <name>AeroGear UnifiedPush HelloWorld Android</name>
+    <name>AeroGear UnifiedPush HelloWorld Quickstarts: android</name>
+    <description>AeroGear UnifiedPush HelloWorld Quickstarts : android</description>
 
     <licenses>
         <license>
@@ -204,3 +205,4 @@
     </build>
 
 </project>
+
