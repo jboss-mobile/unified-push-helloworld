@@ -1,13 +1,13 @@
-/**
+/*
  * JBoss, Home of Professional Open Source
- * Copyright Red Hat, Inc., and individual contributors.
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * contributors by the @authors tag. See the copyright.txt in the
+ * distribution for a full listing of individual contributors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- * 	http://www.apache.org/licenses/LICENSE-2.0
- *
+ * http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -27,7 +27,6 @@ import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler;
 
-
 public class MessagesActivity extends Activity implements MessageHandler {
 
     private HelloWorldApplication application;
@@ -43,7 +42,7 @@ public class MessagesActivity extends Activity implements MessageHandler {
 
         listView = (ListView) findViewById(R.id.messages);
 
-        if (getIntent().getExtras() != null ) {
+        if (getIntent().getExtras() != null) {
             if (savedInstanceState == null || !savedInstanceState.getBoolean(IGNORE_EXTRAS, false)) {
                 addNewMessage(getIntent().getExtras());
             }
@@ -61,12 +60,10 @@ public class MessagesActivity extends Activity implements MessageHandler {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState); 
+        super.onSaveInstanceState(outState);
         outState.putBoolean(IGNORE_EXTRAS, true);
     }
 
-    
-    
     @Override
     protected void onPause() {
         super.onPause();
@@ -94,7 +91,7 @@ public class MessagesActivity extends Activity implements MessageHandler {
 
     private void displayMessages() {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),
-                R.layout.message_item, application.getMessages());
+            R.layout.message_item, application.getMessages());
         listView.setAdapter(adapter);
     }
 }

@@ -1,13 +1,13 @@
-/**
+/*
  * JBoss, Home of Professional Open Source
- * Copyright Red Hat, Inc., and individual contributors.
+ * Copyright 2014, Red Hat, Inc. and/or its affiliates, and individual
+ * contributors by the @authors tag. See the copyright.txt in the
+ * distribution for a full listing of individual contributors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- * 	http://www.apache.org/licenses/LICENSE-2.0
- *
+ * http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -45,23 +45,21 @@ public class NotificationBarMessageHandler implements MessageHandler {
 
     private void sendNotification(String msg) {
         NotificationManager mNotificationManager = (NotificationManager)
-                context.getSystemService(Context.NOTIFICATION_SERVICE);
+            context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent intent = new Intent(context, MessagesActivity.class)
-                .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
-                .putExtra("alert", msg);
-
+            .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
+            .putExtra("alert", msg);
 
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder mBuilder
-                = new NotificationCompat.Builder(context)
-                .setAutoCancel(true)
-                .setSmallIcon(R.drawable.ic_launcher)
-                .setContentTitle(context.getString(R.string.app_name))
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                .setContentText(msg);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+            .setAutoCancel(true)
+            .setSmallIcon(R.drawable.ic_launcher)
+            .setContentTitle(context.getString(R.string.app_name))
+            .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+            .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+            .setContentText(msg);
 
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
