@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         messages = ["Registering...."]
         
         // func addObserver(observer: AnyObject!, selector aSelector: Selector, name aName: String!, object anObject: AnyObject!)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "registered()", name: "success_registered", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "registered", name: "success_registered", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "errorRegistration", name: "error_register", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageReceived:", name: "message_received", object: nil)
     }
@@ -33,14 +33,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         NSLog("registered");
         messages.removeAtIndex(0)
         messages.append("Sucessfully registered")
-        let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults();
-        let msg : String! = defaults.objectForKey("message_received") as String
-        defaults.removeObjectForKey("message_received")
-        defaults.synchronize()
+        // workaround to get messages when app was not running
+        //let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults();
+        //let msg : String! = defaults.objectForKey("message_received") as String
+        //defaults.removeObjectForKey("message_received")
+        //defaults.synchronize()
     
-        if(msg) {
-            messages.append(msg)
-        }
+        //if(msg) {
+        //    messages.append(msg)
+        //}
         tableView.reloadData()
     }
 
