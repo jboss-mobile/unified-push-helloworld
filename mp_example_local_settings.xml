@@ -27,7 +27,7 @@
       <repositories>
         <repository>
           <id>jboss-mp-repository</id>
-          <url>file:///path/to/repo/mp-1.0.0-DRX-maven-repository</url>
+          <url>file:///path/to/repo/mp-1.0.0-Beta-maven-repository</url>
           <releases>
             <enabled>true</enabled>
           </releases>
@@ -39,7 +39,7 @@
       <pluginRepositories>
         <pluginRepository>
           <id>jboss-mp-repository</id>
-          <url>file:///path/to/repo/mp-1.0.0-DRX-maven-repository</url>
+          <url>file:///path/to/repo/mp-1.0.0-Beta-maven-repository</url>
           <releases>
             <enabled>true</enabled>
           </releases>
@@ -79,42 +79,12 @@
       </pluginRepositories>
     </profile>
 
-    <!-- Configure the JBoss Community Maven repository -->
-    <profile>
-      <id>jboss-community-repository</id>
-      <repositories>
-        <repository>
-          <id>jboss-community-repository</id>
-          <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <id>jboss-community-repository</id>
-          <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-          <releases>
-            <enabled>true</enabled>
-          </releases>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>
-
   </profiles>
 
   <activeProfiles>
     <!-- Optionally, make the repositories active by default -->
     <activeProfile>jboss-mp-repository</activeProfile>
     <activeProfile>jboss-eap-repository</activeProfile>
-    <activeProfile>jboss-community-repository</activeProfile>
   </activeProfiles>
 
 </settings>
