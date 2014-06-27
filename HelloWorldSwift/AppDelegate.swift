@@ -69,12 +69,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSLog("UPS Success Register")
                 // Send NSNotification for success_registered, will be handle by registered AGViewController
                 let notification = NSNotification(name:"success_registered", object: nil)
-                NSNotificationCenter().postNotification(notification)
+                NSNotificationCenter.defaultCenter().postNotification(notification)
                 
             }, failure: { (error:NSError!) -> () in
                 NSLog("UPS Error Register")
                 let notification = NSNotification(name:"error_registered", object: nil)
-                NSNotificationCenter().postNotification(notification)
+                NSNotificationCenter.defaultCenter().postNotification(notification)
             })
     }
     
