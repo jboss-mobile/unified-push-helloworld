@@ -1,10 +1,19 @@
-//
-//  AppDelegate.swift
-//  HelloWorldSwift
-//
-//  Created by Corinne Krych on 12/06/14.
-//  Copyright (c) 2014 aerogear. All rights reserved.
-//
+/*
+* JBoss, Home of Professional Open Source.
+* Copyright Red Hat, Inc., and individual contributors
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
 import UIKit
 
@@ -22,6 +31,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
+        if let options = launchOptions {
+            if let option : NSDictionary = options[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
+                let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults();
+                if let aps : NSDictionary = option["aps"] as? NSDictionary {
+                    if let alert : String = aps["alert"] as? String {
+                        defaults.setObject(alert, forKey: "message_received")
+                        defaults.synchronize()
+                    }
+                }
+            }
+        }
         return true
     }
 
@@ -52,10 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let registration = AGDeviceRegistration(serverURL: NSURL(string: "<# URL of the running AeroGear UnifiedPush Server #>"))
         
         registration.registerWithClientInfo({ (clientInfo: AGClientDeviceInformation!) -> () in
-                NSLog("UPS Register")
-                clientInfo.deviceToken = deviceToken
-                clientInfo.variantID = "<# Variant Id #>"
-                clientInfo.variantSecret = "<# Variant Secret #>"
+            NSLog("UPS Register")
+            clientInfo.deviceToken = deviceToken
+            clientInfo.variantID = "<# Variant Id #>"
+            clientInfo.variantSecret = "<# Variant Secret #>"
             
                 // apply the token, to identify THIS device
                 let currentDevice = UIDevice()
