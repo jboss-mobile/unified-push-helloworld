@@ -114,18 +114,6 @@
             </modules>
         </profile>
 
-        <profile>
-            <!-- All the quickstarts that don't actually use Maven. Don't
-                activate this profile! We just include this for completeness. -->
-            <id>non-maven</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <modules>
-                <module>cordova</module>
-                <module>ios</module>
-            </modules>
-        </profile>
     </profiles>
 
 </project>
