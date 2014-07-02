@@ -36,7 +36,7 @@ Build and Deploy the HelloWorld
 
 In HelloWorld/AGAppDelegate.h find replace URL, variant and secret:
 
-```javascript
+```objective-c
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // initialize "Registration helper" object using the
     // base URL where the "AeroGear Unified Push Server" is running.
@@ -93,7 +93,7 @@ Application Flow
 
 When the application is launched, AGAppDelegate's ```application:didFinishLaunchingWithOptions:``` registers the app to receive remote notifications. 
 
-```javascript
+```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: 
