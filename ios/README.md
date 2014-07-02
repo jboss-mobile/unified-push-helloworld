@@ -34,7 +34,7 @@ Build and Deploy the HelloWorld
 
 ### Change Push Configuration
 
-In HelloWorld/AGAppDelegate.h find replace URL, variant and secret:
+In HelloWorld/AGAppDelegate.m find and replace URL, variant and secret:
 
 ```objective-c
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -43,7 +43,7 @@ In HelloWorld/AGAppDelegate.h find replace URL, variant and secret:
     AGDeviceRegistration *registration =
 
     // WARNING: make sure, you start JBoss with the -b 0.0.0.0 option, to bind on all interfaces
-    // from the iPhone, you can NOT use localhost :)
+    // from the iPhone, you can NOT use localhost
     [[AGDeviceRegistration alloc] initWithServerURL:[NSURL URLWithString:@"<# URL of the running AeroGear UnifiedPush Server #>"]];
 
     [registration registerWithClientInfo:^(id<AGClientDeviceInformation> clientInfo) {
