@@ -72,13 +72,19 @@ public class RegisterActivity extends Activity {
                 }
             });
 
-        } catch (IllegalArgumentException | URISyntaxException e) {
-            final String msg = "Unable to reach UnifiedPushServer at \"" + UNIFIED_PUSH_URL + "\".";
-            Log.e("RegisterActivity", msg, e);
-            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-            finish();
+        } catch (IllegalArgumentException e) {
+            handleException(e);
+        } catch (URISyntaxException e) {
+            handleException(e);
         }
 
+    }
+
+    private void handleException(Exception e) {
+        final String msg = "Unable to reach UnifiedPushServer at \"" + UNIFIED_PUSH_URL + "\".";
+        Log.e("RegisterActivity", msg, e);
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+        finish();
     }
 
 }
