@@ -5,7 +5,7 @@ Level: Beginner
 Technologies: JavaScript cordova
 Summary: A basic example of Push : Registration and receiving messages.  
 Target Product: Mobile  
-Product Versions: EAP 6.1, EAP 6.2, EAP 6.3  
+Product Versions: MP 1.0
 Source: https://github.com/aerogear/aerogear-push-helloworld/cordova
 
 What is it?
