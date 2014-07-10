@@ -16,9 +16,11 @@ This project is a very simple helloworld, to show how to get started with cordov
 System requirements
 -------------------
 
-What is needed for Android / iOS / Cordova : think of Cordova version / xcode version / Android SDK version needed
+What is needed for Cordova:
 
-install cordova
+The cordova comamnd line tooling is based on node.js so first you'll need to [install node](http://nodejs.org/download/)
+
+then you can install cordova by executing:
 ```
 npm install -g cordova
 ```
@@ -112,7 +114,7 @@ Debug the Application
 Start a browser chrome for android or safari for iOS
 
 iOS 
-* Develop -> <device name> -> index.html
+* Develop -> &lt;device name> -> index.html
 
 Android
 * Menu -> Tools -> Inspect Devices -> inspect
