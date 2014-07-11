@@ -43,7 +43,7 @@ var app = {
       push.register(app.onNotification, successHandler, errorHandler, pushConfig);
 
       function successHandler() {
-         app.clearMessages();
+         document.getElementById("messages").removeChild(document.getElementById("waiting"));
          app.addMessage('successful registered');
       }
 
