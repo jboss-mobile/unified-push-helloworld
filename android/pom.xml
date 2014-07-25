@@ -21,7 +21,7 @@
 
     <groupId>org.jboss.aerogear</groupId>
     <artifactId>aerogear-push-helloworld-android</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0.0.Beta1</version>
 
     <packaging>apk</packaging>
     <name>AeroGear UnifiedPush HelloWorld Quickstarts: android</name>
