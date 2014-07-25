@@ -21,7 +21,7 @@
 
     <groupId>org.jboss.aerogear</groupId>
     <artifactId>aerogear-push-helloworld</artifactId>
-    <version>1.0.0.Beta1</version>
+    <version>1.0.0.Beta2-SNAPSHOT</version>
 
     <packaging>pom</packaging>
     <name>AeroGear UnifiedPush HelloWorld Quickstarts</name>
