@@ -39,7 +39,7 @@ Build and Deploy the HelloWorld
 -------------------------------
 
 ## iOS
-For iOS you'll need a valid provisioning profile as you will need to test on device (push notification not available on simulator)
+For iOS you'll need a valid provisioning profile as you will need to test on an actual device (push notification is not available when using a simulator)
 Replace the bundleId with your bundleId (the one associated of your certificate), by editing the config.xml in the root of this project change the id attribute of the `widget` node. After that run a `Cordova platform rm ios` followed by `Cordova platform add ios` to change the Xcode project template.
 
 If you want to change your bundleId later on, you will still have to run a `Cordova platform rm ios` followed by `Cordova platform add ios` to change the Xcode project template.
