@@ -8,8 +8,8 @@ This repository contains the client's implementations showing off the basic usag
 
 Before building and deploying the clients it's necessary to set up an _UnifiedPush Server_ instance. There are actually 3 options for doing this : 
 
-* Using the OpenShift [AeroGear Push 0.X Quickstart](https://openshift.redhat.com/app/console/application_type/quickstart!15549) . This is the easiest option, if you don't have an OpenShift account yet, you can freely sign up [here](https://www.openshift.com/app/account/new). 
-* Download a released WAR, you can grab it [here]( http://aerogear.org/push/) and then follow [these instructions](https://github.com/aerogear/aerogear-unifiedpush-server#getting-started-with-the-server) to set up the database and to deploy it on an Application Server.
+* Using the OpenShift [AeroGear Cartridge](http://aerogear.org/docs/unifiedpush/ups_userguide/openshift/) . This is the easiest option, if you don't have an OpenShift account yet, you can freely sign up [here](https://www.openshift.com/app/account/new). 
+* Download a released WAR, you can grab it [here](http://aerogear.org/push/) and then follow [these instructions](http://aerogear.org/docs/unifiedpush/ups_userguide/server-installation/) to set up the database and to deploy it on an Application Server.
 * Build from the source : clone this [repo](https://github.com/aerogear/aerogear-unifiedpush-server) and then follow [these instructions](http://aerogear.org/docs/unifiedpush/ups_userguide/server-installation/) to set up the database and to deploy it on an Application Server.
 
 
@@ -23,6 +23,6 @@ Before creating the variants, some external setup on Google's Cloud console and/
 * For iOS you can follow [these instructions](http://aerogear.org/docs/unifiedpush/aerogear-push-ios/app-id-ssl-certificate-apns/)
 
 
-Finally, you will have to create your variants, instructions can be found in the [UnifiedPush Administration Console User Guide](http://aerogear.org/docs/unifiedpush/ups_userguide/admin-ui/) under the section "Create a Variant"
+Finally, you will have to create your variants, instructions can be found in the [UnifiedPush Administration Console User Guide](http://aerogear.org/docs/unifiedpush/ups_userguide/admin-ui/) under the section "Create and Manage Variants"
 
 
