@@ -16,7 +16,7 @@ This project is a very simple helloworld, to show how to get started with the Un
 
 * [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Maven 3.1.1](http://maven.apache.org)
-* Latest [Android SDK](https://developer.android.com/sdk/index.html) and [Plataform version](http://developer.android.com/tools/revisions/platforms.html)
+* Latest [Android SDK](https://developer.android.com/sdk/index.html) and [Platform version](http://developer.android.com/tools/revisions/platforms.html)
 * Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html) and [Google Play Services](http://developer.android.com/google/play-services/index.html)
 * Latest [Maven Android SDK Deployer](https://github.com/mosabua/maven-android-sdk-deployer)
 
@@ -29,7 +29,7 @@ This project is a very simple helloworld, to show how to get started with the Un
 
 ### Push Configuration
 
-At android/src/org/jboss/aerogear/unifiedpush/helloworld/Constants.java find replace UPS URL, variant, secret and GCM sender id:
+At android/src/org/jboss/aerogear/unifiedpush/helloworld/Constants.java find and replace UPS URL, variant, secret and GCM sender id:
 
 ```
 String UNIFIED_PUSH_URL = "";
