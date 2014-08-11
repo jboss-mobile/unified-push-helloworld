@@ -73,7 +73,7 @@ cordova platform add ios android
 
 Add the plugin
 ```
-cordova plugin add org.jboss.aerogear.Cordova.push
+cordova plugin add org.jboss.aerogear.cordova.push
 ```
 
 Run the application on a device
