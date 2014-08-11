@@ -124,7 +124,7 @@ protected void onPause() {
 
 ### Sending Push Notifications
 
-Now you can send a message to your device using the UnifiedPush admin console. Click on the "Send Push" icon in the navigation menu and select the application that you created and wish to send a notification to. Write a message in the text field and hit 'Send Push Notification'.
+Now you can send a message to your device using the AdminUI of the UnifiedPush Server. Click on the "Send Push" icon in the navigation menu and select the application that you created and wish to send a notification to. Write a message in the text field and hit 'Send Push Notification'.
 
 ![import](../cordova/doc/compose-message.png)
 
