@@ -68,7 +68,8 @@ You can also copy/paste these settings from your UnifiedPush console
 
 Install platforms
 ```
-cordova platform add ios android
+cordova platform add ios
+cordova platform add android
 ```
 
 Add the plugin
