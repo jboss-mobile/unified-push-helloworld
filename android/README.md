@@ -124,14 +124,9 @@ protected void onPause() {
 
 ### Sending Push Notifications
 
-Steps to send a message to your device:
+Now you can send a message to your device using the UnifiedPush admin console. Click on the "Send Push" icon in the navigation menu and select the application that you created and wish to send a notification to. Write a message in the text field and hit 'Send Push Notification'.
 
-1. Login in the UnifiedPush Server
-1. Choose an application
-1. Click _Compose Message..._
-1. Write a message in the text field and hit 'Send Push Message'.
-
-![UPS Compose Message](https://raw.githubusercontent.com/aerogear/aerogear-push-helloworld/master/cordova/doc/compose-message.png)
+![import](../cordova/doc/compose-message.png)
 
 ## FAQ
 
