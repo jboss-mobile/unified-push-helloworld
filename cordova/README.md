@@ -88,7 +88,7 @@ Application Flow
 When you start the application Cordova will fire a `deviceready` event when Cordova initialization is done and the device is ready (see `www/js/index.js`). On this event the `register` function will be executed registering the device with the UnifiedPush server. The first argument is a function that gets executed when the device receives a push event, followed by a success and errorCallback that are invoked when the register was successful or not and the last parameter is the push configuration that indicates where the push server is located and which variant/secret to use. When registration is successful it will display this on the UI. You can also verify that the registration was successful by going to the console there a new instance will have appeared with your deviceId, platform and status.
 
 ## Sending message
-Now you can send a message to your device by clicking `Compose Message...` from the application page. Write a message in the text field and hit 'Send Push Message'.
+Now you can send a message to your device using the AdminUI of the UnifiedPush Server. Click on the "Send Push" icon in the navigation menu and select the application that you created and wish to send a notification to.  Write a message in the text field and hit 'Send Push Notification'.
 
 ![import](doc/compose-message.png)
 

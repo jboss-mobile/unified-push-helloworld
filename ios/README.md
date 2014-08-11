@@ -109,7 +109,7 @@ Therefore, AGAppDelegate's ```application:didRegisterForRemoteNotificationsWithD
 When AGAppDelegate's ```application:didRegisterForRemoteNotificationsWithDeviceToken:``` is called, the device is registered to UnifiedPush Server instance. This is where configuration changes are required (see code snippet below).
 
 ### Sending message
-Now you can send a message to your device by clicking `Compose Message...` from the application page. Write a message in the text field and hit 'Send Push Message'. 
+Now you can send a message to your device using the AdminUI of the UnifiedPush Server. Click on the "Send Push" icon in the navigation menu and select the application that you created and wish to send a notification to.  Write a message in the text field and hit 'Send Push Notification'.
 
 ![import](../cordova/doc/compose-message.png)
 
