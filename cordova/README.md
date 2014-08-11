@@ -68,12 +68,13 @@ You can also copy/paste these settings from your UnifiedPush console
 
 Install platforms
 ```
-cordova platform add ios android
+cordova platform add ios
+cordova platform add android
 ```
 
 Add the plugin
 ```
-cordova plugin add org.jboss.aerogear.Cordova.push
+cordova plugin add org.jboss.aerogear.cordova.push
 ```
 
 Run the application on a device
