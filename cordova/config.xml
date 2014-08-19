@@ -15,7 +15,7 @@
 
 -->
 
-<widget id="org.jboss.aerogear.unifiedpush.HelloWorld" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.jboss.aerogear.unifiedpush.HelloWorld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>AeroGear UnifiedPush HelloWorld</name>
     <description>
         A sample Cordova application that shows how to use the UnifiedPush server
