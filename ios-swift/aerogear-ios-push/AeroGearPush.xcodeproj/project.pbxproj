@@ -11,7 +11,6 @@
 		6F464174196564A500D2B1C9 /* AGClientDeviceInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F464173196564A500D2B1C9 /* AGClientDeviceInformation.swift */; };
 		6F4641771965660300D2B1C9 /* AGClientDeviceInformationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4641761965660300D2B1C9 /* AGClientDeviceInformationImpl.swift */; };
 		6F46D37B19A3A726001799DB /* AeroGearPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F71353119646266009B26D8 /* AeroGearPush.framework */; };
-		6F46D37C19A3A729001799DB /* AGURLSessionStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F46D37819A3A704001799DB /* AGURLSessionStubs.framework */; };
 		6F71353719646266009B26D8 /* push-sdk-swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F71353619646266009B26D8 /* push-sdk-swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F71354419646266009B26D8 /* AGDeviceRegistrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F71354319646266009B26D8 /* AGDeviceRegistrationTests.swift */; };
 /* End PBXBuildFile section */
@@ -79,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F46D37C19A3A729001799DB /* AGURLSessionStubs.framework in Frameworks */,
 				6F46D37B19A3A726001799DB /* AeroGearPush.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
