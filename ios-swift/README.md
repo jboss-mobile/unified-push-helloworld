@@ -1,22 +1,22 @@
 helloworld-push-ios: Basic Mobile Application showing the AeroGear Push feature on iOS
 ======================================================================================
-Author: Corinne Krych (ckrych)  
+Author: Corinne Krych (ckrych), Christos Vasilakis (cvasilak)
 Level: Beginner  
 Technologies: Swift, iOS  
 Summary: A basic example of Push : Registration and receiving messages.  
 Target Product: Mobile  
-Product Versions: MP 1.1
+Product Versions: MP 1.0 
 Source: https://github.com/aerogear/aerogear-push-helloworld/ios-swift
 
 What is it?
 -----------
 
-This project is a very simple helloworld, to show how to get started with the UnifiedPush Server on iOS using Swift language. The Helloworld demo is implemented in Swift bu uses the Obejctive-C pub-lib framework.
+This project is a very simple helloworld, to show how to get started with the UnifiedPush Server on iOS. The demo is implemented in [Swift](https://developer.apple.com/swift/) and uses the push-sdk [Swift|https://github.com/aerogear/aerogear-ios-push/tree/swift] port for registering to the UnifiedPush Server. 
 
 System requirements
 -------------------
 - iOS 8.X
-- Xcode version 6.0.beta4
+- Xcode version 6 Beta 6
 
 Configure
 ---------
@@ -25,7 +25,7 @@ Configure
 * Replace the bundleId with your bundleId (the one associated with your certificate).
 Go to HelloWorld target -> Info -> change Bundle Identifier field.
 
-![change helloworld bundle](doc/change-helloworld-bundle.png)
+![change helloworld bundle](../ios/doc/change-helloworld-bundle.png)
 
 Open **HelloWorld.xcodeproj** and that's it.
 
@@ -117,7 +117,7 @@ FAQ
 
 * Which iOS version is supported by AeroGear iOS libraries?
 
-AeroGear supports iOS 7.X and 8.X
+AeroGear supports iOS 8.X
 
 
 Debug the Application
