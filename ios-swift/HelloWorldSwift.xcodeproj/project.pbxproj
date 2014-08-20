@@ -12,7 +12,8 @@
 		4838934A194A35BF00C1C184 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48389348194A35BF00C1C184 /* Main.storyboard */; };
 		4838934C194A35BF00C1C184 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4838934B194A35BF00C1C184 /* Images.xcassets */; };
 		48389358194A35BF00C1C184 /* HelloWorldSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48389357194A35BF00C1C184 /* HelloWorldSwiftTests.swift */; };
-		6F7BC2A319A4A3F000617C9F /* AeroGearPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAF76EB19A476EF005F8C61 /* AeroGearPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6FB58B1D19A4EE2200024C5F /* AeroGearPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAF76EB19A476EF005F8C61 /* AeroGearPush.framework */; };
+		6FB58B1E19A4EE2200024C5F /* AeroGearPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6FAF76EB19A476EF005F8C61 /* AeroGearPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,13 +23,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4838933E194A35BF00C1C184;
 			remoteInfo = HelloWorldSwift;
-		};
-		6F7BC2A419A4A3F000617C9F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6FAF76E419A476EF005F8C61 /* AeroGearPush.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6F71353019646266009B26D8;
-			remoteInfo = AeroGearPush;
 		};
 		6FAF76EA19A476EF005F8C61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -44,16 +38,23 @@
 			remoteGlobalIDString = 6F71353C19646266009B26D8;
 			remoteInfo = AeroGearPushTests;
 		};
+		6FB58B1F19A4EE2200024C5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FAF76E419A476EF005F8C61 /* AeroGearPush.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F71353019646266009B26D8;
+			remoteInfo = AeroGearPush;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6F19ECD0198BCB0800FBCA74 /* Embed Frameworks */ = {
+		6FB58B2119A4EE2200024C5F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6F7BC2A319A4A3F000617C9F /* AeroGearPush.framework in Embed Frameworks */,
+				6FB58B1E19A4EE2200024C5F /* AeroGearPush.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FB58B1D19A4EE2200024C5F /* AeroGearPush.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,12 +168,12 @@
 				4838933B194A35BF00C1C184 /* Sources */,
 				4838933C194A35BF00C1C184 /* Frameworks */,
 				4838933D194A35BF00C1C184 /* Resources */,
-				6F19ECD0198BCB0800FBCA74 /* Embed Frameworks */,
+				6FB58B2119A4EE2200024C5F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6F7BC2A519A4A3F000617C9F /* PBXTargetDependency */,
+				6FB58B2019A4EE2200024C5F /* PBXTargetDependency */,
 			);
 			name = HelloWorldSwift;
 			productName = HelloWorldSwift;
@@ -301,10 +303,10 @@
 			target = 4838933E194A35BF00C1C184 /* HelloWorldSwift */;
 			targetProxy = 48389352194A35BF00C1C184 /* PBXContainerItemProxy */;
 		};
-		6F7BC2A519A4A3F000617C9F /* PBXTargetDependency */ = {
+		6FB58B2019A4EE2200024C5F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AeroGearPush;
-			targetProxy = 6F7BC2A419A4A3F000617C9F /* PBXContainerItemProxy */;
+			targetProxy = 6FB58B1F19A4EE2200024C5F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

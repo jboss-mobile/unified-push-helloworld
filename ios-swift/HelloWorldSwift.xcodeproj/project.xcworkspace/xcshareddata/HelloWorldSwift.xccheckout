@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F0D05B1A-97FB-4B1D-AC31-B3009712B02C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HelloWorldSwift</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0B9ECF34C05A8EA053B1D1A6099634B5E8C49EF6</key>
+		<string>https://github.com/cvasilak/aerogear-push-helloworld.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios-swift/HelloWorldSwift.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0B9ECF34C05A8EA053B1D1A6099634B5E8C49EF6</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cvasilak/aerogear-push-helloworld.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0B9ECF34C05A8EA053B1D1A6099634B5E8C49EF6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0B9ECF34C05A8EA053B1D1A6099634B5E8C49EF6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>aerogear-push-helloworld</string>
+		</dict>
+	</array>
+</dict>
+</plist>
