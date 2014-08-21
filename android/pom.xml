@@ -47,7 +47,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aerogear.bom.version>0.2.6</aerogear.bom.version>
-        <aerogear.android.push.version>0.2</aerogear.android.push.version>
+        <aerogear.android.push.version>1.0.0</aerogear.android.push.version>
 
         <!-- Plugin properties-->
         <maven.android.plugin.verson>3.8.0</maven.android.plugin.verson>
