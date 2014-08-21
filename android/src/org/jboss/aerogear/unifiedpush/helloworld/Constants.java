@@ -28,13 +28,13 @@ public interface Constants {
     String UNIFIED_PUSH_URL = "";
 
     /**
-     * The variant id which was generated when registering the variant with
+     * The variant id which was generated when creating the variant with
      * the UnifiedPush Server.
      */
     String VARIANT_ID = "";
 
     /**
-     * The secret which was generated when registering the variant with
+     * The secret which was generated when creating the variant with
      * the UnifiedPush Server
      */
     String SECRET = "";
