@@ -30,11 +30,6 @@ To deploy on iOS you need to install the ios-deploy package as well
 npm install -g ios-deploy
 ```
 
-Configure Cordova
------------------
-
-If you have not yet done so, you must [Configure Maven](../README.md#configure-maven) before testing the quickstarts.
-
 Build and Deploy the HelloWorld
 -------------------------------
 
