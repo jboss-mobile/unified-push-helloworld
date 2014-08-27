@@ -21,7 +21,7 @@
 
     <groupId>org.jboss.aerogear</groupId>
     <artifactId>aerogear-push-helloworld-dist</artifactId>
-    <version>1.0.0.Final-SNAPSHOT</version>
+    <version>1.0.0.Final</version>
 
     <packaging>pom</packaging>
     <name>AeroGear UnifiedPush HelloWorld Distribution</name>
