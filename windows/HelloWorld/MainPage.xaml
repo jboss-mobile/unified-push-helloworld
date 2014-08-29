@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="HelloWorld.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HelloWorld"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="White">
+
+    <Grid Margin="5">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="HelloWorld" Foreground="Black" FontSize="70" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Assets/aerogear_icon_32px.png" Height="32" Width="32" Stretch="UniformToFill" Margin="10,0"/>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock Text="AeroGear UnifiedPush" Foreground="Black" FontSize="25"/>
+                </StackPanel>
+            </StackPanel>
+            <ListView Name="Messages" SelectionMode="None" IsItemClickEnabled="False" ItemsSource="{Binding messageList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,27.5">
+                            <TextBlock Text="{Binding}" Style="{ThemeResource ListViewItemTextBlockStyle}" Foreground="Black"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
