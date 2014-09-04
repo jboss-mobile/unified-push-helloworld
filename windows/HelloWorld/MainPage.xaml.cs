@@ -1,4 +1,20 @@
-﻿using AeroGear.Push;
+﻿/*
+ * JBoss, Home of Professional Open Source.
+ * Copyright Red Hat, Inc., and individual contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+using AeroGear.Push;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +40,7 @@ namespace HelloWorld
         public ObservableCollection<string> messageList { get; private set; }
         public MainPage()
         {
-            PushConfig pushConfig = new PushConfig() { UnifiedPushUri = new Uri("http://localhost:8080/ag-push/"), VariantId = "0f1a1dc8-4544-479f-8c86-d52483fa5621", VariantSecret = "14c07d0b-dbd0-41e4-a9a6-2ff5e4ee9804" };
+            PushConfig pushConfig = new PushConfig() { UnifiedPushUri = new Uri("http://localhost:8080/ag-push/"), VariantId = "18e83a14-e235-489a-b06e-ff7957e13210", VariantSecret = "dd0e98b2-8b98-4778-a640-fdafb8901768" };
             Registration registration = new Registration();
             registration.PushReceivedEvent += HandleNotification;
             registration.Register(pushConfig);
