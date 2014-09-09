@@ -4,8 +4,8 @@ Author: Corinne Krych (ckrych)
 Level: Beginner  
 Technologies: Objective-C, iOS  
 Summary: A basic example of Push : Registration and receiving messages.  
-Target Product: Mobile  
-Product Versions: MP 1.0  
+Target Product: JBoss Mobile Add-On  
+Product Versions: 1.0.0  
 Source: https://github.com/aerogear/aerogear-push-helloworld/ios  
 
 ## What is it?
