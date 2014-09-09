@@ -19,7 +19,7 @@ When the application is deployed to an Android device, the push functionality en
 
 ###0. System Requirements
 * [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Maven 3.1.1](http://maven.apache.org) or later
+* [Maven 3.1.1](http://maven.apache.org)
 * Latest [Android SDK](https://developer.android.com/sdk/index.html) and [Platform version 19](http://developer.android.com/tools/revisions/platforms.html)
 * Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html) and [Google Play Services](http://developer.android.com/google/play-services/index.html)
 
@@ -55,17 +55,9 @@ $ mvn install -N
 ```
 
 ###2. Register Application with Push Services
-First, you must register the application with Google Cloud Messaging for Android and enable access to the Google Cloud Messaging for Android APIs and Google APIs. This ensures access to the APIs by the UnifiedPush Server when it routes push notification requests from the application to the GCM. Registering an application with GCM requires that you have a Google account.
+First, you must register the application with Google Cloud Messaging for Android and enable access to the Google Cloud Messaging for Android APIs and Google APIs. This ensures access to the APIs by the UnifiedPush Server when it routes push notification requests from the application to the GCM. Registering an application with GCM requires that you have a Google account. For information on setting your Google account to use Google’s services, follow the [Google Setup Guide](http://aerogear.org/docs/unifiedpush/aerogear-push-android/google-setup/).
 
-1. Log into the [Google Cloud Console](https://console.developers.google.com)
-2. In the ```Projects``` view, click ```Create Project```.
-3. In the ```PROJECT NAME``` field type a project name, select the check box to agree to the Terms of Service and click ```Create```.
-4. Reload the page and in the ```Projects``` view click the project you just created. Make note of the ```Project Number```.
-5. Click ```APIs and auth```>```APIs``` and change the status of ```Google Cloud Messaging for Android``` to ```ON```.
-6. Click ```APIs and auth```>```Credentials``` and under ```Public API access``` click ```Create new Key```.
-7. Click ```Server Key``` and click ```Create```. Make note of the ```API KEY```.
-
-Second, you must register the application and an Android variant of the application with the UnifiedPush Server. This requires a running AeroGear UnifiedPush Server instance and uses the unique metadata assigned to the application by GCM. For information on installing the AeroGear UnifiedPush Server, see the README distributed with the AeroGear UnifiedPush Server or the [AeroGear documentation](http://aerogear.org/docs/unifiedpush/ups_userguide/).
+Second, you must register the application and an Android variant of the application with the UnifiedPush Server. This requires a running AeroGear UnifiedPush Server instance and uses the unique metadata assigned to the application by GCM. For information on installing the AeroGear UnifiedPush Server, see the README distributed with the AeroGear UnifiedPush Server or the [UPS guide](http://aerogear.org/docs/unifiedpush/ups_userguide/).
 
 1. Log into the UnifiedPush Server console.
 2. In the ```Applications``` view, click ```Create Application```.
