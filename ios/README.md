@@ -33,7 +33,7 @@ For information on these steps, see the AeroGear documentation: [Apple App ID an
   
 ###2. Register Application with Push Services
 
-You must register the application and an iOS variant of the application with the AeroGear UnifiedPush Server. This requires a running AeroGear UnifiedPush Server instance and uses the unique metadata assigned to the application by APNS. For information on installing the AeroGear UnifiedPush Server, see the README distributed with the AeroGear UnifiedPush Server or the [AeroGear documentation](http://aerogear.org/docs/unifiedpush/ups_userguide/).
+You must register the application and an iOS variant of the application with the AeroGear UnifiedPush Server. This requires a running AeroGear UnifiedPush Server instance and uses the unique metadata assigned to the application by APNS. For information on installing the AeroGear UnifiedPush Server, see the README distributed with the AeroGear UnifiedPush Server or the [UPS guide](http://aerogear.org/docs/unifiedpush/ups_userguide/).
 
 1. Log into the AeroGear UnifiedPush Server console.
 2. In the ```Applications``` view, click ```Create Application```.
