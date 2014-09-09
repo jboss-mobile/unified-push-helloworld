@@ -1,47 +1,50 @@
-helloworld-push-Cordova: Basic Mobile Application showing the AeroGear Push feature
-===================================================================================
-Author: Erik Jan de Wit (edewit)
-Level: Beginner
-Technologies: JavaScript Cordova
-Summary: A basic example of Push : Registration and receiving messages.
-Target Product: Mobile
-Product Versions: MP 1.0
-Source: https://github.com/aerogear/aerogear-push-helloworld/cordova
+# helloworld-push-Cordova: Basic Mobile Application showing the AeroGear Push feature
+---------
+Author: Erik Jan de Wit (edewit)  
+Level: Beginner  
+Technologies: JavaScript Cordova  
+Summary: A basic example of Push : Registration and receiving messages.  
+Target Product: JBoss Mobile Add-On  
+Product Versions: 1.0.0  
+Source: https://github.com/aerogear/aerogear-push-helloworld/cordova  
 
-What is it?
------------
+## What is it?
+The ```helloworld``` project demonstrates how to include basic push functionality in Cordova applications using the AeroGear Cordova Push plug-in.
 
-This project is a very simple hello world, to show how to get started with Cordova and the UnifiedPush Server
+This simple project consists of a ready-to-build Cordova application. Before building the application, you must register the Android or iOS variant of the application with a running AeroGear UnifiedPush Server instance and Google Cloud Messaging for Android or Apple Push Notification Service for iOS. The resulting unique IDs and other parameters must then be inserted into the application source code. After this is complete, the application can be built and deployed to Android or iOS devices.
 
-System requirements
--------------------
+When the application is deployed to an Android or iOS device, the push functionality enables the device to register with the running AeroGear UnifiedPush Server instance and receive push notifications.
 
-What is needed for Cordova:
+## How do I run it?
 
-The Cordova command line tooling is based on node.js so first you'll need to [install node](http://nodejs.org/download/)
+###0. System requirements
 
-then you can install Cordova by executing:
-```
+The Cordova command line tooling is based on node.js so first you'll need to [install node](http://nodejs.org/download/), then you can install Cordova by executing:
+```shell
 npm install -g Cordova
 ```
 
 To deploy on iOS you need to install the ios-deploy package as well
-```
+```shell
 npm install -g ios-deploy
 ```
 
-Build and Deploy the HelloWorld
--------------------------------
+#### iOS
+For iOS you'll need a valid provisioning profile as you will need to test on an actual device (push notification is not available when using a simulator).
+Replace the bundleId with your bundleId (the one associated with your certificate), by editing the config.xml at the root of this project, change the id attribute of the ```widget``` node. After that run a ```cordova platform rm ios``` followed by ```cordova platform add ios``` to change the Xcode project template.
 
-## iOS
-For iOS you'll need a valid provisioning profile as you will need to test on an actual device (push notification is not available when using a simulator)
-Replace the bundleId with your bundleId (the one associated with your certificate), by editing the config.xml at the root of this project, change the id attribute of the `widget` node. After that run a `Cordova platform rm ios` followed by `cordova platform add ios` to change the Xcode project template.
+If you want to change your bundleId later on, you will still have to run a ```cordova platform rm ios``` followed by ```cordova platform add ios``` to change the Xcode project template.
 
-If you want to change your bundleId later on, you will still have to run a `cordova platform rm ios` followed by `cordova platform add ios` to change the Xcode project template.
+#### Android
+To deploy and run Cordova applications on Android the Apache Ant tool needs to be [installed](http://ant.apache.org/manual/install.html).
 
-## Change Push Configuration
 
-In www/js/index.js find the pushConfig and change the server url to your OpenShift instance alias and variant/secret:
+###1. Register Application with Push Services
+
+For the configuration and registration of Android or iOS Applications with PushServices, please refer to the specific guides inside *helloworld-push-android* and *helloworld-push-ios* quickstarts.
+
+###2. Customize and Build Application
+In ```www/js/index.js``` find the ```pushConfig``` and change ```pushServerURL``` with the url of your AeroGear UnifiedPush Server instance. You also need to change ```senderID```, ```variantID``` and ```variantSecret``` with the values assigned by UnifiedPush Server and GCM or APNS:
 
 ```javascript
 var pushConfig = {
@@ -59,40 +62,40 @@ var pushConfig = {
 
 ```
 
-You can also copy/paste these settings from your UnifiedPush console
+**Note:** You can also copy/paste these settings from your AeroGear UnifiedPush Server console
 
-Install platforms
-```
-cordova platform add ios
-cordova platform add android
-```
+###3. Install platforms
 
-Add the plugin
-```
-cordova plugin add org.jboss.aerogear.cordova.push
+After changing the push configuration you can install the platforms you want on the Cordova app. AeroGear Cordova PushPlugin currently supports Android and iOS.
+```shell
+cordova platform add <android or ios>
 ```
 
-Run the application on a device
-```
+###4. Test Application
+
+The application can be tested on physical Android or iOS devices only; push notifications are not available for Android emulators nor iOS simulators. To deploy, run and debug the application on an Android or iOS device attached to your system, on the command line enter the following:
+```shell
 cordova run <android or ios>
 ```
 
-Application Flow
-----------------------
+#### Send a Push Message
+You can send a push notification to your device using the AeroGear UnifiedPush Server console by completing the following steps:
 
-## Registration
-When you start the application Cordova will fire a `deviceready` event when Cordova initialization is done and the device is ready (see `www/js/index.js`). On this event the `register` function will be executed registering the device with the UnifiedPush server. The first argument is a function that gets executed when the device receives a push event, followed by a success and errorCallback that are invoked when the register was successful or not and the last parameter is the push configuration that indicates where the push server is located and which variant/secret to use. When registration is successful it will display this on the UI. You can also verify that the registration was successful by going to the console there a new instance will have appeared with your deviceId, platform and status.
+1. Log into the AeroGear UnifiedPush Server console.
+2. Click ```Send Push```.
+3. From the ```Applications``` list, select the application.
+4. In the ```Messages``` field, type the text to be sent as the push notification.
+5. Click ```Send Push Notification```.
 
-## Sending message
-Now you can send a message to your device using the AdminUI of the UnifiedPush Server. Click on the "Send Push" icon in the navigation menu and select the application that you created and wish to send a notification to.  Write a message in the text field and hit 'Send Push Notification'.
+![import](../cordova/doc/compose-message.png)
 
-![import](doc/compose-message.png)
+## How does it work?
 
-After a while you will see the message end up on the device. In the register function we've specified a notification event handler `app.onNotification` this handler is invoked when a push notification is received and adds an item (li element) to the list.
+### Registration
+When you start the application Cordova will fire a ```deviceready``` event when Cordova initialization is done and the device is ready (see ```www/js/index.js```). On this event the ```register``` function will be executed registering the device with the AeroGear UnifiedPush server. The first argument is a function that gets executed when the device receives a push event, followed by a success and errorCallback that are invoked when the register was successful or not and the last parameter is the push configuration that indicates where the push server is located and which variant/secret to use. When registration is successful it will display this on the UI. You can also verify that the registration was successful by going to the console there a new instance will have appeared with your deviceId, platform and status.
 
 
-Run the HelloWorld in JBoss Developer Studio or Eclipse
--------------------------------------------------------
+## Run the HelloWorld in JBoss Developer Studio or Eclipse
 
 Import the generated project into JBDS
 ![import](doc/import.png)
@@ -109,10 +112,12 @@ Run the project on a device
 Debug the Application
 =====================
 
-Start a browser chrome for android or safari for iOS
+Start a browser Chrome for Android or Safari for iOS
 
 iOS
 * Develop -> &lt;device name> -> index.html
 
 Android
 * Menu -> Tools -> Inspect Devices -> inspect
+
+

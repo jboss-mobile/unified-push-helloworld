@@ -1,40 +1,61 @@
-helloworld-push-ios: Basic Mobile Application showing the AeroGear Push feature on iOS
-======================================================================================
+# helloworld-push-ios: Basic Mobile Application showing the AeroGear Push feature on iOS
+---------
 Author: Corinne Krych (ckrych)  
 Level: Beginner  
 Technologies: Objective-C, iOS  
 Summary: A basic example of Push : Registration and receiving messages.  
 Target Product: Mobile  
-Product Versions: MP 1.0
-Source: https://github.com/aerogear/aerogear-push-helloworld/ios
+Product Versions: MP 1.0  
+Source: https://github.com/aerogear/aerogear-push-helloworld/ios  
 
-What is it?
------------
+## What is it?
+The ```helloworld``` project demonstrates how to include basic push functionality in iOS applications using the JBoss Mobile Add-On iOS Push plug-in.
 
-This project is a very simple helloworld, to show how to get started with the UnifiedPush Server on iOS.
+This simple project consists of a ready-to-build iOS application. Before building the application, you must register the iOS variant of the application with a running AeroGear UnifiedPush Server instance and Apple Push Notification Service for iOS. The resulting unique IDs and other parameters must then be inserted into the application source code. After this is complete, the application can be built and deployed to iOS devices. 
 
-System requirements
--------------------
-- iOS 7.X
-- Xcode version 5.1.X
+When the application is deployed to an iOS device, the push functionality enables the device to register with the running AeroGear UnifiedPush Server instance and receive push notifications.
 
-Configure
----------
-* Have created an variant in UnifiedPush admin console
-* Have a valid provisioning profile as you will need to test on device (push notification not available on simulator)
-* Replace the bundleId with your bundleId (the one associated with your certificate).
-Go to HelloWorld target -> Info -> change Bundle Identifier field.
+## How do I run it?
+
+###0. System requirements
+* iOS 7.X
+* Xcode version 5.1.X
+
+###1. Configuration
+
+Before being able to use Push Notifications on your iOS Application, a few steps are required. You need to:
+
+* Create a certificate Signing Request
+* Create a new Apple App ID and a SSL certificate for APNs
+* Create a Provisioning Profile
+
+For information on these steps, see the AeroGear documentation: [Apple App ID and SSL Certificate for APNs](http://aerogear.org/docs/unifiedpush/aerogear-push-ios/app-id-ssl-certificate-apns) and [Apple Provisioning Profile](http://aerogear.org/docs/unifiedpush/aerogear-push-ios/provisioning-profiles).
+  
+###2. Register Application with Push Services
+
+You must register the application and an iOS variant of the application with the AeroGear UnifiedPush Server. This requires a running AeroGear UnifiedPush Server instance and uses the unique metadata assigned to the application by APNS. For information on installing the AeroGear UnifiedPush Server, see the README distributed with the AeroGear UnifiedPush Server or the [AeroGear documentation](http://aerogear.org/docs/unifiedpush/ups_userguide/).
+
+1. Log into the AeroGear UnifiedPush Server console.
+2. In the ```Applications``` view, click ```Create Application```.
+3. In the ```Name``` and ```Description``` fields, type values for the application and click ```Create```.
+4. When created, under the application click ```No variants```.
+5. Click ```Add Variant```.
+6. In the ```Name``` and ```Description``` fields, type values for the iOS application variant.
+7. Click ```iOS``` and type the values assigned to the project by APNS (you will have to upload your Developer or Production Certificate)
+8. Click ```Add```.
+9. When created, expand the variant name and make note of the ```Server URL```, ```Variant ID```, and ```Secret```.
+
+
+###3. Customize and Build Application
+
+Replace the bundleId with your bundleId (the one associated with your certificate).
+Go to ```HelloWorld target -> Info``` and modify the ```Bundle Identifier```:
 
 ![change helloworld bundle](doc/change-helloworld-bundle.png)
 
-Open **HelloWorld.xcodeproj** and that's it.
+Now open **HelloWorld.xcodeproj**.
 
-Build and Deploy the HelloWorld
--------------------------------
-
-### Change Push Configuration
-
-In HelloWorld/AGAppDelegate.m find and replace URL, variant and secret:
+In ```HelloWorld/AGAppDelegate.m``` find the pushConfig and change the server url to your AeroGear UnifiedPush Server instance, alias and variant/secret:
 
 ```objective-c
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -85,9 +106,30 @@ In HelloWorld/AGAppDelegate.m find and replace URL, variant and secret:
 
 ```
 
+###4. Test Application
 
-Application Flow
-----------------------
+#### Send a Push Message
+You can send a push notification to your device using the UnifiedPush Server console by completing the following steps:
+
+1. Log into the UnifiedPush Server console.
+2. Click ```Send Push```.
+3. From the ```Applications``` list, select the application.
+4. In the ```Messages``` field, type the text to be sent as the push notification.
+5. Click ```Send Push Notification```.  
+
+![import](../cordova/doc/compose-message.png)
+  
+After a while you will see the message end up on the device.  
+When the application is running in foreground, you can catch messages in AGAppDelegate's  ```application:didReceiveRemoteNotification:```. The event is forwarded using ```NSNotificationCenter``` for decoupling AGappDelegate and AGViewController. It will be the responsability of AGViewController's ```messageReceived:``` method to render the message on UITableView.
+
+When the app is running in background, user can bring the app in the foreground by selecting the Push notification. Therefore AGAppDelegate's  ```application:didReceiveRemoteNotification:``` will be triggered and the message displayed on the list. If a background processing was needed we could have used ```application:didReceiveRemoteNotification:fetchCompletionHandler:```. Refer to [Apple documentation for more details](https://developer.apple.com/library/ios/documentation/uikit/reference/UIApplicationDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/UIApplicationDelegate/application:didReceiveRemoteNotification:fetchCompletionHandler:)
+
+For application not running, we're using AGAppDelegate's ```application:didFinishLaunchingWithOptions:```, we locally save the latest message and forward the event to AGViewController's ```messageReceived:```.
+
+**NOTE**: The local save is required here because of the asynchronous nature of ```viewDidLoad``` vs ```application:didFinishLaunchingWithOptions:```
+
+
+## How does it work?
 
 ### Registration
 
@@ -108,31 +150,18 @@ Therefore, AGAppDelegate's ```application:didRegisterForRemoteNotificationsWithD
 
 When AGAppDelegate's ```application:didRegisterForRemoteNotificationsWithDeviceToken:``` is called, the device is registered to UnifiedPush Server instance. This is where configuration changes are required (see code snippet below).
 
-### Sending message
-Now you can send a message to your device using the AdminUI of the UnifiedPush Server. Click on the "Send Push" icon in the navigation menu and select the application that you created and wish to send a notification to.  Write a message in the text field and hit 'Send Push Notification'.
-
-![import](../cordova/doc/compose-message.png)
-
-After a while you will see the message end up on the device. 
-
-When the application is running in foreground, you can catch messages in AGAppDelegate's  ```application:didReceiveRemoteNotification:```. The event is forwarded using ```NSNotificationCenter``` for decoupling AGappDelegate and AGViewController. It will be the responsability of AGViewController's ```messageReceived:``` method to render the message on UITableView.
-
-When the app is running in background, user can bring the app in the foreground by selecting the Push notification. Therefore AGAppDelegate's  ```application:didReceiveRemoteNotification:``` will be triggered and the message displayed on the list. If a background processing was needed we could have used ```application:didReceiveRemoteNotification:fetchCompletionHandler:```. Refer to [Apple documentation for more details](https://developer.apple.com/library/ios/documentation/uikit/reference/UIApplicationDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/UIApplicationDelegate/application:didReceiveRemoteNotification:fetchCompletionHandler:)
-
-For application not running, we're using AGAppDelegate's ```application:didFinishLaunchingWithOptions:```, we locally save the latest message and forward the event to AGViewController's ```messageReceived:```.
-
-**NOTE**: The local save is required here because of the asynchronous nature of ```viewDidLoad``` vs ```application:didFinishLaunchingWithOptions:```
-
 
 FAQ
 --------------------
 
 * Which iOS version is supported by AeroGear iOS libraries?
 
-AeroGear supports iOS 7.X
+AeroGear supports iOS 7.0 and later.
 
 
 Debug the Application
 =====================
 
 Set a break point in Xcode.
+
+
