@@ -71,7 +71,13 @@ After changing the push configuration you can install the platforms you want on 
 cordova platform add <android or ios>
 ```
 
-###4. Test Application
+###4. Add the plugin
+
+```shell
+cordova plugin add org.jboss.aerogear.cordova.push
+```
+
+###5. Test Application
 
 The application can be tested on physical Android or iOS devices only; push notifications are not available for Android emulators nor iOS simulators. To deploy, run and debug the application on an Android or iOS device attached to your system, on the command line enter the following:
 ```shell
