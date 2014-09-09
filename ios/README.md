@@ -55,7 +55,7 @@ Go to ```HelloWorld target -> Info``` and modify the ```Bundle Identifier```:
 
 Now open **HelloWorld.xcodeproj**.
 
-In ```HelloWorld/AGAppDelegate.m``` find the pushConfig and change the server url to your AeroGear UnifiedPush Server instance, alias and variant/secret:
+In ```HelloWorld/AGAppDelegate.m``` find the pushConfig and change the server url to your AeroGear UnifiedPush Server instance and variant/secret:
 
 ```objective-c
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
