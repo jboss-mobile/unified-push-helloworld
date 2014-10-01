@@ -6,7 +6,7 @@ Technologies: JavaScript Cordova
 Summary: A basic example of Push : Registration and receiving messages.  
 Target Product: JBoss Mobile Add-On  
 Product Versions: 1.0.0  
-Source: https://github.com/aerogear/aerogear-push-helloworld/cordova  
+Source: https://github.com/aerogear/aerogear-push-helloworld/tree/master/cordova  
 
 ## What is it?
 The ```helloworld``` project demonstrates how to include basic push functionality in Cordova applications using the AeroGear Cordova Push plug-in.
