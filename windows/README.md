@@ -1,12 +1,12 @@
 helloworld-push-windows: Basic Mobile Application showing the AeroGear Push feature 
 ===================================================================================
-Author: Erik Jan de Wit (edewit)
+Author: Erik Jan de Wit (edewit)   
 Level: Beginner  
-Technologies: Windows Phone
+Technologies: Windows Phone   
 Summary: A basic example of Push : Registration and receiving messages.  
 Target Product: Mobile  
-Product Versions: MP 1.0
-Source: https://github.com/aerogear/aerogear-push-helloworld/windows
+Product Versions: MP 1.0   
+Source: https://github.com/aerogear/aerogear-push-helloworld/tree/master/windows
 
 What is it?
 -----------
