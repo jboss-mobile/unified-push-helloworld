@@ -6,7 +6,7 @@ Technologies: Objective-C, iOS
 Summary: A basic example of Push : Registration and receiving messages.  
 Target Product: JBoss Mobile Add-On  
 Product Versions: 1.0.0  
-Source: https://github.com/aerogear/aerogear-push-helloworld/ios  
+Source: https://github.com/aerogear/aerogear-push-helloworld/tree/master/ios  
 
 ## What is it?
 The ```helloworld``` project demonstrates how to include basic push functionality in iOS applications using the JBoss Mobile Add-On iOS Push plug-in.
