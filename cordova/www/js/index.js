@@ -40,7 +40,7 @@ var app = {
             variantSecret: "<variantSecret e.g. 1234456-234320>"
          }
       };
-      if (typeof push != 'undefined') {
+      if (typeof push !== 'undefined') {
         push.register(app.onNotification, successHandler, errorHandler, pushConfig);
       } else {
         app.addMessage('Push plugin not installed!');
