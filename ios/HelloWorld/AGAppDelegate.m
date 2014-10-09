@@ -121,6 +121,12 @@
     }];
 }
 
+// Callback called after failing to register with APNS
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    // Log the error for now
+    NSLog(@"APNs Error: %@", error);
+}
+
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
     // When a message is received, send NSNotification, will be handle by registered AGViewController

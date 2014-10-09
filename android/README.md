@@ -6,7 +6,7 @@ Technologies: Java, Android
 Summary: A basic example of Push : Registration and receiving messages.  
 Target Product: JBoss Mobile Add-On  
 Product Versions: 1.0.0  
-Source: https://github.com/aerogear/aerogear-push-helloworld/android   
+Source: https://github.com/aerogear/aerogear-push-helloworld/tree/master/android 
 
 ## What is it?
 The ```helloworld``` project demonstrates how to include basic push functionality in Android applications.
