@@ -41,12 +41,6 @@ public class MessagesActivity extends Activity implements MessageHandler {
         application = (HelloWorldApplication) getApplication();
 
         listView = (ListView) findViewById(R.id.messages);
-
-        if (getIntent().getExtras() != null) {
-            if (savedInstanceState == null || !savedInstanceState.getBoolean(IGNORE_EXTRAS, false)) {
-                addNewMessage(getIntent().getExtras());
-            }
-        }
     }
 
     @Override
