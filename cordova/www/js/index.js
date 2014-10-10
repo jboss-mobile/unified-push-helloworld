@@ -40,7 +40,11 @@ var app = {
             variantSecret: "<variantSecret e.g. 1234456-234320>"
          }
       };
-      push.register(app.onNotification, successHandler, errorHandler, pushConfig);
+      if (typeof push !== 'undefined') {
+        push.register(app.onNotification, successHandler, errorHandler, pushConfig);
+      } else {
+        app.addMessage('Push plugin not installed!');
+      }
 
       function successHandler() {
          document.getElementById("messages").removeChild(document.getElementById("waiting"));
