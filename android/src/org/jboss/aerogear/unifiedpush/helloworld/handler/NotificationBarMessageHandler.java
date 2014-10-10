@@ -43,10 +43,10 @@ public class NotificationBarMessageHandler implements MessageHandler {
         this.context = context;
         HelloWorldApplication application = (HelloWorldApplication) context.getApplicationContext();
         application.addMessage(bundle.getString("alert"));
-        sendNotification(bundle.getString("alert"));
+        notify(bundle.getString("alert"));
     }
 
-    private void sendNotification(String msg) {
+    private void notify(String msg) {
         NotificationManager mNotificationManager = (NotificationManager)
             context.getSystemService(Context.NOTIFICATION_SERVICE);
 
