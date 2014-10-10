@@ -11,15 +11,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/* Caution ios verion in merges folder */
 body {
    margin: 0;
 }
 .bar {
+   position: fixed;
+   width: 100%;
+   top: 0;
    padding-top: 10px;
    box-sizing: border-box;
    height: 44px;
    border-bottom: 1px solid #ddd;
-   background: url('../img/aerogear-icon.svg') left no-repeat;
+   background: white url('../img/aerogear-icon.svg') left no-repeat;
    background-size: 40px 40px;
 }
 .bar .title {
@@ -35,7 +40,7 @@ body {
    padding-bottom: 1px;
    padding-left: 0;
    margin-bottom: 20px;
-   margin-top: 0;
+   margin-top: 44px;
 }
 ul.list li {
    border-color: #ddd;
