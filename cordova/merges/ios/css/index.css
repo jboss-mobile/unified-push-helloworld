@@ -15,12 +15,14 @@ body {
    margin: 0;
 }
 .bar {
-   margin-top: 20px;
-   padding-top: 10px;
+   top:0;
+   position: fixed;
+   width: 100%;  
+   padding-top: 30px;
    box-sizing: border-box;
-   height: 44px;
+   height: 64px;
    border-bottom: 1px solid #ddd;
-   background: url('../img/aerogear-icon.svg') left no-repeat;
+   background: white url('../img/aerogear-icon.svg') left no-repeat;
    background-size: 40px 40px;
 }
 .bar .title {
@@ -36,7 +38,7 @@ body {
    padding-bottom: 1px;
    padding-left: 0;
    margin-bottom: 20px;
-   margin-top: 0;
+   margin-top: 50px;
 }
 ul.list li {
    border-color: #ddd;
