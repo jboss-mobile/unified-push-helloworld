@@ -44,21 +44,22 @@ To deploy and run Cordova applications on Android the Apache Ant tool needs to b
 For the configuration and registration of Android or iOS Applications with PushServices, please refer to the specific guides inside *helloworld-push-android* and *helloworld-push-ios* quickstarts.
 
 ###2. Customize and Build Application
-In ```www/js/index.js``` find the ```pushConfig``` and change ```pushServerURL``` with the url of your AeroGear UnifiedPush Server instance. You also need to change ```senderID```, ```variantID``` and ```variantSecret``` with the values assigned by UnifiedPush Server and GCM or APNS:
+In ```www/push-config.json``` change ```"pushServerURL"``` with the url of your AeroGear UnifiedPush Server instance. You also need to change ```"senderID"```, ```"variantID"``` and ```"variantSecret"``` with the values assigned by UnifiedPush Server and GCM or APNS:
 
 ```javascript
-var pushConfig = {
-   pushServerURL: "<pushServerURL e.g http(s)//host:port/context >",
-   android: {
-      senderID: "<senderID e.g Google Project ID only for android>",
-      variantID: "<variantID e.g. 1234456-234320>",
-      variantSecret: "<variantSecret e.g. 1234456-234320>"
+{
+   "pushServerURL": "<pushServerURL e.g http(s)//host:port/context >",
+   "android": {
+      "senderID": "<senderID e.g Google Project ID only for android>",
+      "variantID": "<variantID e.g. 1234456-234320>",
+      "variantSecret": "<variantSecret e.g. 1234456-234320>"
    },
-   ios: {
-      variantID: "<variantID e.g. 1234456-234320>",
-      variantSecret: "<variantSecret e.g. 1234456-234320>"
+   "ios": {
+      "variantID": "<variantID e.g. 1234456-234320>",
+      "variantSecret": "<variantSecret e.g. 1234456-234320>"
    }
-};
+}
+
 
 ```
 

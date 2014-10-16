@@ -28,20 +28,8 @@ var app = {
    // The scope of 'this' is the event. In order to call the 'receivedEvent'
    // function, we must explicity call 'app.receivedEvent(...);'
    register: function () {
-      var pushConfig = {
-         pushServerURL: "<pushServerURL e.g http(s)//host:port/context >",
-         android: {
-            senderID: "<senderID e.g Google Project ID only for android>",
-            variantID: "<variantID e.g. 1234456-234320>",
-            variantSecret: "<variantSecret e.g. 1234456-234320>"
-         },
-         ios: {
-            variantID: "<variantID e.g. 1234456-234320>",
-            variantSecret: "<variantSecret e.g. 1234456-234320>"
-         }
-      };
       if (typeof push !== 'undefined') {
-        push.register(app.onNotification, successHandler, errorHandler, pushConfig);
+        push.register(app.onNotification, successHandler, errorHandler);
       } else {
         app.addMessage('Push plugin not installed!');
       }
