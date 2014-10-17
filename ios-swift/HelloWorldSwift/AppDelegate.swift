@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // initialize "Registration helper" object using the
         // base URL where the "AeroGear Unified Push Server" is running.
-        let registration = AGDeviceRegistration(serverURL: NSURL(string: "<# URL of the running AeroGear UnifiedPush Server #>"))
+        let registration = AGDeviceRegistration(serverURL: NSURL(string: "http://localhost:8080/ag-push")!)
         
         // perform registration of this device
         registration.registerWithClientInfo({ (clientInfo: AGClientDeviceInformation!) in
