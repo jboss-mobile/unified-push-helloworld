@@ -45,7 +45,7 @@ var app = {
       }
    },
    onNotification: function (event) {
-      app.addMessage(event.alert);
+      app.addMessage(event.alert || event.version);
    },
    addMessage: function (message) {
       var messages = document.getElementById("messages"),
