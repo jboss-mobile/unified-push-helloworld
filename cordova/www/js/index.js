@@ -35,8 +35,7 @@ var app = {
       }
 
       function successHandler() {
-         document.getElementById("messages").removeChild(document.getElementById("waiting"));
-         app.addMessage('successful registered');
+         document.getElementById("waiting").innerHTML = 'Successfully registered';
       }
 
       function errorHandler(error) {
