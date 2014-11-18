@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.MessagesActivity">
+        <activity android:name=".activities.MessagesActivity" android:label="@string/notifications">
             <intent-filter>
                 <action android:name="org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
