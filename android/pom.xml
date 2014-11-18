@@ -64,6 +64,7 @@
         <maven.compiler.source>1.6</maven.compiler.source>
 
         <android.platform>21</android.platform>
+        <android.support.library.version>[21.0.0,)</android.support.library.version>
         <android.debug>false</android.debug>
         <proguard.skip>true</proguard.skip>
     </properties>
@@ -108,11 +109,13 @@
         <dependency>
             <groupId>android.support</groupId>
             <artifactId>compatibility-v4</artifactId>
+            <version>${android.support.library.version}</version>
         </dependency>
 
         <dependency>
             <groupId>android.support</groupId>
             <artifactId>compatibility-v7-appcompat</artifactId>
+            <version>${android.support.library.version}</version>
             <scope>provided</scope>
             <type>jar</type>
         </dependency>
@@ -120,6 +123,7 @@
         <dependency>
             <groupId>android.support</groupId>
             <artifactId>compatibility-v7-appcompat</artifactId>
+            <version>${android.support.library.version}</version>
             <type>apklib</type>
         </dependency>
 
