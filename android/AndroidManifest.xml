@@ -21,7 +21,7 @@
 
     <uses-sdk
         android:minSdkVersion="10"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="21" />
 
     <application
         android:icon="@drawable/ic_launcher"
@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.RegisterActivity" />
-        <activity android:name="org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity" >
+        <activity android:name=".activities.MessagesActivity">
             <intent-filter>
                 <action android:name="org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
