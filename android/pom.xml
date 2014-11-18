@@ -53,7 +53,7 @@
     <properties>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <aerogear.bom.version>0.2.6</aerogear.bom.version>
+        <aerogear.bom.version>0.2.10-SNAPSHOT</aerogear.bom.version>
         <aerogear.android.push.version>1.0.0</aerogear.android.push.version>
 
         <!-- Plugin properties-->
