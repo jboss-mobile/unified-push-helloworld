@@ -25,4 +25,4 @@
     android:paddingBottom="20dp"
     android:paddingLeft="5dp"
     android:textColor="@color/black"
-    android:textSize="20sp" />
+    android:textSize="@dimen/font_regular" />

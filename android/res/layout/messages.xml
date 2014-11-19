@@ -38,12 +38,12 @@
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textStyle="bold"
-                  android:textSize="18sp"
+                  android:textSize="@dimen/font_regular"
                   android:text="@string/nothing_here"/>
 
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
-                  android:textSize="12sp"
+                  android:textSize="@dimen/font_tracking"
                   android:text="@string/send_notification"/>
 
     </LinearLayout>
