@@ -23,5 +23,6 @@
     android:gravity="center_vertical"
     android:paddingTop="20dp"
     android:paddingBottom="20dp"
+    android:paddingLeft="5dp"
     android:textColor="@color/black"
     android:textSize="20sp" />
