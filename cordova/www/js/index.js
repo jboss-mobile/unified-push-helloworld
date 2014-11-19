@@ -35,15 +35,17 @@ var app = {
       }
 
       function successHandler() {
-         document.getElementById("waiting").innerHTML = 'Successfully registered';
+         document.getElementById("waiting").remove();
+         document.getElementById("nothing").style.display = 'block';
       }
 
       function errorHandler(error) {
-         app.clearMessages();
+         document.getElementById("waiting").remove();
          app.addMessage('error registering ' + error);
       }
    },
    onNotification: function (event) {
+      document.getElementById('nothing').style.display = 'none';
       app.addMessage(event.alert || event.version);
    },
    addMessage: function (message) {
@@ -53,11 +55,5 @@ var app = {
       element.setAttribute("id", "message" + (messages.childElementCount + 1));
       messages.appendChild(element);
       element.innerHTML = message;
-   },
-   clearMessages: function () {
-      var messages = document.getElementById("messages");
-      while (messages.hasChildNodes()) {
-         messages.removeChild(messages.lastChild);
-      }
    }
 };

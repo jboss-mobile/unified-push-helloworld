@@ -11,40 +11,130 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-body {
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500);
+* {
    margin: 0;
+   padding: 0;
+   list-style: none;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 400;
+   font-size: 13px;
+   line-height: 1.7;
+   color: rgba(0, 0, 0, 0.87);
 }
-.bar {
-   top:0;
-   position: fixed;
-   width: 100%;  
-   padding-top: 30px;
-   box-sizing: border-box;
-   height: 64px;
-   border-bottom: 1px solid #ddd;
-   background: white url('../img/aerogear-icon.svg') left no-repeat;
-   background-size: 40px 40px;
+body {
+   margin-top: 76px;
 }
-.bar .title {
-   text-align: center;
-   font-size: 17px;
-   line-height: 44px;
+header {
+   background: #ff9800;
+   line-height: 76px;
+   padding-left: 16px;
+   font-size: 20px;
    font-weight: 500;
-   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-   line-height: 1.2;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+   color: #fff;
 }
-.list {
-   padding-top: 1px;
-   padding-bottom: 1px;
-   padding-left: 0;
-   margin-bottom: 20px;
-   margin-top: 50px;
+li {
+   padding: 16px;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
-ul.list li {
-   border-color: #ddd;
-   color: #444;
-   margin: -1px;
-   padding: 15px;
-   border-width: 1px;
-   border-style: solid;
+li:last-child {
+   border: none;
+}
+i,
+h2,
+p {
+   text-align: center;
+   display: block;
+}
+i {
+   color: rgba(0, 0, 0, 0.4);
+   font-size: 300%!important;
+   margin: 63px 0 10px 0;
+}
+h2 {
+   font-weight: 500;
+}
+#loadingProgressG {
+   margin: 200px auto 10px auto;
+   width: 180px;
+   height: 3px;
+   overflow: hidden;
+   background-color: #ffcc80;
+   -moz-border-radius: 2px;
+   -webkit-border-radius: 2px;
+   -ms-border-radius: 2px;
+   -o-border-radius: 2px;
+   border-radius: 2px;
+}
+.loadingProgressG {
+   background-color: #ff9800;
+   margin-top: 0;
+   margin-left: -180px;
+   -moz-animation-name: bounce_loadingProgressG;
+   -moz-animation-duration: 1.3s;
+   -moz-animation-iteration-count: infinite;
+   -moz-animation-timing-function: linear;
+   -webkit-animation-name: bounce_loadingProgressG;
+   -webkit-animation-duration: 1.3s;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-timing-function: linear;
+   -ms-animation-name: bounce_loadingProgressG;
+   -ms-animation-duration: 1.3s;
+   -ms-animation-iteration-count: infinite;
+   -ms-animation-timing-function: linear;
+   -o-animation-name: bounce_loadingProgressG;
+   -o-animation-duration: 1.3s;
+   -o-animation-iteration-count: infinite;
+   -o-animation-timing-function: linear;
+   animation-name: bounce_loadingProgressG;
+   animation-duration: 1.3s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   width: 180px;
+   height: 3px;
+}
+@-moz-keyframes bounce_loadingProgressG {
+   0% {
+      margin-left: -180px;
+   }
+   100% {
+      margin-left: 180px;
+   }
+}
+@-webkit-keyframes bounce_loadingProgressG {
+   0% {
+      margin-left: -180px;
+   }
+   100% {
+      margin-left: 180px;
+   }
+}
+@-ms-keyframes bounce_loadingProgressG {
+   0% {
+      margin-left: -180px;
+   }
+   100% {
+      margin-left: 180px;
+   }
+}
+@-o-keyframes bounce_loadingProgressG {
+   0% {
+      margin-left: -180px;
+   }
+   100% {
+      margin-left: 180px;
+   }
+}
+@keyframes bounce_loadingProgressG {
+   0% {
+      margin-left: -180px;
+   }
+   100% {
+      margin-left: 180px;
+   }
 }
