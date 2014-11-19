@@ -19,7 +19,8 @@
               android:layout_height="match_parent"
               android:gravity="center"
               android:orientation="vertical"
-              android:layout_margin="40dp">
+              android:padding="40dp"
+              android:background="@color/registration_background">
 
     <TextView
             android:layout_width="wrap_content"
@@ -33,7 +34,7 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:indeterminate="true"
             android:progress="30"
-            android:progressDrawable="@drawable/progressbar" />
+            android:progressDrawable="@drawable/progressbar"/>
 
 
 </LinearLayout>
