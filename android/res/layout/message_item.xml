@@ -25,5 +25,6 @@
     android:paddingBottom="@dimen/message_padding_bottom"
     android:paddingStart="@dimen/message_padding_start"
     android:paddingEnd="@dimen/message_padding_end"
+    android:lineSpacingExtra="@dimen/message_line_spacing"
     android:textColor="@color/black"
     android:textSize="@dimen/font_regular" />

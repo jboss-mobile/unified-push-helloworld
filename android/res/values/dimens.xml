@@ -7,4 +7,5 @@
     <dimen name="message_padding_bottom">20dp</dimen>
     <dimen name="message_padding_start">16dp</dimen>
     <dimen name="message_padding_end">16dp</dimen>
+    <dimen name="message_line_spacing">6dp</dimen>
 </resources>
