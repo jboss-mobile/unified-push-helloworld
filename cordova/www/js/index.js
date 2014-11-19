@@ -31,16 +31,17 @@ var app = {
       if (typeof push !== 'undefined') {
         push.register(app.onNotification, successHandler, errorHandler);
       } else {
+        app.clearMessages();
         app.addMessage('Push plugin not installed!');
       }
 
       function successHandler() {
-         document.getElementById("waiting").remove();
+         app.clearMessages();
          document.getElementById("nothing").style.display = 'block';
       }
 
       function errorHandler(error) {
-         document.getElementById("waiting").remove();
+         app.clearMessages();
          app.addMessage('error registering ' + error);
       }
    },
@@ -55,5 +56,8 @@ var app = {
       element.setAttribute("id", "message" + (messages.childElementCount + 1));
       messages.appendChild(element);
       element.innerHTML = message;
+   },
+   clearMessages: function() {
+     document.getElementById("waiting").remove();
    }
 };
