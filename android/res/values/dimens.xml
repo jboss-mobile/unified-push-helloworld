@@ -3,4 +3,9 @@
     <dimen name="font_leading">20sp</dimen>
     <dimen name="font_regular">14sp</dimen>
     <dimen name="font_tracking">10sp</dimen>
+
+    <dimen name="message_padding_top">20dp</dimen>
+    <dimen name="message_padding_bottom">20dp</dimen>
+    <dimen name="message_padding_start">16dp</dimen>
+    <dimen name="message_padding_end">16dp</dimen>
 </resources>
