@@ -17,6 +17,7 @@
 -->
 <resources>
     <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
 
     <color name="primary">#FF9800</color>
     <color name="primary_dark">#F57C00</color>
