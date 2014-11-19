@@ -19,8 +19,7 @@
               android:layout_height="match_parent"
               android:gravity="center"
               android:orientation="vertical"
-              android:padding="40dp"
-              android:background="@color/registration_background">
+              android:padding="40dp">
 
     <TextView
             android:layout_width="wrap_content"
