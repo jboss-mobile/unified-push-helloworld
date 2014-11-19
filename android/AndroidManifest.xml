@@ -35,7 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.RegisterActivity" android:theme="@style/MyTheme.Fullscreen"/>
+        <activity android:name=".activities.RegisterActivity" android:theme="@style/MyTheme.Base"/>
         <activity android:name=".activities.MessagesActivity"
                   android:theme="@style/MyTheme.Base"
                   android:label="@string/notifications">
