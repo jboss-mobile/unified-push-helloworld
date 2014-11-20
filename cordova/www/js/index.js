@@ -31,11 +31,13 @@ var app = {
       if (typeof push !== 'undefined') {
         push.register(app.onNotification, successHandler, errorHandler);
       } else {
+        app.clearMessages();
         app.addMessage('Push plugin not installed!');
       }
 
       function successHandler() {
-         document.getElementById("waiting").innerHTML = 'Successfully registered';
+         app.clearMessages();
+         document.getElementById("nothing").style.display = 'block';
       }
 
       function errorHandler(error) {
@@ -44,6 +46,7 @@ var app = {
       }
    },
    onNotification: function (event) {
+      document.getElementById('nothing').style.display = 'none';
       app.addMessage(event.alert || event.version);
    },
    addMessage: function (message) {
@@ -54,10 +57,7 @@ var app = {
       messages.appendChild(element);
       element.innerHTML = message;
    },
-   clearMessages: function () {
-      var messages = document.getElementById("messages");
-      while (messages.hasChildNodes()) {
-         messages.removeChild(messages.lastChild);
-      }
+   clearMessages: function() {
+     document.getElementById("waiting").remove();
    }
 };
