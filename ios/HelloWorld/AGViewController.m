@@ -35,7 +35,7 @@ NSMutableArray* _messages;
 - (void)registered {
     NSLog(@"registered");
     [_messages removeObjectAtIndex:0];
-    [_messages addObject:@"Sucessfully registered"];
+    [_messages addObject:@"Successfully registered"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString* msg = [defaults objectForKey:@"message_received"];
     [defaults removeObjectForKey:@"message_received"];
