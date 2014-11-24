@@ -116,7 +116,6 @@
             <groupId>android.support</groupId>
             <artifactId>compatibility-v7-appcompat</artifactId>
             <version>${android.support.library.version}</version>
-            <scope>provided</scope>
             <type>jar</type>
         </dependency>
 
