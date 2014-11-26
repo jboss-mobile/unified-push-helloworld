@@ -23,6 +23,7 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="android:textColorPrimary">@color/text_color_primary</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
     <style name="MyTheme.Fullscreen" parent="Theme.AppCompat.Light.NoActionBar">
@@ -30,3 +31,4 @@
     </style>
 
 </resources>
+

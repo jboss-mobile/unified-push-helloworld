@@ -16,17 +16,17 @@
     limitations under the License.
 -->
 <TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/text1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:paddingTop="@dimen/message_padding_top"
-    android:paddingBottom="@dimen/message_padding_bottom"
-    android:paddingLeft="@dimen/message_padding_start"
-    android:paddingStart="@dimen/message_padding_start"
-    android:paddingRight="@dimen/message_padding_end"
-    android:paddingEnd="@dimen/message_padding_end"
-    android:lineSpacingExtra="@dimen/message_line_spacing"
-    android:textColor="@color/black"
-    android:textSize="@dimen/font_regular" />
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@android:id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingTop="@dimen/message_padding_top"
+        android:paddingBottom="@dimen/message_padding_bottom"
+        android:paddingLeft="@dimen/message_padding_start"
+        android:paddingStart="@dimen/message_padding_start"
+        android:paddingRight="@dimen/message_padding_end"
+        android:paddingEnd="@dimen/message_padding_end"
+        android:lineSpacingExtra="@dimen/message_line_spacing"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_regular"/>
