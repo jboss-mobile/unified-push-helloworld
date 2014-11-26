@@ -22,7 +22,7 @@
     <style name="MyTheme.Base" parent="MyTheme">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/text_color_primary</item>
+        <item name="android:textColorPrimary">@color/text_color_primary</item>
     </style>
 
     <style name="MyTheme.Fullscreen" parent="Theme.AppCompat.Light.NoActionBar">
