@@ -26,4 +26,5 @@
     <string name="registering">Registering...</string>
     <string name="nothing_here">Nothing here yet</string>
     <string name="send_notification">Send notifications from the console</string>
+    <string name="notification_icon">Notification icon</string>
 </resources>
