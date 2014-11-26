@@ -82,7 +82,7 @@ public class RegisterActivity extends ActionBarActivity {
     }
 
     private void handleException(Exception e) {
-        final String msg = "Unable to reach UnifiedPushServer at \"" + UNIFIED_PUSH_URL + "\".";
+        String msg = getApplication().getString(R.string.ups_url_parse_error, UNIFIED_PUSH_URL);
         Log.e("RegisterActivity", msg, e);
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
         finish();
