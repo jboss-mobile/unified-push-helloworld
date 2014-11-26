@@ -34,6 +34,8 @@ import static org.jboss.aerogear.unifiedpush.helloworld.Constants.*;
 
 public class RegisterActivity extends ActionBarActivity {
 
+    private static final String TAG = RegisterActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +68,7 @@ public class RegisterActivity extends ActionBarActivity {
 
                 @Override
                 public void onFailure(Exception e) {
+                    Log.e(TAG, e.getMessage());
                     Toast.makeText(getApplicationContext(),
                             getApplication().getString(R.string.registration_error),
                             Toast.LENGTH_LONG).show();
@@ -83,7 +86,7 @@ public class RegisterActivity extends ActionBarActivity {
 
     private void handleException(Exception e) {
         String msg = getApplication().getString(R.string.ups_url_parse_error, UNIFIED_PUSH_URL);
-        Log.e("RegisterActivity", msg, e);
+        Log.e(TAG, msg, e);
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
         finish();
     }
