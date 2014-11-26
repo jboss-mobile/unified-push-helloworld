@@ -16,12 +16,11 @@
  */
 package org.jboss.aerogear.unifiedpush.helloworld.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.Toast;
-
 import org.jboss.aerogear.android.Callback;
 import org.jboss.aerogear.android.unifiedpush.PushConfig;
 import org.jboss.aerogear.android.unifiedpush.PushRegistrar;
@@ -33,7 +32,7 @@ import java.net.URISyntaxException;
 
 import static org.jboss.aerogear.unifiedpush.helloworld.Constants.*;
 
-public class RegisterActivity extends Activity {
+public class RegisterActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

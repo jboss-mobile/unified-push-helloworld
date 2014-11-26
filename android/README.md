@@ -20,7 +20,7 @@ When the application is deployed to an Android device, the push functionality en
 ###0. System Requirements
 * [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Maven 3.1.1](http://maven.apache.org)
-* Latest [Android SDK](https://developer.android.com/sdk/index.html) and [Platform version 19](http://developer.android.com/tools/revisions/platforms.html)
+* Latest [Android SDK](https://developer.android.com/sdk/index.html) and [Platform version 21](http://developer.android.com/tools/revisions/platforms.html)
 * Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html) and [Google Play Services](http://developer.android.com/google/play-services/index.html)
 
 ###1. Prepare Maven Libraries

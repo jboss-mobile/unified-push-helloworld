@@ -16,9 +16,10 @@
  */
 package org.jboss.aerogear.unifiedpush.helloworld.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
@@ -27,7 +28,7 @@ import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler;
 
-public class MessagesActivity extends Activity implements MessageHandler {
+public class MessagesActivity extends ActionBarActivity implements MessageHandler {
 
     private HelloWorldApplication application;
     private ListView listView;
@@ -40,7 +41,9 @@ public class MessagesActivity extends Activity implements MessageHandler {
 
         application = (HelloWorldApplication) getApplication();
 
+        View emptyView = findViewById(R.id.empty);
         listView = (ListView) findViewById(R.id.messages);
+        listView.setEmptyView(emptyView);
     }
 
     @Override
@@ -53,16 +56,16 @@ public class MessagesActivity extends Activity implements MessageHandler {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(IGNORE_EXTRAS, true);
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
         Registrations.unregisterMainThreadHandler(this);
         Registrations.registerBackgroundThreadHandler(NotificationBarMessageHandler.instance);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(IGNORE_EXTRAS, true);
     }
 
     @Override

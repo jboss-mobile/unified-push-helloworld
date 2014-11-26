@@ -16,13 +16,13 @@
  */
 package org.jboss.aerogear.unifiedpush.helloworld.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 
-public class SplashScreenActivity extends Activity {
+public class SplashScreenActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
