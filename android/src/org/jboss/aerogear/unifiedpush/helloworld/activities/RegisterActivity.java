@@ -66,7 +66,9 @@ public class RegisterActivity extends ActionBarActivity {
 
                 @Override
                 public void onFailure(Exception e) {
-                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            getApplication().getString(R.string.registration_error),
+                            Toast.LENGTH_LONG).show();
                     finish();
                 }
             });
