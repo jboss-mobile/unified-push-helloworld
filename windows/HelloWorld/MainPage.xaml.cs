@@ -40,12 +40,6 @@ namespace HelloWorld
         public ObservableCollection<string> messageList { get; private set; }
         public MainPage()
         {
-            PushConfig pushConfig = new PushConfig() { UnifiedPushUri = new Uri("http://localhost:8080/ag-push/"), VariantId = "18e83a14-e235-489a-b06e-ff7957e13210", VariantSecret = "dd0e98b2-8b98-4778-a640-fdafb8901768" };
-            Registration registration = new Registration();
-            registration.PushReceivedEvent += HandleNotification;
-            registration.Register(pushConfig);
-            onRegistrationComplete();
-
             this.InitializeComponent();
 
             messageList = new ObservableCollection<string>();
@@ -64,7 +58,7 @@ namespace HelloWorld
 
         void HandleNotification(object sender, PushReceivedEvent e)
         {
-            Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => messageList.Add(e.Args.ToastNotification.Content.InnerText));
+            Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => messageList.Add(e.Args.message));
         }
 
         /// <summary>
@@ -72,7 +66,7 @@ namespace HelloWorld
         /// </summary>
         /// <param name="e">Event data that describes how this page was reached.
         /// This parameter is typically used to configure the page.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             // TODO: Prepare page for display here.
 
@@ -82,6 +76,20 @@ namespace HelloWorld
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
 
+            PushConfig pushConfig = new PushConfig() { UnifiedPushUri = new Uri(""), VariantId = "", VariantSecret = "" };
+            Registration registration = new WnsRegistration();
+            registration.PushReceivedEvent += HandleNotification;
+            try
+            {
+                await registration.Register(pushConfig);
+                onRegistrationComplete();
+            }
+            catch (Exception ex)
+            {
+                new MessageDialog("Error", ex.Message).ShowAsync();
+            }
+
+            this.InitializeComponent();
         }
     }
 }
