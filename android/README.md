@@ -131,15 +131,23 @@ registrar.register(getApplicationContext(), new Callback<Void>() {
         Toast.makeText(getApplicationContext(),
                 getApplicationContext().getString(R.string.registration_successful),
                 Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(getApplicationContext(), MessagesActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public void onFailure(Exception e) {
-        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),
+                getApplication().getString(R.string.registration_error),
+                Toast.LENGTH_LONG).show();
         finish();
     }
 });
 ```
+
+In case of a successful registration with the UnifiedPush Server the application starts the `MessagesActivity`. In case of an error the `onFailure` method is invoked the application shows a message with details of the failure and the application will be closed.
 
 ### Receiving Notifications
 
