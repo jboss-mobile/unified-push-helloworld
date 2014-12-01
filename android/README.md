@@ -33,9 +33,9 @@ Google does not ship all the required libraries to Maven Central so you must dep
 $ git clone git://github.com/mosabua/maven-android-sdk-deployer.git
 ```
 2. Set up the environment variable ```ANDROID_HOME``` to contain the Android SDK path
-3. Install Maven version of Android platform 19
+3. Install Maven version of Android platform 21
 ```shell
-$ cd /path/to/maven-android-sdk-deployer/platforms/android-19
+$ cd /path/to/maven-android-sdk-deployer/platforms/android-21
 $ mvn install -N
 ```
 4. Install Maven version of google-play-services
