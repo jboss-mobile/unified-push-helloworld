@@ -15,10 +15,8 @@
  * limitations under the License.
  */
 
-#import <UIKit/UIKit.h>
+#import "AGNotificationCell.h"
 
-@interface AGViewController : UITableViewController
-
-@property (strong, nonatomic) NSData *deviceToken;
+@implementation AGNotificationCell
 
 @end

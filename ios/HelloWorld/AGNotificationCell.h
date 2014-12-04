@@ -17,8 +17,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AGViewController : UITableViewController
+@interface AGNotificationCell : UITableViewCell
 
-@property (strong, nonatomic) NSData *deviceToken;
+@property (weak, nonatomic) IBOutlet UILabel *message;
 
 @end

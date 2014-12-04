@@ -16,7 +16,6 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "AGViewController.h"
 
 @interface AGAppDelegate : UIResponder <UIApplicationDelegate>
 
