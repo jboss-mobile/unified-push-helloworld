@@ -22,6 +22,7 @@
 		48DD369118F3F2C1009A02E2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48DD368F18F3F2C1009A02E2 /* InfoPlist.strings */; };
 		48DD369318F3F2C1009A02E2 /* HelloWorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48DD369218F3F2C1009A02E2 /* HelloWorldTests.m */; };
 		6F75E9E61937313E004D0D36 /* AeroGearPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F75E9E51937313E004D0D36 /* AeroGearPush.framework */; };
+		6FEA19101A2FA43F0036DB49 /* AGNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEA190F1A2FA43F0036DB49 /* AGNotificationCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		48DD369018F3F2C1009A02E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		48DD369218F3F2C1009A02E2 /* HelloWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldTests.m; sourceTree = "<group>"; };
 		6F75E9E51937313E004D0D36 /* AeroGearPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AeroGearPush.framework; sourceTree = "<group>"; };
+		6FEA190E1A2FA43F0036DB49 /* AGNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGNotificationCell.h; sourceTree = "<group>"; };
+		6FEA190F1A2FA43F0036DB49 /* AGNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGNotificationCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,9 +121,10 @@
 			children = (
 				48DD367618F3F2C1009A02E2 /* AGAppDelegate.h */,
 				48DD367718F3F2C1009A02E2 /* AGAppDelegate.m */,
-				48DD367918F3F2C1009A02E2 /* Main.storyboard */,
 				48DD367C18F3F2C1009A02E2 /* AGViewController.h */,
 				48DD367D18F3F2C1009A02E2 /* AGViewController.m */,
+				6FEA19111A2FA4560036DB49 /* Utils */,
+				48DD367918F3F2C1009A02E2 /* Main.storyboard */,
 				48DD367F18F3F2C1009A02E2 /* Images.xcassets */,
 				48DD366E18F3F2C1009A02E2 /* Supporting Files */,
 			);
@@ -154,6 +158,15 @@
 				48DD368F18F3F2C1009A02E2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6FEA19111A2FA4560036DB49 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6FEA190E1A2FA43F0036DB49 /* AGNotificationCell.h */,
+				6FEA190F1A2FA43F0036DB49 /* AGNotificationCell.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +214,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AG;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = aerogear;
 				TargetAttributes = {
 					48DD368418F3F2C1009A02E2 = {
@@ -256,6 +269,7 @@
 			files = (
 				48DD367818F3F2C1009A02E2 /* AGAppDelegate.m in Sources */,
 				48DD367E18F3F2C1009A02E2 /* AGViewController.m in Sources */,
+				6FEA19101A2FA43F0036DB49 /* AGNotificationCell.m in Sources */,
 				48DD367418F3F2C1009A02E2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,7 +324,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -348,7 +361,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -433,7 +445,6 @@
 		48DD369A18F3F2C1009A02E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HelloWorld.app/HelloWorld";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -457,7 +468,6 @@
 		48DD369B18F3F2C1009A02E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HelloWorld.app/HelloWorld";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
