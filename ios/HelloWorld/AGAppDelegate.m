@@ -37,6 +37,8 @@
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 #endif
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
         NSLog(@"Was opened with notification:%@",launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]);
         
@@ -82,6 +84,7 @@
     
     // WARNING: make sure, you start JBoss with the -b 0.0.0.0 option, to bind on all interfaces
     // from the iPhone, you can NOT use localhost :)
+   
     [[AGDeviceRegistration alloc] initWithServerURL:[NSURL URLWithString:@"<# URL of the running AeroGear UnifiedPush Server #>"]];
     
     [registration registerWithClientInfo:^(id<AGClientDeviceInformation> clientInfo) {
@@ -89,7 +92,6 @@
         // both received when performing the variant registration with the server.
         [clientInfo setVariantID:@"<# Variant Id #>"];
         [clientInfo setVariantSecret:@"<# Variant Secret #>"];
-        
         // if the deviceToken value is nil, no registration will be performed
         // and the failure callback is being invoked!
         [clientInfo setDeviceToken:deviceToken];
@@ -103,37 +105,32 @@
         [clientInfo setOsVersion:[currentDevice systemVersion]];
         [clientInfo setDeviceType: [currentDevice model]];
         
-        
-    } success:^() {
-        
+    } success:^() {        
         // Send NSNotification for success_registered, will be handle by registered AGViewController
         NSNotification *notification = [NSNotification notificationWithName:@"success_registered" object:nil];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
         NSLog(@"Unified Push registration successful");
         
     } failure:^(NSError *error) {
-        
         // Send NSNotification for error_register, will be handle by registered AGViewController
         NSNotification *notification = [NSNotification notificationWithName:@"error_register" object:nil];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
         NSLog(@"Unified Push registration Error: %@", error);
-        
     }];
 }
 
 // Callback called after failing to register with APNS
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    // Log the error for now
-    NSLog(@"APNs Error: %@", error);
+    NSNotification *notification = [NSNotification notificationWithName:@"error_register" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+    NSLog(@"Unified Push registration Error: %@", error);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
     // When a message is received, send NSNotification, will be handle by registered AGViewController
     NSNotification *notification = [NSNotification notificationWithName:@"message_received" object:userInfo];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
     NSLog(@"UPS message received: %@", userInfo);
-    
 }
 
 @end

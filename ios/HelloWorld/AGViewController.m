@@ -14,19 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 #import "AGViewController.h"
+#import "AGNotificationCell.h"
+
+static NSString * const AGNotificationCellIdentifier = @"AGNotificationCell";
 
 @implementation AGViewController
 
 NSMutableArray* _messages;
-@synthesize deviceToken;
-@synthesize tableView;
+
+BOOL isRegistered;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _messages = [@[@"Registering...."] mutableCopy];
+
+    _messages = [[NSMutableArray alloc] init];
     
+    // register to be notified when state changes
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registered) name:@"success_registered" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(errorRegistration) name:@"error_register" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageReceived:) name:@"message_received" object:nil];
@@ -34,8 +40,7 @@ NSMutableArray* _messages;
 
 - (void)registered {
     NSLog(@"registered");
-    [_messages removeObjectAtIndex:0];
-    [_messages addObject:@"Successfully registered"];
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString* msg = [defaults objectForKey:@"message_received"];
     [defaults removeObjectForKey:@"message_received"];
@@ -44,25 +49,69 @@ NSMutableArray* _messages;
     if(msg) {
         [_messages addObject:msg];
     }
+    
+    isRegistered = YES;
     [self.tableView reloadData];
 }
 
 - (void)errorRegistration {
-    [_messages removeObjectAtIndex:0];
-    [_messages addObject:@"Error during registration"];
-    [self.tableView reloadData];
+    // can't do much, inform user to verify the UPS details entered and return
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Registration Error!"
+                                                      message:@"Please verify the provisionioning profile and the UPS details have been setup correctly."
+                                                     delegate:nil
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:nil];
+    [message show];
 }
 
 - (void)messageReceived:(NSNotification*)notification {
     NSLog(@"received");
-    [_messages addObject:notification.object[@"aps"][@"alert"]];
+    
+    [_messages addObject:notification.object[@"aps"][@"alert"]];    
     [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    UIView *bgView;
+    
+    // determine current state
+    if (!isRegistered) {  // not yet registered
+        UIViewController *progress = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"ProgressViewController"];
+        bgView = progress.view;
+    } else if ([_messages count] == 0) { // registered but no notification received yet
+        UIViewController *empty = [self.navigationController.storyboard instantiateViewControllerWithIdentifier:@"EmptyViewController"];
+        bgView = empty.view;
+    }
+ 
+    // set the background view if needed
+    if (bgView != NULL) {
+        self.tableView.backgroundView = bgView;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return 0;
+    }
+    
+    return 1;
+}
+
+// calculate the dynamic height of the cell based on it's contents
+// Notice: on iOS 8 and later, this is no needed since it is provided by default by the system,
+// if the property 'numberOfLines = 0' is set
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static AGNotificationCell *cell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cell = [self.tableView dequeueReusableCellWithIdentifier:AGNotificationCellIdentifier];
+    });
+    
+    // apply text for calculating height
+    cell.message.text = _messages[indexPath.row];
+
+    // calculate height
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    
+    return size.height + 1.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -72,19 +121,17 @@ NSMutableArray* _messages;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //Where we configure the cell in each row
-    
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell;
-    
-    cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    // if it's the first message in the stream, let's clear the 'empty' placeholder vier
+    if (self.tableView.backgroundView != NULL) {
+        self.tableView.backgroundView = NULL;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     }
-    // Configure the cell... setting the text of our cell's label
-    cell.textLabel.text = [_messages objectAtIndex:indexPath.row];
+    
+    AGNotificationCell *cell = [self.tableView dequeueReusableCellWithIdentifier:AGNotificationCellIdentifier forIndexPath:indexPath];
+    // apply text
+    cell.message.text = _messages[indexPath.row];
+    
     return cell;
 }
-
 
 @end

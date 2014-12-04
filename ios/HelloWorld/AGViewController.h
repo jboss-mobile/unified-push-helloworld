@@ -17,8 +17,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AGViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface AGViewController : UITableViewController
+
 @property (strong, nonatomic) NSData *deviceToken;
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-- (void)registered;
+
 @end
