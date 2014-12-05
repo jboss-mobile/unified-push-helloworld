@@ -17,9 +17,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UITableViewController {
                             
-    @IBOutlet var tableView : UITableView!
+    let AGNotificationCellIdentifier = "AGNotificationCell"
+    var isRegistered = false
     
     // holds the messages received and displayed on tableview
     var messages: Array<String> = []
@@ -27,24 +28,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        messages = ["Registering...."]
-        
-        // register to notification center to received notifications upon events
+        // register to be notified when state changes
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "registered", name: "success_registered", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "errorRegistration", name: "error_register", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageReceived:", name: "message_received", object: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+   
     func registered() {
         println("registered")
-        
-        messages.removeAtIndex(0)
-        messages.append("Sucessfully registered")
         
         // workaround to get messages when app was not running
         let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults();
@@ -58,30 +49,58 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         
+        isRegistered = true
         tableView.reloadData()
     }
 
     func errorRegistration() {
-        messages.removeAtIndex(0)
-        messages.append("Error during registration")
-        tableView.reloadData()
+        // can't do much, inform user to verify the UPS details entered and return
+        let message = UIAlertController(title: "Registration Error!", message: "Please verify the provisionioning profile and the UPS details have been setup correctly.", preferredStyle:  .Alert)
+        
+        self.presentViewController(message, animated:true, completion:nil)
     }
     
     func messageReceived(notification: NSNotification) {
         println("received")
-
-        let msg = notification.userInfo!["aps"]!["alert"] as String
-        messages.append(msg)
+        
+        messages.append(notification.userInfo!["aps"]!["alert"] as String)
         tableView.reloadData()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        var bgView:UIView?
+        
+        // determine current state
+        if (!isRegistered) {  // not yet registered
+            let progress = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("ProgressViewController") as UIViewController
+            bgView = progress.view
+        } else if (messages.count == 0) {  // registered but no notification received yet
+            let empty = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("EmptyViewController") as UIViewController
+            bgView = empty.view
+        }
+        
+        // set the background view if needed
+        if (bgView != nil) {
+            self.tableView.backgroundView = bgView
+            self.tableView.separatorStyle = .None
+            return 0
+        }
+        
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count;
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // if it's the first message in the stream, let's clear the 'empty' placeholder vier
+        if (self.tableView.backgroundView != nil) {
+            self.tableView.backgroundView = nil
+            self.tableView.separatorStyle = .SingleLine
+        }
 
+        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(AGNotificationCellIdentifier) as UITableViewCell
         cell.textLabel?.text = messages[indexPath.row]
         
         return cell
