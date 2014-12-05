@@ -41,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
+        
         return true
     }
 
@@ -71,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // initialize "Registration helper" object using the
         // base URL where the "AeroGear Unified Push Server" is running.
-        let registration = AGDeviceRegistration(serverURL: NSURL(string: "http://localhost:8080/ag-push")!)
+        let registration = AGDeviceRegistration(serverURL: NSURL(string: "<# URL of the running AeroGear UnifiedPush Server #>")!)
         
         // perform registration of this device
         registration.registerWithClientInfo({ (clientInfo: AGClientDeviceInformation!) in
@@ -107,13 +109,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             failure: {(error: NSError!) in
                 println("Error Registering with UPS: \(error.localizedDescription)")
                 
-                let notification = NSNotification(name:"error_registered", object: nil)
+                let notification = NSNotification(name:"error_register", object: nil)
                 NSNotificationCenter.defaultCenter().postNotification(notification)
             })
     }
     
     func application(application: UIApplication!, didFailToRegisterForRemoteNotificationsWithError error: NSError!) {
-        println("error registering with APNS \(error.localizedDescription)")
+        let notification:NSNotification = NSNotification(name:"error_register", object:nil, userInfo:nil)
+        NSNotificationCenter.defaultCenter().postNotification(notification)
+        println("Unified Push registration Error \(error)")
     }
     
     func application(application: UIApplication!, didReceiveRemoteNotification userInfo: NSDictionary!) {
