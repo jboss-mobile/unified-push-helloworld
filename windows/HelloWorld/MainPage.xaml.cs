@@ -16,15 +16,11 @@
  */
 using AeroGear.Push;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Threading.Tasks;
-using Windows.Data.Xml.Dom;
-using Windows.Networking.PushNotifications;
 using Windows.UI.Core;
-using Windows.UI.Notifications;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -35,14 +31,22 @@ namespace HelloWorld
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
         public ObservableCollection<string> messageList { get; private set; }
+        public string bellSlash
+        {
+            get { return "\uf1f6"; }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public UiState registerState { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();
 
             messageList = new ObservableCollection<string>();
+            registerState = new UiState();
             DataContext = this;
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
@@ -50,10 +54,8 @@ namespace HelloWorld
 
         void onRegistrationComplete()
         {
-            XmlDocument template = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText01);
-            IXmlNode notification = template.GetElementsByTagName("text").Item(0);
-            notification.AppendChild(template.CreateTextNode("registration complete"));
-            ToastNotificationManager.CreateToastNotifier().Show(new ToastNotification(template));
+            registerState.RegistrationDone();
+            PropertyChanged(this, new PropertyChangedEventArgs("registerState"));
         }
 
         void HandleNotification(object sender, PushReceivedEvent e)
@@ -75,7 +77,7 @@ namespace HelloWorld
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
-
+            
             PushConfig pushConfig = new PushConfig() { UnifiedPushUri = new Uri(""), VariantId = "", VariantSecret = "" };
             Registration registration = new WnsRegistration();
             registration.PushReceivedEvent += HandleNotification;
@@ -90,6 +92,37 @@ namespace HelloWorld
             }
 
             this.InitializeComponent();
+        }
+    }
+
+    public class UiState
+    {
+        public enum State { Register, Empty, List }
+        private State state = State.Register;
+
+        public Visibility isRegistering
+        {
+            get { return state == State.Register ? Visibility.Visible : Visibility.Collapsed; }
+        }
+
+        public Visibility isNotRegistering
+        {
+            get { return state != State.Register ? Visibility.Visible : Visibility.Collapsed; }
+        }
+
+        public Visibility noContent
+        {
+            get { return state == State.Empty ? Visibility.Visible : Visibility.Collapsed; }
+        }
+
+        public void RegistrationDone()
+        {
+            state = State.Empty;
+        }
+
+        public void HasContent()
+        {
+            state = State.List;
         }
     }
 }

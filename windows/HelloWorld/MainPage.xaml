@@ -22,26 +22,44 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="White">
+    Background="White"
+    Foreground="#999"
+    FontSize="12"
+    FontFamily="/Assets/Roboto-Regular.ttf">
 
-    <Grid Margin="5">
+    <Grid>
         <StackPanel Orientation="Vertical">
-            <TextBlock Text="HelloWorld" Foreground="Black" FontSize="70" HorizontalAlignment="Center"/>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Assets/aerogear_icon_32px.png" Height="32" Width="32" Stretch="UniformToFill" Margin="10,0"/>
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                    <TextBlock Text="AeroGear UnifiedPush" Foreground="Black" FontSize="25"/>
+            <Border BorderBrush="Black" BorderThickness="0">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#ff9800" Offset="0"/>
+                        <GradientStop Color="#f57c00" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <TextBlock Text="Notifications" FontSize="20" Margin="16,10,0,10" Foreground="White"/>
+            </Border>
+            <StackPanel Orientation="Vertical" Visibility="{Binding registerState.isNotRegistering}">
+                <ListView Name="Messages" SelectionMode="None" IsItemClickEnabled="False" ItemsSource="{Binding messageList}" Margin="5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding}" Foreground="Black" Margin="0,0,0,10" TextWrapping="WrapWholeWords"/>
+                                <Border BorderBrush="#999" BorderThickness="0,0,0,1" Width="99999"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <StackPanel Visibility="{Binding registerState.noContent}">
+                    <TextBlock Text="{Binding bellSlash}"  FontFamily="/Assets/fontawesome-webfont.ttf#FontAwesome" FontSize="72" HorizontalAlignment="Center" Margin="0,63,0,0"/>
+                    <TextBlock Text="Nothing here yet." HorizontalAlignment="Center" FontSize="14"/>
+                    <TextBlock Text="Send notifications from the console." HorizontalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
-            <ListView Name="Messages" SelectionMode="None" IsItemClickEnabled="False" ItemsSource="{Binding messageList}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Margin="0,0,0,27.5">
-                            <TextBlock Text="{Binding}" Style="{ThemeResource ListViewItemTextBlockStyle}" Foreground="Black"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <StackPanel Orientation="Vertical" Visibility="{Binding registerState.isRegistering}" Margin="0, 100" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ProgressBar IsIndeterminate="True" Height="10" Width="200"/>
+                <TextBlock Text="Registering" HorizontalAlignment="Center"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

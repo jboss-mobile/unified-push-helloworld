@@ -20,4 +20,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:HelloWorld">
 
+    <Application.Resources>
+        <SolidColorBrush x:Key="ProgressBarBackgroundThemeBrush" Color="#30000000" />
+        <SolidColorBrush x:Key="ProgressBarBorderThemeBrush" Color="Transparent" />
+        <SolidColorBrush x:Key="ProgressBarForegroundThemeBrush" Color="#ff9800" />
+        <SolidColorBrush x:Key="ProgressBarIndeterminateForegroundThemeBrush" Color="#f57c00" />
+    </Application.Resources>
 </Application>
