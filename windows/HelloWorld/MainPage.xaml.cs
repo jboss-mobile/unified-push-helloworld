@@ -58,9 +58,15 @@ namespace HelloWorld
             PropertyChanged(this, new PropertyChangedEventArgs("registerState"));
         }
 
-        void HandleNotification(object sender, PushReceivedEvent e)
+        async void HandleNotification(object sender, PushReceivedEvent e)
         {
-            Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => messageList.Add(e.Args.message));
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                registerState.HasContent();
+                PropertyChanged(this, new PropertyChangedEventArgs("registerState"));
+                messageList.Add(e.Args.message);
+            });
+
         }
 
         /// <summary>
@@ -77,8 +83,8 @@ namespace HelloWorld
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
-            
-            PushConfig pushConfig = new PushConfig() { UnifiedPushUri = new Uri(""), VariantId = "", VariantSecret = "" };
+
+            PushConfig pushConfig = new PushConfig() { UnifiedPushUri = new Uri("https://unifiedpush-edewit.rhcloud.com/ag-push/"), VariantId = "c93fa2a7-70bb-4d34-a308-e0c0a688e6aa", VariantSecret = "fad4c664-1dd3-480a-b966-2a7e9c826af1" };
             Registration registration = new WnsRegistration();
             registration.PushReceivedEvent += HandleNotification;
             try
