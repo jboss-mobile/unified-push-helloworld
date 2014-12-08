@@ -29,22 +29,19 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Border BorderBrush="Black" BorderThickness="0">
+            <Border BorderThickness="0">
                 <Border.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#ff9800" Offset="0"/>
-                        <GradientStop Color="#f57c00" Offset="1"/>
-                    </LinearGradientBrush>
+                    <SolidColorBrush Color="#ff9800"/>
                 </Border.Background>
                 <TextBlock Text="Notifications" FontSize="20" Margin="16,10,0,10" Foreground="White"/>
             </Border>
             <StackPanel Orientation="Vertical" Visibility="{Binding registerState.isNotRegistering}">
-                <ListView Name="Messages" SelectionMode="None" IsItemClickEnabled="False" ItemsSource="{Binding messageList}" Margin="5">
+                <ListView Name="Messages" SelectionMode="None" IsItemClickEnabled="False" ItemsSource="{Binding messageList}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="{Binding}" Foreground="Black" Margin="0,0,16,10" TextWrapping="WrapWholeWords"/>
-                                <Border BorderBrush="#e0e0e0" BorderThickness="0,0,0,1" Width="99999" Padding="0,0,20,0"/>
+                                <TextBlock Text="{Binding}" Margin="16,20,0,0" TextWrapping="WrapWholeWords"/>
+                                <Border BorderBrush="#e0e0e0" BorderThickness="0,0,0,1" Width="9999" Padding="0,20,0,0"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

@@ -20,6 +20,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Windows.UI.Core;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -83,6 +84,8 @@ namespace HelloWorld
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
+
+            await StatusBar.GetForCurrentView().HideAsync();
 
             PushConfig pushConfig = new PushConfig() { UnifiedPushUri = new Uri("https://unifiedpush-edewit.rhcloud.com/ag-push/"), VariantId = "c93fa2a7-70bb-4d34-a308-e0c0a688e6aa", VariantSecret = "fad4c664-1dd3-480a-b966-2a7e9c826af1" };
             Registration registration = new WnsRegistration();
