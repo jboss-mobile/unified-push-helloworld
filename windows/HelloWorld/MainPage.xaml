@@ -40,7 +40,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="{Binding}" Margin="16,20,0,0" TextWrapping="WrapWholeWords"/>
+                                <TextBlock Text="{Binding}" Margin="16,20,16,0" TextWrapping="WrapWholeWords"/>
                                 <Border BorderBrush="#e0e0e0" BorderThickness="0,0,0,1" Width="9999" Padding="0,20,0,0"/>
                             </StackPanel>
                         </DataTemplate>
