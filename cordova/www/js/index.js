@@ -58,6 +58,7 @@ var app = {
       element.innerHTML = message;
    },
    clearMessages: function() {
-     document.getElementById("waiting").remove();
+     var waiting = document.getElementById("waiting");
+     waiting.parentElement.removeChild(waiting);
    }
 };
