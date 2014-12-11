@@ -12,5 +12,9 @@
     "firefoxos": {
       "variantID": "<variantID e.g. 1234456-234320>",
       "variantSecret": "<variantSecret e.g. 1234456-234320>"
+    },
+    "windows": {
+      "variantID": "<variantID e.g. 1234456-234320>",
+      "variantSecret": "<variantSecret e.g. 1234456-234320>"
     }
 }
