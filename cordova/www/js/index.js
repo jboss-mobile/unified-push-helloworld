@@ -37,7 +37,9 @@ var app = {
 
       function successHandler() {
          app.clearMessages();
-         document.getElementById("nothing").style.display = 'block';
+         if (document.getElementById("messages").childElementCount === 0) {
+           document.getElementById("nothing").style.display = 'block';
+         }
       }
 
       function errorHandler(error) {
