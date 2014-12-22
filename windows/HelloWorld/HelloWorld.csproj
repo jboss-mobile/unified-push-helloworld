@@ -115,6 +115,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="Assets\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Roboto-Regular.ttf" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="aerogear-windows-push, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\aerogear-windows-push.0.0.8\lib\wpa\aerogear-windows-push.dll</HintPath>
+    </Reference>
+    <Reference Include="lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\aerogear-windows-push.0.0.8\lib\wpa\lib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
+      <Name>Behaviors SDK %28XAML%29</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
