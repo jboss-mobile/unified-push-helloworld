@@ -23,7 +23,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
-import org.jboss.aerogear.android.unifiedpush.Registrations;
+import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler;
@@ -49,8 +49,8 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
     @Override
     protected void onResume() {
         super.onResume();
-        Registrations.registerMainThreadHandler(this);
-        Registrations.unregisterBackgroundThreadHandler(NotificationBarMessageHandler.instance);
+        RegistrarManager.registerMainThreadHandler(this);
+        RegistrarManager.unregisterBackgroundThreadHandler(NotificationBarMessageHandler.instance);
 
         displayMessages();
     }
@@ -58,8 +58,8 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
     @Override
     protected void onPause() {
         super.onPause();
-        Registrations.unregisterMainThreadHandler(this);
-        Registrations.registerBackgroundThreadHandler(NotificationBarMessageHandler.instance);
+        RegistrarManager.unregisterMainThreadHandler(this);
+        RegistrarManager.registerBackgroundThreadHandler(NotificationBarMessageHandler.instance);
     }
 
     @Override

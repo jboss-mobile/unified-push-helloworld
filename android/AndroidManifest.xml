@@ -58,7 +58,7 @@
             </intent-filter>
         </activity>
         <receiver
-                android:name="org.jboss.aerogear.android.unifiedpush.AeroGearGCMMessageReceiver"
+                android:name="org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMMessageReceiver"
                 android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
