@@ -21,7 +21,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.Toast;
-import org.jboss.aerogear.android.Callback;
+import org.jboss.aerogear.android.core.Callback;
 import org.jboss.aerogear.android.unifiedpush.PushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
 import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushConfiguration;
