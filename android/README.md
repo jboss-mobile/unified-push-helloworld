@@ -20,8 +20,11 @@ When the application is deployed to an Android device, the push functionality en
 ### 0. System Requirements
 * [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle 2.2.1](https://www.gradle.org/downloads)
-* Latest [Android SDK](https://developer.android.com/sdk/index.html) and [Platform version 21](http://developer.android.com/tools/revisions/platforms.html)
-* Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html) and [Google Play Services](http://developer.android.com/google/play-services/index.html)
+* Latest [Android SDK](https://developer.android.com/sdk/index.html) 
+* [Platform version 21](http://developer.android.com/tools/revisions/platforms.html)
+* [Build Tools 21.1.2](https://developer.android.com/tools/revisions/build-tools.html)
+* Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html) 
+* [Google Play Services](http://developer.android.com/google/play-services/index.html)
 
 ### 1. Register Application with Push Services
 First, you must register the application with Google Cloud Messaging for Android and enable access to the Google Cloud Messaging for Android APIs and Google APIs. This ensures access to the APIs by the UnifiedPush Server when it routes push notification requests from the application to the GCM. Registering an application with GCM requires that you have a Google account. For information on setting your Google account to use Google’s services, follow the [Google Setup Guide](http://aerogear.org/docs/unifiedpush/aerogear-push-android/google-setup/).
@@ -50,7 +53,7 @@ String SECRET = "";
 String GCM_SENDER_ID = "";
 ```
 3. Save the file.
-4. Build the application
+4. Build and launch
 ```shell
 $ cd /path/to/helloworld/android
 $ gradle installDebug
