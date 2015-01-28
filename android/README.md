@@ -41,7 +41,7 @@ Second, you must register the application and an Android variant of the applicat
 ### 2. Customize and Build Application
 The project source code must be customized with the unique metadata assigned to the application variant by the AeroGear UnifiedPush Server and GCM. 
 
-1. Open ```/path/to/helloworld/android/src/org/jboss/aerogear/unifiedpush/helloworld/Constants.java``` for editing.
+1. Open ```/path/to/helloworld/android/app/src/main/java/org/jboss/aerogear/unifiedpush/helloworld/Constants.java``` for editing.
 2. Enter the application variant values allocated by the AeroGear UnifiedPush Server and GCM for the following constants:
 ```java
 String UNIFIED_PUSH_URL = "";
