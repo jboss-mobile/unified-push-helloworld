@@ -65,7 +65,8 @@ The AeroGear UnifiedPush Server must be running before the application is deploy
 The application can be tested on physical Android devices only; push notifications are not available for Android emulators. To deploy, run and debug the application on an Android device attached to your system, on the command line enter the following:
 ```shell
 $ cd /path/to/helloworld/android
-$ mvn clean package android:deploy android:run
+$ gradle clean build
+$ gradle installDebug
 ```
 
 Application output is displayed in the command line window.
