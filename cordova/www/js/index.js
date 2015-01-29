@@ -61,6 +61,6 @@ var app = {
    },
    clearMessages: function() {
      var waiting = document.getElementById("waiting");
-     waiting.parentElement.removeChild(waiting);
+     waiting.style.display = 'none';
    }
 };
