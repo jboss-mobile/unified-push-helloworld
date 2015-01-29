@@ -21,10 +21,10 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.widget.Toast;
-import org.jboss.aerogear.android.Callback;
-import org.jboss.aerogear.android.unifiedpush.PushConfig;
+import org.jboss.aerogear.android.core.Callback;
 import org.jboss.aerogear.android.unifiedpush.PushRegistrar;
-import org.jboss.aerogear.android.unifiedpush.Registrations;
+import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
+import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushConfiguration;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 
 import java.net.URI;
@@ -48,12 +48,14 @@ public class RegisterActivity extends ActionBarActivity {
 
         try {
 
-            PushConfig config = new PushConfig(new URI(UNIFIED_PUSH_URL), GCM_SENDER_ID);
-            config.setVariantID(VARIANT_ID);
-            config.setSecret(SECRET);
+            RegistrarManager.config("register", AeroGearGCMPushConfiguration.class)
+                    .setPushServerURI(new URI(UNIFIED_PUSH_URL))
+                    .setSenderIds(GCM_SENDER_ID)
+                    .setVariantID(VARIANT_ID)
+                    .setSecret(SECRET)
+                    .asRegistrar();
 
-            Registrations registrations = new Registrations();
-            PushRegistrar registrar = registrations.push("register", config);
+            PushRegistrar registrar = RegistrarManager.getRegistrar("register");
             registrar.register(getApplicationContext(), new Callback<Void>() {
                 @Override
                 public void onSuccess(Void data) {

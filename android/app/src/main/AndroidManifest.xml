@@ -16,14 +16,8 @@
     limitations under the License.
 -->
 <manifest
-        package="org.jboss.aerogear.unifiedpush.helloworld"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:versionCode="1"
-        android:versionName="1.0">
-
-    <uses-sdk
-            android:minSdkVersion="10"
-            android:targetSdkVersion="21"/>
+    package="org.jboss.aerogear.unifiedpush.helloworld"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -32,16 +26,16 @@
     <uses-permission android:name="org.jboss.aerogear.unifiedpush.helloworld.permission.C2D_MESSAGE"/>
 
     <permission
-            android:name="org.jboss.aerogear.unifiedpush.helloworld.permission.C2D_MESSAGE"
-            android:protectionLevel="signature"/>
+        android:name="org.jboss.aerogear.unifiedpush.helloworld.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
 
     <application
-            android:icon="@drawable/ic_launcher"
-            android:label="@string/app_name"
-            android:name=".HelloWorldApplication"
-            android:allowBackup="false">
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:name=".HelloWorldApplication"
+        android:allowBackup="false">
         <activity android:name=".activities.SplashScreenActivity"
-                  android:theme="@style/MyTheme.Fullscreen">
+            android:theme="@style/MyTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -50,16 +44,16 @@
         </activity>
         <activity android:name=".activities.RegisterActivity" android:theme="@style/MyTheme.Base"/>
         <activity android:name=".activities.MessagesActivity"
-                  android:theme="@style/MyTheme.Base"
-                  android:label="@string/notifications">
+            android:theme="@style/MyTheme.Base"
+            android:label="@string/notifications">
             <intent-filter>
                 <action android:name="org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
         <receiver
-                android:name="org.jboss.aerogear.android.unifiedpush.AeroGearGCMMessageReceiver"
-                android:permission="com.google.android.c2dm.permission.SEND">
+            android:name="org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMMessageReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
