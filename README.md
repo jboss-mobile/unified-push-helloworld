@@ -33,4 +33,20 @@ Before creating the variants, some external setup on Google's Cloud console and/
 
 Finally, you will have to create your variants, instructions can be found in the [UnifiedPush Administration Console User Guide](http://aerogear.org/docs/unifiedpush/ups_userguide/admin-ui/) under the section "Create and Manage Variants"
 
+## Documentation
 
+For more details about the current release, please consult [our documentation](https://aerogear.org/docs/unifiedpush/).
+
+## Development
+
+If you would like to help develop AeroGear you can join our [developer's mailing list](https://lists.jboss.org/mailman/listinfo/aerogear-dev), join #aerogear on Freenode, or shout at us on Twitter @aerogears.
+
+Also takes some time and skim the [contributor guide](http://aerogear.org/docs/guides/Contributing/)
+
+## Questions?
+
+Join our [user mailing list](https://lists.jboss.org/mailman/listinfo/aerogear-users) for any questions or help! We really hope you enjoy app development with AeroGear!
+
+## Found a bug?
+
+If you found a bug please create a ticket for us on [Jira](https://issues.jboss.org/browse/AGPUSH) with some steps to reproduce it.
