@@ -62,8 +62,18 @@ class ViewController: UITableViewController {
     
     func messageReceived(notification: NSNotification) {
         println("received")
+
+        let obj:AnyObject? = notification.userInfo!["aps"]!["alert"]
         
-        messages.append(notification.userInfo!["aps"]!["alert"] as String)
+        // if alert is a flat string
+        if let msg = obj as? String {
+            messages.append(msg)
+        } else {
+            // if the alert is a dictionary we need to extract the value of the body key
+            let msg = obj!["body"] as String
+            messages.append(msg)
+        }
+        
         tableView.reloadData()
     }
     
