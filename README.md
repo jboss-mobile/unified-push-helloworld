@@ -8,9 +8,7 @@ This repository contains the client's implementations showing off the basic usag
 | License:        | Apache License, Version 2.0  |
 | Build:          | Maven  |
 | Documentation:  | http://www.jboss.org/unifiedpush/  |
-| Issue tracker:  | https://issues.jboss.org/browse/AGPUSH  |
-| Mailing lists:  | [aerogear-users](http://aerogear-users.1116366.n5.nabble.com/) ([subscribe](https://lists.jboss.org/mailman/listinfo/aerogear-users))  |
-|                 | [aerogear-dev](http://aerogear-dev.1069024.n5.nabble.com/) ([subscribe](https://lists.jboss.org/mailman/listinfo/aerogear-dev))  |
+| Issue tracker:  | https://issues.jboss.org/browse/MP  |
 
 ## Setting up an UnifiedPush Server instance
 
