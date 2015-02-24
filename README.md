@@ -41,10 +41,6 @@ If you would like to help develop AeroGear you can join our [developer's mailing
 
 Also takes some time and skim the [contributor guide](http://aerogear.org/docs/guides/Contributing/)
 
-## Questions?
-
-Join our [user mailing list](https://lists.jboss.org/mailman/listinfo/aerogear-users) for any questions or help! We really hope you enjoy app development with AeroGear!
-
 ## Found a bug?
 
-If you found a bug please create a ticket for us on [Jira](https://issues.jboss.org/browse/AGPUSH) with some steps to reproduce it.
+If you found a bug please create a ticket for us on [Jira](https://issues.jboss.org/browse/MP) with some steps to reproduce it.
