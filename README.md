@@ -1,5 +1,5 @@
-aerogear-push-helloworld
-========================
+unified-push-helloworld
+=======================
 
 This repository contains the client's implementations showing off the basic usage of AeroGear UnifiedPush feature.
 
