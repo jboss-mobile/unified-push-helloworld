@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // You need to fill the 'Variant Id' together with the 'Variant Secret'
             // both received when performing the variant registration with the server.
             // See section "Register an iOS Variant" in the guide:
-            // http://aerogear.org/docs/guides/aerogear-push-ios/unified-push-server/
+            // https://aerogear.org/docs/unifiedpush/aerogear-push-ios/
             clientInfo.variantID = "<# Variant Id #>"
             clientInfo.variantSecret = "<# Variant Secret #>"
             
