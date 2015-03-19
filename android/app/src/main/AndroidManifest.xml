@@ -60,6 +60,7 @@
 
                 <category android:name="org.jboss.aerogear.unifiedpush.helloworld"/>
             </intent-filter>
+            <meta-data android:name="DEFAULT_MESSAGE_HANDLER_KEY" android:value="org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler"/>
         </receiver>
     </application>
 
