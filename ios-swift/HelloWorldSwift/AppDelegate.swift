@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // bootstrap the registration process by asking the user to 'Accept' and then register with APNS thereafter
         let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil)
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData!) {
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         // time to register user with the "AeroGear UnifiedPush Server"
         
         // initialize "Registration helper" object using the
@@ -114,13 +114,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
     }
     
-    func application(application: UIApplication!, didFailToRegisterForRemoteNotificationsWithError error: NSError!) {
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         let notification:NSNotification = NSNotification(name:"error_register", object:nil, userInfo:nil)
         NSNotificationCenter.defaultCenter().postNotification(notification)
         println("Unified Push registration Error \(error)")
     }
     
-    func application(application: UIApplication!, didReceiveRemoteNotification userInfo: NSDictionary!) {
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
         // When a message is received, send NSNotification, would be handled by registered ViewController
         let notification:NSNotification = NSNotification(name:"message_received", object:nil, userInfo:userInfo)
         NSNotificationCenter.defaultCenter().postNotification(notification)

@@ -40,7 +40,7 @@ class ViewController: UITableViewController {
         // workaround to get messages when app was not running
         let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults();
         if(defaults.objectForKey("message_received") != nil) {
-            let msg : String! = defaults.objectForKey("message_received") as String
+            let msg : String! = defaults.objectForKey("message_received") as! String
             defaults.removeObjectForKey("message_received")
             defaults.synchronize()
     
@@ -70,7 +70,7 @@ class ViewController: UITableViewController {
             messages.append(msg)
         } else {
             // if the alert is a dictionary we need to extract the value of the body key
-            let msg = obj!["body"] as String
+            let msg = obj!["body"] as! String
             messages.append(msg)
         }
         
@@ -82,10 +82,10 @@ class ViewController: UITableViewController {
         
         // determine current state
         if (!isRegistered) {  // not yet registered
-            let progress = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("ProgressViewController") as UIViewController
+            let progress = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("ProgressViewController") as! UIViewController
             bgView = progress.view
         } else if (messages.count == 0) {  // registered but no notification received yet
-            let empty = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("EmptyViewController") as UIViewController
+            let empty = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("EmptyViewController") as! UIViewController
             bgView = empty.view
         }
         
@@ -110,7 +110,7 @@ class ViewController: UITableViewController {
             self.tableView.separatorStyle = .SingleLine
         }
 
-        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(AGNotificationCellIdentifier) as UITableViewCell
+        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(AGNotificationCellIdentifier) as! UITableViewCell
         cell.textLabel?.text = messages[indexPath.row]
         
         return cell
