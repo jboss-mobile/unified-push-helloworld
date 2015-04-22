@@ -55,7 +55,13 @@ NSMutableArray* _messages;
 
 - (void)messageReceived:(NSNotification*)notification {
     NSLog(@"received");
-    [_messages addObject:notification.object[@"aps"][@"alert"]];
+    if (notification.object[@"aps"][@"alert"][@"body"]) {
+        // if the alert is a dictionary we need to extract the value of the body key
+        [_messages addObject:notification.object[@"aps"][@"alert"][@"body"]];
+    } else {
+        // if alert is a flat string
+        [_messages addObject:notification.object[@"aps"][@"alert"]];
+    }
     [self.tableView reloadData];
 }
 
