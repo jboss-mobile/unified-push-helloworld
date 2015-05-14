@@ -24,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
+import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler;
@@ -82,7 +83,7 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
     }
 
     private void addNewMessage(Bundle message) {
-        application.addMessage(message.getString("alert"));
+        application.addMessage(message.getString(UnifiedPushMessage.MESSAGE));
         displayMessages();
     }
 

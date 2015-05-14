@@ -24,6 +24,7 @@ import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
+import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity;
@@ -35,24 +36,25 @@ public class NotificationBarMessageHandler implements MessageHandler {
 
     public static final NotificationBarMessageHandler instance = new NotificationBarMessageHandler();
 
-    private NotificationBarMessageHandler() {
+    public NotificationBarMessageHandler() {
     }
 
     @Override
     public void onMessage(Context context, Bundle bundle) {
         this.context = context;
         HelloWorldApplication application = (HelloWorldApplication) context.getApplicationContext();
-        application.addMessage(bundle.getString("alert"));
-        notify(bundle.getString("alert"));
+        String message = bundle.getString(UnifiedPushMessage.MESSAGE);
+        application.addMessage(message);
+        notify(message);
     }
 
-    private void notify(String msg) {
+    private void notify(String message) {
         NotificationManager mNotificationManager = (NotificationManager)
             context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent intent = new Intent(context, MessagesActivity.class)
             .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
-            .putExtra("alert", msg);
+            .putExtra(UnifiedPushMessage.MESSAGE, message);
 
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -60,9 +62,9 @@ public class NotificationBarMessageHandler implements MessageHandler {
             .setAutoCancel(true)
             .setSmallIcon(R.drawable.ic_launcher)
             .setContentTitle(context.getString(R.string.app_name))
-            .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+            .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
             .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-            .setContentText(msg);
+            .setContentText(message);
 
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
