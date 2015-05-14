@@ -25,6 +25,7 @@ import org.jboss.aerogear.android.core.Callback;
 import org.jboss.aerogear.android.unifiedpush.PushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
 import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushConfiguration;
+import org.jboss.aerogear.unifiedpush.helloworld.Constants;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 
 import java.net.URI;
@@ -48,14 +49,14 @@ public class RegisterActivity extends ActionBarActivity {
 
         try {
 
-            RegistrarManager.config("register", AeroGearGCMPushConfiguration.class)
+            RegistrarManager.config(PUSH_REGISTER_NAME, AeroGearGCMPushConfiguration.class)
                     .setPushServerURI(new URI(UNIFIED_PUSH_URL))
                     .setSenderIds(GCM_SENDER_ID)
                     .setVariantID(VARIANT_ID)
                     .setSecret(SECRET)
                     .asRegistrar();
 
-            PushRegistrar registrar = RegistrarManager.getRegistrar("register");
+            PushRegistrar registrar = RegistrarManager.getRegistrar(PUSH_REGISTER_NAME);
             registrar.register(getApplicationContext(), new Callback<Void>() {
                 @Override
                 public void onSuccess(Void data) {
