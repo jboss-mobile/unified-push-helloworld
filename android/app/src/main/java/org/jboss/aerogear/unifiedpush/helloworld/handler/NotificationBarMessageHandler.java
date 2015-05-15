@@ -25,9 +25,11 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
+import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity;
+import org.jboss.aerogear.unifiedpush.helloworld.callback.MetricsCallback;
 
 public class NotificationBarMessageHandler implements MessageHandler {
 
@@ -42,9 +44,15 @@ public class NotificationBarMessageHandler implements MessageHandler {
     @Override
     public void onMessage(Context context, Bundle bundle) {
         this.context = context;
+
         HelloWorldApplication application = (HelloWorldApplication) context.getApplicationContext();
+
+        UnifiedPushMetricsMessage metricsMessage = new UnifiedPushMetricsMessage(bundle);
+        application.sendMetric(metricsMessage, new MetricsCallback());
+
         String message = bundle.getString(UnifiedPushMessage.MESSAGE);
         application.addMessage(message);
+
         notify(message);
     }
 

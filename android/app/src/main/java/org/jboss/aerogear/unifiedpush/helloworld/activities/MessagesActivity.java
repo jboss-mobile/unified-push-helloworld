@@ -22,12 +22,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import org.jboss.aerogear.android.core.Callback;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
+import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
+import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
+import org.jboss.aerogear.unifiedpush.helloworld.callback.MetricsCallback;
 import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler;
+
+import static org.jboss.aerogear.unifiedpush.helloworld.Constants.PUSH_REGISTER_NAME;
 
 public class MessagesActivity extends ActionBarActivity implements MessageHandler {
 
@@ -70,8 +78,11 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
     }
 
     @Override
-    public void onMessage(Context context, Bundle message) {
-        addNewMessage(message);
+    public void onMessage(Context context, Bundle bundle) {
+        addNewMessage(bundle);
+
+        UnifiedPushMetricsMessage metricsMessage = new UnifiedPushMetricsMessage(bundle);
+        application.sendMetric(metricsMessage, new MetricsCallback());
     }
 
     @Override
@@ -82,8 +93,9 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
     public void onError() {
     }
 
-    private void addNewMessage(Bundle message) {
-        application.addMessage(message.getString(UnifiedPushMessage.MESSAGE));
+    private void addNewMessage(Bundle bundle) {
+        String message = bundle.getString(UnifiedPushMessage.MESSAGE);
+        application.addMessage(message);
         displayMessages();
     }
 
