@@ -50,7 +50,7 @@ public class NotificationBarMessageHandler implements MessageHandler {
         UnifiedPushMetricsMessage metricsMessage = new UnifiedPushMetricsMessage(bundle);
         application.sendMetric(metricsMessage, new MetricsCallback());
 
-        String message = bundle.getString(UnifiedPushMessage.MESSAGE);
+        String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
         application.addMessage(message);
 
         notify(message);
@@ -62,7 +62,7 @@ public class NotificationBarMessageHandler implements MessageHandler {
 
         Intent intent = new Intent(context, MessagesActivity.class)
             .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
-            .putExtra(UnifiedPushMessage.MESSAGE, message);
+            .putExtra(UnifiedPushMessage.ALERT_KEY, message);
 
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 

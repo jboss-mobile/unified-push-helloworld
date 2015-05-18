@@ -94,7 +94,7 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
     }
 
     private void addNewMessage(Bundle bundle) {
-        String message = bundle.getString(UnifiedPushMessage.MESSAGE);
+        String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
         application.addMessage(message);
         displayMessages();
     }
