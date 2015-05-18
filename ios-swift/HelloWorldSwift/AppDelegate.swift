@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Send metrics when app is launched due to push notification
         AGPushAnalytics.sendMetricsWhenAppLaunched(launchOptions)
         
-        // When the app is launched due to a push notification
+        // Display all push messages (even the message used to open the app)
         if let options = launchOptions {
             if let option : NSDictionary = options[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
                 let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults();
