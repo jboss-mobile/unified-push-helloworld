@@ -20,7 +20,8 @@ import AeroGearPush
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-                            
+    let url = "<# URL of the running AeroGear UnifiedPush Server #>"
+    
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -29,12 +30,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
+        
+        // Send metrics when app is launched due to push notification
+        AGPushAnalytics.sendMetricsWhenAppLaunched(launchOptions)
+        
+        // Display all push messages (even the message used to open the app)
         if let options = launchOptions {
             if let option : NSDictionary = options[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
                 let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults();
+                // Send a message received signal to display the notification in the table.
                 if let aps : NSDictionary = option["aps"] as? NSDictionary {
                     if let alert : String = aps["alert"] as? String {
                         defaults.setObject(alert, forKey: "message_received")
+                        defaults.synchronize()
+                    } else {
+                        let msg = aps["alert"]!["body"] as! String
+                        defaults.setObject(msg, forKey: "message_received")
                         defaults.synchronize()
                     }
                 }
@@ -71,12 +82,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         // time to register user with the "AeroGear UnifiedPush Server"
         
-        // initialize "Registration helper" object using the
-        // base URL where the "AeroGear Unified Push Server" is running.
-        let registration = AGDeviceRegistration(serverURL: NSURL(string: "<# URL of the running AeroGear UnifiedPush Server #>")!)
+        let device = AGDeviceRegistration(serverURL:  NSURL(string: url)!)
         
         // perform registration of this device
-        registration.registerWithClientInfo({ (clientInfo: AGClientDeviceInformation!) in
+        device.registerWithClientInfo({ (clientInfo: AGClientDeviceInformation!) in
             
             // set the deviceToken
             clientInfo.deviceToken = deviceToken
@@ -120,10 +129,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("Unified Push registration Error \(error)")
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject], fetchCompletionHandler: (UIBackgroundFetchResult) -> Void) {
         // When a message is received, send NSNotification, would be handled by registered ViewController
         let notification:NSNotification = NSNotification(name:"message_received", object:nil, userInfo:userInfo)
         NSNotificationCenter.defaultCenter().postNotification(notification)
         println("UPS message received: \(userInfo)")
+        
+        // Send metrics when app is launched due to push notification
+        AGPushAnalytics.sendMetricsWhenAppAwoken(application.applicationState, userInfo: userInfo)
+        
+        // No additioanl data to fetch
+        fetchCompletionHandler(UIBackgroundFetchResult.NoData)
     }
+    
 }
