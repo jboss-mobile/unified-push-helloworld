@@ -129,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("Unified Push registration Error \(error)")
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject], fetchCompletionHandler: (UIBackgroundFetchResult) -> Void) {
         // When a message is received, send NSNotification, would be handled by registered ViewController
         let notification:NSNotification = NSNotification(name:"message_received", object:nil, userInfo:userInfo)
         NSNotificationCenter.defaultCenter().postNotification(notification)
@@ -137,6 +137,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Send metrics when app is launched due to push notification
         AGPushAnalytics.sendMetricsWhenAppAwoken(application.applicationState, userInfo: userInfo)
-
+        
+        // No additioanl data to fetch
+        fetchCompletionHandler(UIBackgroundFetchResult.NoData)
     }
+    
 }
