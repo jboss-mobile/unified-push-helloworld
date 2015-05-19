@@ -37,13 +37,18 @@
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 #endif
     
+   
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+    // Send metrics when app is launched due to push notification
+    [AGPushAnalytics sendMetricsWhenAppLaunched:launchOptions];
     
+    // Display all push messages (even the message used to open the app)
     if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
         NSLog(@"Was opened with notification:%@",launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]);
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey][@"aps"][@"alert"] forKey:@"message_received"];
+        [defaults setObject: [self pushMessageContent: launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]] forKey:@"message_received"];
         [defaults synchronize];
     }
     
@@ -86,12 +91,13 @@
     // from the iPhone, you can NOT use localhost :)
    
     [[AGDeviceRegistration alloc] initWithServerURL:[NSURL URLWithString:@"<# URL of the running AeroGear UnifiedPush Server #>"]];
-    
+
     [registration registerWithClientInfo:^(id<AGClientDeviceInformation> clientInfo) {
         // You need to fill the 'Variant Id' together with the 'Variant Secret'
         // both received when performing the variant registration with the server.
         [clientInfo setVariantID:@"<# Variant Id #>"];
         [clientInfo setVariantSecret:@"<# Variant Secret #>"];
+
         // if the deviceToken value is nil, no registration will be performed
         // and the failure callback is being invoked!
         [clientInfo setDeviceToken:deviceToken];
@@ -126,11 +132,24 @@
     NSLog(@"Unified Push registration Error: %@", error);
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     // When a message is received, send NSNotification, will be handle by registered AGViewController
-    NSNotification *notification = [NSNotification notificationWithName:@"message_received" object:userInfo];
+    NSNotification *notification = [NSNotification notificationWithName:@"message_received" object: [self pushMessageContent: userInfo]];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
     NSLog(@"UPS message received: %@", userInfo);
+    // Send metrics when app is launched due to push notification
+    [AGPushAnalytics sendMetricsWhenAppAwoken:application.applicationState userInfo: userInfo];
+    completionHandler(UIBackgroundFetchResultNoData);
+}
+
+- (NSString*)pushMessageContent:(NSDictionary *)userInfo {
+    NSString* content;
+    if ([userInfo[@"aps"][@"alert"] isKindOfClass:[NSString class]]) {
+        content = userInfo[@"aps"][@"alert"];
+    } else {
+        content = userInfo[@"aps"][@"alert"][@"body"];
+    }
+    return content;
 }
 
 @end
