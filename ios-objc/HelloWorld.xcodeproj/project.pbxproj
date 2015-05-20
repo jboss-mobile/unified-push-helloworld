@@ -217,6 +217,13 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = aerogear;
 				TargetAttributes = {
+					48DD366318F3F2C1009A02E2 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					48DD368418F3F2C1009A02E2 = {
 						TestTargetID = 48DD366318F3F2C1009A02E2;
 					};
