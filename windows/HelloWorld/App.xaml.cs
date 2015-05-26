@@ -1,4 +1,5 @@
-﻿/*
+﻿using AeroGear.Push;
+/*
  * JBoss, Home of Professional Open Source.
  * Copyright Red Hat, Inc., and individual contributors
  *
@@ -113,6 +114,10 @@ namespace HelloWorld
                 }
             }
 
+            if (!string.IsNullOrEmpty(e.Arguments))
+            {
+                rootFrame.Navigate(typeof(MainPage), UrlQueryParser.ParseQueryString(e.Arguments)[Registration.PUSH_ID_KEY]);
+            }
             // Ensure the current window is active
             Window.Current.Activate();
         }
