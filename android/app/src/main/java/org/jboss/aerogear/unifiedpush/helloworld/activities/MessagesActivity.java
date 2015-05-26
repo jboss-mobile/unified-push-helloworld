@@ -19,6 +19,7 @@ package org.jboss.aerogear.unifiedpush.helloworld.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -38,7 +39,7 @@ import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageH
 
 import static org.jboss.aerogear.unifiedpush.helloworld.Constants.PUSH_REGISTER_NAME;
 
-public class MessagesActivity extends ActionBarActivity implements MessageHandler {
+public class MessagesActivity extends AppCompatActivity implements MessageHandler {
 
     private HelloWorldApplication application;
     private ListView listView;
