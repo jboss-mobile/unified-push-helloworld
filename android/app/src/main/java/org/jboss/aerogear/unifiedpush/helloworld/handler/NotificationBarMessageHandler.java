@@ -23,9 +23,11 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
 import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
+import org.jboss.aerogear.unifiedpush.helloworld.Constants;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity;
@@ -45,34 +47,37 @@ public class NotificationBarMessageHandler implements MessageHandler {
     public void onMessage(Context context, Bundle bundle) {
         this.context = context;
 
-        HelloWorldApplication application = (HelloWorldApplication) context.getApplicationContext();
-
-        UnifiedPushMetricsMessage metricsMessage = new UnifiedPushMetricsMessage(bundle);
-        application.sendMetric(metricsMessage, new MetricsCallback());
-
         String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
+
+        HelloWorldApplication application = (HelloWorldApplication) context.getApplicationContext();
         application.addMessage(message);
 
-        notify(message);
+        notify(bundle);
     }
 
-    private void notify(String message) {
+    private void notify(Bundle bundle) {
         NotificationManager mNotificationManager = (NotificationManager)
-            context.getSystemService(Context.NOTIFICATION_SERVICE);
+                context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
+        String pushMessageId = bundle.getString(UnifiedPushMessage.PUSH_MESSAGE_ID);
 
         Intent intent = new Intent(context, MessagesActivity.class)
-            .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
-            .putExtra(UnifiedPushMessage.ALERT_KEY, message);
+                .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
+                .putExtra(UnifiedPushMessage.ALERT_KEY, message)
+                .putExtra(UnifiedPushMessage.PUSH_MESSAGE_ID, pushMessageId)
+                .putExtra(Constants.PUSH_MESSAGE_FROM_BACKGROUND, true);
 
-        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-            .setAutoCancel(true)
-            .setSmallIcon(R.drawable.ic_launcher)
-            .setContentTitle(context.getString(R.string.app_name))
-            .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
-            .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-            .setContentText(message);
+                .setAutoCancel(true)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle(context.getString(R.string.app_name))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(message))
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setContentText(message);
 
         mBuilder.setContentIntent(contentIntent);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());

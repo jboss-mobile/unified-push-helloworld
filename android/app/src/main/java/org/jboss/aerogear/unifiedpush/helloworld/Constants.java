@@ -19,6 +19,7 @@ package org.jboss.aerogear.unifiedpush.helloworld;
 public interface Constants {
 
     String PUSH_REGISTER_NAME = "UNIFIED_PUSH_HELLOWORLD";
+    String PUSH_MESSAGE_FROM_BACKGROUND = "PUSH_MESSAGE_FROM_BACKGROUND";
 
     /**
      * This is the URL of the UnifiedPush Server.

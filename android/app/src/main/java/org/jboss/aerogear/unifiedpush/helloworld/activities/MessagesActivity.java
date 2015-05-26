@@ -30,6 +30,7 @@ import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
 import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
 import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
+import org.jboss.aerogear.unifiedpush.helloworld.Constants;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.callback.MetricsCallback;
@@ -49,6 +50,11 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
         setContentView(R.layout.messages);
 
         application = (HelloWorldApplication) getApplication();
+
+        if(getIntent().getBooleanExtra(Constants.PUSH_MESSAGE_FROM_BACKGROUND, false)) {
+            UnifiedPushMetricsMessage metricsMessage = new UnifiedPushMetricsMessage(getIntent().getExtras());
+            application.sendMetric(metricsMessage, new MetricsCallback());
+        }
 
         View emptyView = findViewById(R.id.empty);
         listView = (ListView) findViewById(R.id.messages);
