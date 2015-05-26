@@ -42,7 +42,6 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
 
     private HelloWorldApplication application;
     private ListView listView;
-    private static final String IGNORE_EXTRAS = "MessageActivity.ignore_extras";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +74,6 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
         super.onPause();
         RegistrarManager.unregisterMainThreadHandler(this);
         RegistrarManager.registerBackgroundThreadHandler(NotificationBarMessageHandler.instance);
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(IGNORE_EXTRAS, true);
     }
 
     @Override
