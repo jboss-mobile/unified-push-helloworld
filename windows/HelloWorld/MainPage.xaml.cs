@@ -35,10 +35,6 @@ namespace HelloWorld
     public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
         public ObservableCollection<string> messageList { get; private set; }
-        public string bellSlash
-        {
-            get { return "\uf1f6"; }
-        }
         public event PropertyChangedEventHandler PropertyChanged;
         public UiState registerState { get; set; }
 

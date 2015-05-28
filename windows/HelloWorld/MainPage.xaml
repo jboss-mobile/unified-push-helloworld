@@ -48,7 +48,7 @@
                 </ListView>
 
                 <StackPanel Visibility="{Binding registerState.noContent}">
-                    <TextBlock Text="{Binding bellSlash}"  FontFamily="/Assets/fontawesome-webfont.ttf#FontAwesome" FontSize="72" HorizontalAlignment="Center" Margin="0,63,0,0"/>
+                    <TextBlock Text="&#xf1f6;"  FontFamily="/Assets/fontawesome-webfont.ttf#FontAwesome" FontSize="72" HorizontalAlignment="Center" Margin="0,63,0,0"/>
                     <TextBlock Text="Nothing here yet." HorizontalAlignment="Center" FontSize="20"/>
                     <TextBlock Text="Send notifications from the console." HorizontalAlignment="Center"/>
                 </StackPanel>
