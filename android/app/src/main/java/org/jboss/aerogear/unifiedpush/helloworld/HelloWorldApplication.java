@@ -18,9 +18,17 @@ package org.jboss.aerogear.unifiedpush.helloworld;
 
 import android.app.Application;
 
+import org.jboss.aerogear.android.core.Callback;
+import org.jboss.aerogear.android.unifiedpush.PushRegistrar;
+import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
+import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushRegistrar;
+import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import static org.jboss.aerogear.unifiedpush.helloworld.Constants.PUSH_REGISTER_NAME;
 
 public class HelloWorldApplication extends Application {
 
@@ -38,6 +46,12 @@ public class HelloWorldApplication extends Application {
 
     public void addMessage(String newMessage) {
         messages.add(newMessage);
+    }
+
+    public void sendMetric(UnifiedPushMetricsMessage metricsMessage, Callback<UnifiedPushMetricsMessage> callback) {
+        AeroGearGCMPushRegistrar registrar = (AeroGearGCMPushRegistrar)
+                RegistrarManager.getRegistrar(PUSH_REGISTER_NAME);
+        registrar.sendMetrics(metricsMessage, callback);
     }
 
 }

@@ -19,20 +19,30 @@ package org.jboss.aerogear.unifiedpush.helloworld.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import org.jboss.aerogear.android.core.Callback;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
+import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushRegistrar;
+import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
+import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
+import org.jboss.aerogear.unifiedpush.helloworld.Constants;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
+import org.jboss.aerogear.unifiedpush.helloworld.callback.MetricsCallback;
 import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler;
 
-public class MessagesActivity extends ActionBarActivity implements MessageHandler {
+import static org.jboss.aerogear.unifiedpush.helloworld.Constants.PUSH_REGISTER_NAME;
+
+public class MessagesActivity extends AppCompatActivity implements MessageHandler {
 
     private HelloWorldApplication application;
     private ListView listView;
-    private static final String IGNORE_EXTRAS = "MessageActivity.ignore_extras";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,11 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
         setContentView(R.layout.messages);
 
         application = (HelloWorldApplication) getApplication();
+
+        if(getIntent().getBooleanExtra(Constants.PUSH_MESSAGE_FROM_BACKGROUND, false)) {
+            UnifiedPushMetricsMessage metricsMessage = new UnifiedPushMetricsMessage(getIntent().getExtras());
+            application.sendMetric(metricsMessage, new MetricsCallback());
+        }
 
         View emptyView = findViewById(R.id.empty);
         listView = (ListView) findViewById(R.id.messages);
@@ -63,14 +78,8 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(IGNORE_EXTRAS, true);
-    }
-
-    @Override
-    public void onMessage(Context context, Bundle message) {
-        addNewMessage(message);
+    public void onMessage(Context context, Bundle bundle) {
+        addNewMessage(bundle);
     }
 
     @Override
@@ -81,8 +90,9 @@ public class MessagesActivity extends ActionBarActivity implements MessageHandle
     public void onError() {
     }
 
-    private void addNewMessage(Bundle message) {
-        application.addMessage(message.getString("alert"));
+    private void addNewMessage(Bundle bundle) {
+        String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
+        application.addMessage(message);
         displayMessages();
     }
 
