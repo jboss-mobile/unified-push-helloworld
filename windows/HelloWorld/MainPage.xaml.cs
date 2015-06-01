@@ -83,13 +83,27 @@ namespace HelloWorld
 
             await StatusBar.GetForCurrentView().HideAsync();
 
-            PushConfig pushConfig = new PushConfig() { UnifiedPushUri = new Uri("https://unifiedpush-edewit.rhcloud.com/ag-push/"), VariantId = "c93fa2a7-70bb-4d34-a308-e0c0a688e6aa", VariantSecret = "fad4c664-1dd3-480a-b966-2a7e9c826af1" };
+            PushConfig pushConfig = new PushConfig()
+            {
+                UnifiedPushUri = new Uri("<pushServerURL e.g http(s)//host:port/context >"),
+                VariantId = "<variantID e.g. 1234456-234320>",
+                VariantSecret = "<variantSecret e.g. 1234456-234320>"
+            };
             Registration registration = new WnsRegistration();
             registration.PushReceivedEvent += HandleNotification;
             try
             {
                 await registration.Register(pushConfig);
-                onRegistrationComplete();
+
+                var param = e.Parameter as string;
+                if (!string.IsNullOrEmpty(param))
+                {
+                    await registration.SendMetricWhenAppLaunched(pushConfig, param);
+                }
+                else
+                {
+                    onRegistrationComplete();
+                }
             }
             catch (Exception ex)
             {
