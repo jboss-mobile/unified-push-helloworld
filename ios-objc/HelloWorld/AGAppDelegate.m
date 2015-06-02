@@ -90,13 +90,13 @@
     // WARNING: make sure, you start JBoss with the -b 0.0.0.0 option, to bind on all interfaces
     // from the iPhone, you can NOT use localhost :)
    
-    [[AGDeviceRegistration alloc] initWithServerURL:[NSURL URLWithString:@"<# URL of the running AeroGear UnifiedPush Server #>"]];
+    [[AGDeviceRegistration alloc] init];
 
     [registration registerWithClientInfo:^(id<AGClientDeviceInformation> clientInfo) {
         // You need to fill the 'Variant Id' together with the 'Variant Secret'
         // both received when performing the variant registration with the server.
-        [clientInfo setVariantID:@"<# Variant Id #>"];
-        [clientInfo setVariantSecret:@"<# Variant Secret #>"];
+        //[clientInfo setVariantID:@"<# Variant Id #>"];
+        //[clientInfo setVariantSecret:@"<# Variant Secret #>"];
 
         // if the deviceToken value is nil, no registration will be performed
         // and the failure callback is being invoked!
