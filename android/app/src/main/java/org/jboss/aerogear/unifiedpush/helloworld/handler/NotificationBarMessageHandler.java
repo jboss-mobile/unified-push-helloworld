@@ -26,12 +26,10 @@ import android.support.v4.app.NotificationCompat;
 
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
-import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
 import org.jboss.aerogear.unifiedpush.helloworld.Constants;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity;
-import org.jboss.aerogear.unifiedpush.helloworld.callback.MetricsCallback;
 
 public class NotificationBarMessageHandler implements MessageHandler {
 

@@ -19,7 +19,6 @@ package org.jboss.aerogear.unifiedpush.helloworld;
 import android.app.Application;
 
 import org.jboss.aerogear.android.core.Callback;
-import org.jboss.aerogear.android.unifiedpush.PushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
 import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
