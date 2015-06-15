@@ -21,30 +21,4 @@ public interface Constants {
     String PUSH_REGISTER_NAME = "UNIFIED_PUSH_HELLOWORLD";
     String PUSH_MESSAGE_FROM_BACKGROUND = "PUSH_MESSAGE_FROM_BACKGROUND";
 
-    /**
-     * This is the URL of the UnifiedPush Server.
-     *
-     * For example (your IP/hostname will differ):
-     * String UNIFIED_PUSH_URL = "http://192.168.1.157:8080/ag-push";
-     *
-     */
-    String UNIFIED_PUSH_URL = "";
-
-    /**
-     * The variant id which was generated when creating the variant with
-     * the UnifiedPush Server.
-     */
-    String VARIANT_ID = "";
-
-    /**
-     * The secret which was generated when creating the variant with
-     * the UnifiedPush Server
-     */
-    String SECRET = "";
-
-    /**
-     * Is the project number given in Googles APIs Console.
-     */
-    String GCM_SENDER_ID = "";
-
 }
