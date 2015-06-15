@@ -18,7 +18,7 @@ package org.jboss.aerogear.unifiedpush.helloworld.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -30,7 +30,7 @@ import org.jboss.aerogear.unifiedpush.helloworld.R;
 
 import static org.jboss.aerogear.unifiedpush.helloworld.Constants.PUSH_REGISTER_NAME;
 
-public class RegisterActivity extends ActionBarActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = RegisterActivity.class.getSimpleName();
 
