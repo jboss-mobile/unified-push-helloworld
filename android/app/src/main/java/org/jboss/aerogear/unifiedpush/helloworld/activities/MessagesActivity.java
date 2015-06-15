@@ -27,7 +27,6 @@ import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
 import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
 import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
-import org.jboss.aerogear.unifiedpush.helloworld.Constants;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.callback.MetricsCallback;
@@ -45,7 +44,7 @@ public class MessagesActivity extends AppCompatActivity implements MessageHandle
 
         application = (HelloWorldApplication) getApplication();
 
-        if(getIntent().getBooleanExtra(Constants.PUSH_MESSAGE_FROM_BACKGROUND, false)) {
+        if(getIntent().getBooleanExtra(HelloWorldApplication.PUSH_MESSAGE_FROM_BACKGROUND, false)) {
             UnifiedPushMetricsMessage metricsMessage = new UnifiedPushMetricsMessage(getIntent().getExtras());
             application.sendMetric(metricsMessage, new MetricsCallback());
         }

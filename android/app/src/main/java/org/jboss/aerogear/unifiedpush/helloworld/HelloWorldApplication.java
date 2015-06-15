@@ -27,9 +27,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.jboss.aerogear.unifiedpush.helloworld.Constants.PUSH_REGISTER_NAME;
-
 public class HelloWorldApplication extends Application {
+
+    public static final String PUSH_REGISTER_NAME = "UNIFIED_PUSH_HELLOWORLD";
+    public static final String PUSH_MESSAGE_FROM_BACKGROUND = "PUSH_MESSAGE_FROM_BACKGROUND";
 
     private List<String> messages;
 
