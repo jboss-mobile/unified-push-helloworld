@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AeroGearPush-Swift.h</key>
 		<data>
-		Cl7+1iy+7IPdwie/uMxyuyqjtdQ=
+		sWHh2yehWOkiS7IIE/PagN+oxU0=
 		</data>
 		<key>Headers/push-sdk-swift.h</key>
 		<data>
@@ -14,23 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Jx+P6ZhFoqlm2ZW1S+K6C3mArOc=
+		zdY3o+jklzUU4jfPyZoEMoBqS1w=
 		</data>
 		<key>Modules/AeroGearPush.swiftmodule/arm.swiftdoc</key>
 		<data>
-		U2wG5CSCeTioO098Er0qbEhMpOw=
+		+/8yWvvidDNEviXRLXRWaBgPo+Q=
 		</data>
 		<key>Modules/AeroGearPush.swiftmodule/arm.swiftmodule</key>
 		<data>
-		3ZhNCft8RuLM5IxaN6k5r7/Ycbw=
+		vzB4OAwozW09bX377ra/NLD/gds=
 		</data>
 		<key>Modules/AeroGearPush.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		4w2RuV2PECZ2SJAxMz5kw/iIwRA=
+		cn+f7JTnfy9RIojJQR35k0+uYP8=
 		</data>
 		<key>Modules/AeroGearPush.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		V1IZe9T8LM7CXZu+3hy5/sUHbN4=
+		2xkcbwMDbcQ0UOmdW57N8vOF5wA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -41,7 +41,7 @@
 	<dict>
 		<key>Headers/AeroGearPush-Swift.h</key>
 		<data>
-		Cl7+1iy+7IPdwie/uMxyuyqjtdQ=
+		sWHh2yehWOkiS7IIE/PagN+oxU0=
 		</data>
 		<key>Headers/push-sdk-swift.h</key>
 		<data>
@@ -49,19 +49,19 @@
 		</data>
 		<key>Modules/AeroGearPush.swiftmodule/arm.swiftdoc</key>
 		<data>
-		U2wG5CSCeTioO098Er0qbEhMpOw=
+		+/8yWvvidDNEviXRLXRWaBgPo+Q=
 		</data>
 		<key>Modules/AeroGearPush.swiftmodule/arm.swiftmodule</key>
 		<data>
-		3ZhNCft8RuLM5IxaN6k5r7/Ycbw=
+		vzB4OAwozW09bX377ra/NLD/gds=
 		</data>
 		<key>Modules/AeroGearPush.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		4w2RuV2PECZ2SJAxMz5kw/iIwRA=
+		cn+f7JTnfy9RIojJQR35k0+uYP8=
 		</data>
 		<key>Modules/AeroGearPush.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		V1IZe9T8LM7CXZu+3hy5/sUHbN4=
+		2xkcbwMDbcQ0UOmdW57N8vOF5wA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>

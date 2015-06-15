@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
     <key>serverURL</key>
-    <string><# URL of the running AeroGear UnifiedPush Server #></string>
+    <string>URL of the running AeroGear UnifiedPush Server</string>
     <key>variantID</key>
-    <string><# Variant Id #></string>
+    <string>Variant Id</string>
     <key>variantSecret</key>
-    <string><# Variant Secret #></string>
+    <string>Variant Secret</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
