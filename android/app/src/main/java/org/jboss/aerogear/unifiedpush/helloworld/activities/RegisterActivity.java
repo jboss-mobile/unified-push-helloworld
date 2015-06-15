@@ -28,7 +28,7 @@ import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
 import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushJsonConfiguration;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 
-import static org.jboss.aerogear.unifiedpush.helloworld.Constants.PUSH_REGISTER_NAME;
+import static org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication.PUSH_REGISTER_NAME;
 
 public class RegisterActivity extends AppCompatActivity {
 
