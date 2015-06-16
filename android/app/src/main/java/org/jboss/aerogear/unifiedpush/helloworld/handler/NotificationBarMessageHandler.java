@@ -46,10 +46,12 @@ public class NotificationBarMessageHandler implements MessageHandler {
 
         String message = bundle.getString(UnifiedPushMessage.ALERT_KEY);
 
-        HelloWorldApplication application = (HelloWorldApplication) context.getApplicationContext();
-        application.addMessage(message);
+        if(message != null) {
+            HelloWorldApplication application = (HelloWorldApplication) context.getApplicationContext();
+            application.addMessage(message);
 
-        notify(bundle);
+            notify(bundle);
+        }
     }
 
     private void notify(Bundle bundle) {
