@@ -16,5 +16,6 @@ allprojects {
     repositories {
         jcenter()
         mavenLocal()
+        maven { url "https://repository.jboss.org/nexus/content/repositories/jboss_releases_staging_profile-5783/" }
     }
 }
