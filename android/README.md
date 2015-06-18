@@ -21,8 +21,8 @@ When the application is deployed to an Android device, the push functionality en
 * [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle 2.2.1](https://www.gradle.org/downloads)
 * Latest [Android SDK](https://developer.android.com/sdk/index.html) 
-* [Platform version 21](http://developer.android.com/tools/revisions/platforms.html)
-* [Build Tools 21.1.2](https://developer.android.com/tools/revisions/build-tools.html)
+* [Platform version 22](http://developer.android.com/tools/revisions/platforms.html)
+* [Build Tools 22.0.1](https://developer.android.com/tools/revisions/build-tools.html)
 * Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html) 
 * [Google Play Services](http://developer.android.com/google/play-services/index.html)
 
@@ -44,13 +44,17 @@ Second, you must register the application and an Android variant of the applicat
 ### 2. Customize and Build Application
 The project source code must be customized with the unique metadata assigned to the application variant by the AeroGear UnifiedPush Server and GCM. 
 
-1. Open ```/path/to/helloworld/android/app/src/main/java/org/jboss/aerogear/unifiedpush/helloworld/Constants.java``` for editing.
+1. Open ```/path/to/helloworld/android/app/src/main/assets/push-config.json``` for editing.
 2. Enter the application variant values allocated by the AeroGear UnifiedPush Server and GCM for the following constants:
-```java
-String UNIFIED_PUSH_URL = "";
-String VARIANT_ID = "";
-String SECRET = "";
-String GCM_SENDER_ID = "";
+```js
+{
+  "pushServerURL": "pushServerURL (e.g http(s)//host:port/context)",
+  "android": {
+    "senderID": "senderID (e.g Google Project ID only for android)",
+    "variantID": "variantID (e.g. 1234456-234320)",
+    "variantSecret": "variantSecret (e.g. 1234456-234320)"
+  }
+}
 ```
 3. Save the file.
 4. Build and launch
@@ -92,18 +96,17 @@ You can send a push notification to your device using the AeroGear UnifiedPush S
 ```RegisterActivity``` is invoked right after a successful application login. The Activity life cycle ```onCreate``` is called first invoking the ```register``` method — attempting to register the application to receive push notifications.
 
 ```java
-PushConfig config = new PushConfig(new URI(UNIFIED_PUSH_URL), GCM_SENDER_ID);
-config.setVariantID(VARIANT_ID);
-config.setSecret(SECRET);
+RegistrarManager.config(PUSH_REGISTER_NAME, AeroGearGCMPushJsonConfiguration.class)
+        .loadConfigJson(getApplicationContext())
+        .asRegistrar();
 
-Registrations registrations = new Registrations();
-PushRegistrar registrar = registrations.push("register", config);
+PushRegistrar registrar = RegistrarManager.getRegistrar(PUSH_REGISTER_NAME);
 registrar.register(getApplicationContext(), new Callback<Void>() {
     @Override
     public void onSuccess(Void data) {
         Toast.makeText(getApplicationContext(),
-                getApplicationContext().getString(R.string.registration_successful),
-                Toast.LENGTH_LONG).show();
+            getApplicationContext().getString(R.string.registration_successful),
+            Toast.LENGTH_LONG).show();
 
         Intent intent = new Intent(getApplicationContext(), MessagesActivity.class);
         startActivity(intent);
@@ -112,6 +115,7 @@ registrar.register(getApplicationContext(), new Callback<Void>() {
 
     @Override
     public void onFailure(Exception e) {
+        Log.e(TAG, e.getMessage());
         Toast.makeText(getApplicationContext(),
                 getApplication().getString(R.string.registration_error),
                 Toast.LENGTH_LONG).show();
