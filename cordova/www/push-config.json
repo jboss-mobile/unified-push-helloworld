@@ -1,5 +1,6 @@
 {
     "pushServerURL": "<pushServerURL e.g http(s)//host:port/context >",
+    "sendMetricInfo": true,
     "android": {
         "senderID": "<senderID e.g Google Project ID only for android>",
         "variantID": "<variantID e.g. 1234456-234320>",
