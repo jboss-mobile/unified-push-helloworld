@@ -18,26 +18,19 @@ package org.jboss.aerogear.unifiedpush.helloworld.activities;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import org.jboss.aerogear.android.core.Callback;
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
-import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
 import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
-import org.jboss.aerogear.unifiedpush.helloworld.Constants;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.callback.MetricsCallback;
 import org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler;
-
-import static org.jboss.aerogear.unifiedpush.helloworld.Constants.PUSH_REGISTER_NAME;
 
 public class MessagesActivity extends AppCompatActivity implements MessageHandler {
 
@@ -51,7 +44,7 @@ public class MessagesActivity extends AppCompatActivity implements MessageHandle
 
         application = (HelloWorldApplication) getApplication();
 
-        if(getIntent().getBooleanExtra(Constants.PUSH_MESSAGE_FROM_BACKGROUND, false)) {
+        if(getIntent().getBooleanExtra(HelloWorldApplication.PUSH_MESSAGE_FROM_BACKGROUND, false)) {
             UnifiedPushMetricsMessage metricsMessage = new UnifiedPushMetricsMessage(getIntent().getExtras());
             application.sendMetric(metricsMessage, new MetricsCallback());
         }

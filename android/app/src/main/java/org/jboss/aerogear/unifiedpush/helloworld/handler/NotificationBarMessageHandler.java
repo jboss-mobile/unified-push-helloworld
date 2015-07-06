@@ -26,12 +26,9 @@ import android.support.v4.app.NotificationCompat;
 
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
-import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
-import org.jboss.aerogear.unifiedpush.helloworld.Constants;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 import org.jboss.aerogear.unifiedpush.helloworld.activities.MessagesActivity;
-import org.jboss.aerogear.unifiedpush.helloworld.callback.MetricsCallback;
 
 public class NotificationBarMessageHandler implements MessageHandler {
 
@@ -66,7 +63,7 @@ public class NotificationBarMessageHandler implements MessageHandler {
                 .addFlags(PendingIntent.FLAG_UPDATE_CURRENT)
                 .putExtra(UnifiedPushMessage.ALERT_KEY, message)
                 .putExtra(UnifiedPushMessage.PUSH_MESSAGE_ID, pushMessageId)
-                .putExtra(Constants.PUSH_MESSAGE_FROM_BACKGROUND, true);
+                .putExtra(HelloWorldApplication.PUSH_MESSAGE_FROM_BACKGROUND, true);
 
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);

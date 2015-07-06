@@ -18,22 +18,19 @@ package org.jboss.aerogear.unifiedpush.helloworld.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
+
 import org.jboss.aerogear.android.core.Callback;
 import org.jboss.aerogear.android.unifiedpush.PushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
-import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushConfiguration;
-import org.jboss.aerogear.unifiedpush.helloworld.Constants;
+import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushJsonConfiguration;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 
-import java.net.URI;
-import java.net.URISyntaxException;
+import static org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication.PUSH_REGISTER_NAME;
 
-import static org.jboss.aerogear.unifiedpush.helloworld.Constants.*;
-
-public class RegisterActivity extends ActionBarActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private static final String TAG = RegisterActivity.class.getSimpleName();
 
@@ -47,51 +44,33 @@ public class RegisterActivity extends ActionBarActivity {
 
     private void register() {
 
-        try {
+        RegistrarManager.config(PUSH_REGISTER_NAME, AeroGearGCMPushJsonConfiguration.class)
+                .loadConfigJson(getApplicationContext())
+                .asRegistrar();
 
-            RegistrarManager.config(PUSH_REGISTER_NAME, AeroGearGCMPushConfiguration.class)
-                    .setPushServerURI(new URI(UNIFIED_PUSH_URL))
-                    .setSenderIds(GCM_SENDER_ID)
-                    .setVariantID(VARIANT_ID)
-                    .setSecret(SECRET)
-                    .asRegistrar();
+        PushRegistrar registrar = RegistrarManager.getRegistrar(PUSH_REGISTER_NAME);
+        registrar.register(getApplicationContext(), new Callback<Void>() {
+            @Override
+            public void onSuccess(Void data) {
+                Toast.makeText(getApplicationContext(),
+                    getApplicationContext().getString(R.string.registration_successful),
+                    Toast.LENGTH_LONG).show();
 
-            PushRegistrar registrar = RegistrarManager.getRegistrar(PUSH_REGISTER_NAME);
-            registrar.register(getApplicationContext(), new Callback<Void>() {
-                @Override
-                public void onSuccess(Void data) {
-                    Toast.makeText(getApplicationContext(),
-                        getApplicationContext().getString(R.string.registration_successful),
+                Intent intent = new Intent(getApplicationContext(), MessagesActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Log.e(TAG, e.getMessage());
+                Toast.makeText(getApplicationContext(),
+                        getApplication().getString(R.string.registration_error),
                         Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
 
-                    Intent intent = new Intent(getApplicationContext(), MessagesActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-
-                @Override
-                public void onFailure(Exception e) {
-                    Log.e(TAG, e.getMessage());
-                    Toast.makeText(getApplicationContext(),
-                            getApplication().getString(R.string.registration_error),
-                            Toast.LENGTH_LONG).show();
-                    finish();
-                }
-            });
-
-        } catch (IllegalArgumentException e) {
-            handleException(e);
-        } catch (URISyntaxException e) {
-            handleException(e);
-        }
-
-    }
-
-    private void handleException(Exception e) {
-        String msg = getApplication().getString(R.string.ups_url_parse_error, UNIFIED_PUSH_URL);
-        Log.e(TAG, msg, e);
-        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-        finish();
     }
 
 }
