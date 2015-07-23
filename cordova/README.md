@@ -21,7 +21,7 @@ When the application is deployed to an Android or iOS device, the push functiona
 
 The Cordova command line tooling is based on node.js so first you'll need to [install node](http://nodejs.org/download/), then you can install Cordova by executing:
 ```shell
-npm install -g Cordova
+npm install -g cordova
 ```
 
 To deploy on iOS you need to install the ios-deploy package as well
