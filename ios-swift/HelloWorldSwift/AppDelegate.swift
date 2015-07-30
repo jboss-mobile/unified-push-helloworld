@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         // time to register user with the "AeroGear UnifiedPush Server"
-        let device = AGDeviceRegistration()
+        let device = AGDeviceRegistration(config: "pushconfig")
         // perform registration of this device
         device.registerWithClientInfo({ (clientInfo: AGClientDeviceInformation!) in
             

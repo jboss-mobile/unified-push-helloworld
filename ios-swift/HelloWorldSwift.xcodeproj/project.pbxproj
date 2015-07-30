@@ -12,6 +12,7 @@
 		4838934A194A35BF00C1C184 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48389348194A35BF00C1C184 /* Main.storyboard */; };
 		4838934C194A35BF00C1C184 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4838934B194A35BF00C1C184 /* Images.xcassets */; };
 		48389358194A35BF00C1C184 /* HelloWorldSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48389357194A35BF00C1C184 /* HelloWorldSwiftTests.swift */; };
+		488C643D1B6A710F0045E535 /* pushconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 488C643C1B6A710F0045E535 /* pushconfig.plist */; };
 		6F7D0BF31A702C8900FDEB50 /* AeroGearPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7D0BF21A702C8900FDEB50 /* AeroGearPush.framework */; };
 		6F7D0BF41A702D5800FDEB50 /* AeroGearPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7D0BF21A702C8900FDEB50 /* AeroGearPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		48389351194A35BF00C1C184 /* HelloWorldSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloWorldSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48389356194A35BF00C1C184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48389357194A35BF00C1C184 /* HelloWorldSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldSwiftTests.swift; sourceTree = "<group>"; };
+		488C643C1B6A710F0045E535 /* pushconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pushconfig.plist; sourceTree = "<group>"; };
 		6F7D0BF21A702C8900FDEB50 /* AeroGearPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AeroGearPush.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				48389343194A35BF00C1C184 /* Info.plist */,
+				488C643C1B6A710F0045E535 /* pushconfig.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 		48389337194A35BF00C1C184 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = aerogear;
 				TargetAttributes = {
@@ -215,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4838934A194A35BF00C1C184 /* Main.storyboard in Resources */,
+				488C643D1B6A710F0045E535 /* pushconfig.plist in Resources */,
 				4838934C194A35BF00C1C184 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
