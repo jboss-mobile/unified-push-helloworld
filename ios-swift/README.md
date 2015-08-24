@@ -15,8 +15,8 @@ This project is a very simple helloworld, to show how to get started with the Un
 
 System requirements
 -------------------
-- iOS 8.X
-- Xcode version 6.3
+- iOS 8.X, iOS 9.X
+- Xcode version 7.0
 
 Configure
 ---------
