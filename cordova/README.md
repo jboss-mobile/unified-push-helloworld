@@ -75,7 +75,7 @@ cordova platform add <android or ios>
 ###4. Add the plugin
 
 ```shell
-cordova plugin add org.jboss.aerogear.cordova.push
+cordova plugin add aerogear-cordova-push
 ```
 
 ###5. Test Application
