@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // bootstrap the registration process by asking the user to 'Accept' and then register with APNS thereafter
-        let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil)
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
         
@@ -98,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             success: {
                 // successfully registered!
-                println("successfully registered with UPS!")
+                print("successfully registered with UPS!")
                 
                 // send NSNotification for success_registered, will be handle by registered AGViewController
                 let notification = NSNotification(name:"success_registered", object: nil)
@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             },
             
             failure: {(error: NSError!) in
-                println("Error Registering with UPS: \(error.localizedDescription)")
+                print("Error Registering with UPS: \(error.localizedDescription)")
                 
                 let notification = NSNotification(name:"error_register", object: nil)
                 NSNotificationCenter.defaultCenter().postNotification(notification)
@@ -116,14 +116,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         let notification:NSNotification = NSNotification(name:"error_register", object:nil, userInfo:nil)
         NSNotificationCenter.defaultCenter().postNotification(notification)
-        println("Unified Push registration Error \(error)")
+        print("Unified Push registration Error \(error)")
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject: AnyObject], fetchCompletionHandler: (UIBackgroundFetchResult) -> Void) {
         // When a message is received, send NSNotification, would be handled by registered ViewController
         let notification:NSNotification = NSNotification(name:"message_received", object:nil, userInfo:userInfo)
         NSNotificationCenter.defaultCenter().postNotification(notification)
-        println("UPS message received: \(userInfo)")
+        print("UPS message received: \(userInfo)")
         
         // Send metrics when app is launched due to push notification
         AGPushAnalytics.sendMetricsWhenAppAwoken(application.applicationState, userInfo: userInfo)

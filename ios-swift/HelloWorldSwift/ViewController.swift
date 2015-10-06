@@ -35,7 +35,7 @@ class ViewController: UITableViewController {
     }
    
     func registered() {
-        println("registered")
+        print("registered")
         
         // workaround to get messages when app was not running
         let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults();
@@ -61,7 +61,7 @@ class ViewController: UITableViewController {
     }
     
     func messageReceived(notification: NSNotification) {
-        println("received")
+        print("received")
 
         let obj:AnyObject? = notification.userInfo!["aps"]!["alert"]
         
@@ -82,11 +82,11 @@ class ViewController: UITableViewController {
         
         // determine current state
         if (!isRegistered) {  // not yet registered
-            let progress = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("ProgressViewController") as! UIViewController
-            bgView = progress.view
+            let progress = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("ProgressViewController")
+            if let progress = progress {bgView = progress.view}
         } else if (messages.count == 0) {  // registered but no notification received yet
-            let empty = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("EmptyViewController") as! UIViewController
-            bgView = empty.view
+            let empty = self.navigationController?.storyboard?.instantiateViewControllerWithIdentifier("EmptyViewController")
+            if let empty = empty {bgView = empty.view}
         }
         
         // set the background view if needed
@@ -110,7 +110,7 @@ class ViewController: UITableViewController {
             self.tableView.separatorStyle = .SingleLine
         }
 
-        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(AGNotificationCellIdentifier) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(AGNotificationCellIdentifier)!
         cell.textLabel?.text = messages[indexPath.row]
         
         return cell
