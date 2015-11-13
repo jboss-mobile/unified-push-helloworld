@@ -11,12 +11,12 @@ Source: https://github.com/aerogear/aerogear-push-helloworld/ios-swift
 What is it?
 -----------
 
-This project is a very simple helloworld, to show how to get started with the UnifiedPush Server on iOS. The demo is implemented in [Swift](https://developer.apple.com/swift/) and uses the push-sdk [Swift|https://github.com/aerogear/aerogear-ios-push/tree/swift] port for registering to the UnifiedPush Server. 
+This project is a very simple helloworld, to show how to get started with the UnifiedPush Server on iOS. The demo is implemented in [Swift 2.1](https://developer.apple.com/swift/) and uses the push-sdk [Swift|https://github.com/aerogear/aerogear-ios-push/tree/swift] port for registering to the UnifiedPush Server. 
 
 System requirements
 -------------------
 - iOS 8.X, iOS 9.X
-- Xcode version 7.0
+- Xcode version 7.1+
 
 Configure
 ---------
