@@ -71,7 +71,7 @@ public class MessagesActivity extends AppCompatActivity implements MessageHandle
     }
 
     @Override
-    public void onMessage(Bundle bundle) {
+    public void onMessage(Context context, Bundle bundle) {
         addNewMessage(bundle);
     }
 
