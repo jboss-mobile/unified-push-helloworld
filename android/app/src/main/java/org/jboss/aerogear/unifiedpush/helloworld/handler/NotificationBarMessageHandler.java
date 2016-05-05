@@ -80,5 +80,12 @@ public class NotificationBarMessageHandler implements MessageHandler {
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
 
+    @Override
+    public void onDeleteMessage(Context context, Bundle arg0) {
+    }
+
+    @Override
+    public void onError() {
+    }
 
 }
