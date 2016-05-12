@@ -36,7 +36,7 @@ Replace the bundleId with your bundleId (the one associated with your certificat
 If you want to change your bundleId later on, you will still have to run a ```cordova platform rm ios``` followed by ```cordova platform add ios``` to change the Xcode project template.
 
 #### Android
-To deploy and run Cordova applications on Android the Apache Ant tool needs to be [installed](http://ant.apache.org/manual/install.html).
+To deploy and run Cordova applications on Android the Android SDK needs to be [installed](http://developer.android.com/sdk/installing/index.html?pkg=tools).
 
 
 ###1. Register Application with Push Services
