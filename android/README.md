@@ -11,7 +11,7 @@ Source: https://github.com/aerogear/aerogear-push-helloworld/tree/master/android
 ## What is it?
 The ```helloworld``` project demonstrates how to include basic push functionality in Android applications.
 
-This simple project consists of a ready-to-build Android application. Before building the application, you must register the Android variant of the application with a running AeroGear UnifiedPush Server instance and Google Cloud Messaging for Android. The resulting unique IDs and other parameters must then be inserted into the application source code. After this is complete, the application can be built and deployed to Android devices. 
+This simple project consists of a ready-to-build Android application. Before building the application, you must register the Android variant of the application with a running AeroGear UnifiedPush Server instance and Google Cloud Messaging for Android. The resulting unique IDs and other parameters must then be inserted into the application source code. After this is complete, the application can be built and deployed to Android devices.
 
 When the application is deployed to an Android device, the push functionality enables the device to register with the running AeroGear UnifiedPush Server instance and receive push notifications.
 
@@ -20,16 +20,16 @@ When the application is deployed to an Android device, the push functionality en
 ### 0. System Requirements
 * [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle 2.2.1](https://www.gradle.org/downloads)
-* Latest [Android SDK](https://developer.android.com/sdk/index.html) 
+* Latest [Android SDK](https://developer.android.com/sdk/index.html)
 * [Platform version 22](http://developer.android.com/tools/revisions/platforms.html)
 * [Build Tools 22.0.1](https://developer.android.com/tools/revisions/build-tools.html)
-* Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html) 
+* Latest [Android Support Library](http://developer.android.com/tools/support-library/index.html)
 * [Google Play Services](http://developer.android.com/google/play-services/index.html)
 
 ### 1. Register Application with Push Services
-First, you must register the application with Google Cloud Messaging for Android and enable access to the Google Cloud Messaging for Android APIs and Google APIs. This ensures access to the APIs by the UnifiedPush Server when it routes push notification requests from the application to the GCM. Registering an application with GCM requires that you have a Google account. For information on setting your Google account to use Google’s services, follow the [Google Setup Guide](http://aerogear.org/docs/unifiedpush/aerogear-push-android/google-setup/).
+First, you must register the application with Google Cloud Messaging for Android and enable access to the Google Cloud Messaging for Android APIs and Google APIs. This ensures access to the APIs by the UnifiedPush Server when it routes push notification requests from the application to the GCM. Registering an application with GCM requires that you have a Google account. For information on setting your Google account to use Google’s services, follow the [Google Setup Guide](https://aerogear.org/docs/unifiedpush/aerogear-push-android/guides/#google-setup).
 
-Second, you must register the application and an Android variant of the application with the UnifiedPush Server. This requires a running AeroGear UnifiedPush Server instance and uses the unique metadata assigned to the application by GCM. For information on installing the AeroGear UnifiedPush Server, see the README distributed with the AeroGear UnifiedPush Server or the [UPS guide](http://aerogear.org/docs/unifiedpush/ups_userguide/).
+Second, you must register the application and an Android variant of the application with the UnifiedPush Server. This requires a running AeroGear UnifiedPush Server instance and uses the unique metadata assigned to the application by GCM. For information on installing the AeroGear UnifiedPush Server, see the README distributed with the AeroGear UnifiedPush Server or the [UPS guide](https://aerogear.org/docs/unifiedpush/ups_userguide/index/).
 
 1. Log into the UnifiedPush Server console.
 2. In the ```Applications``` view, click ```Create Application```.
@@ -42,7 +42,7 @@ Second, you must register the application and an Android variant of the applicat
 9. When created, expand the variant name and make note of the ```Server URL```, ```Variant ID```, and ```Secret```.
 
 ### 2. Customize and Build Application
-The project source code must be customized with the unique metadata assigned to the application variant by the AeroGear UnifiedPush Server and GCM. 
+The project source code must be customized with the unique metadata assigned to the application variant by the AeroGear UnifiedPush Server and GCM.
 
 1. Open ```/path/to/helloworld/android/app/src/main/assets/push-config.json``` for editing.
 2. Enter the application variant values allocated by the AeroGear UnifiedPush Server and GCM for the following constants:
