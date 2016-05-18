@@ -41,7 +41,7 @@ To deploy and run Cordova applications on Android the Android SDK needs to be [i
 
 ###1. Register Application with Push Services
 
-For the configuration and registration of Android or iOS Applications with PushServices, please refer to the specific guides inside [helloworld-push-android](https://github.com/aerogear/aerogear-push-helloworld/tree/master/android#2-register-application-with-push-services) and [helloworld-push-ios](https://github.com/aerogear/aerogear-push-helloworld/tree/master/ios#2-register-application-with-push-services).
+For the configuration and registration of Android or iOS Applications with PushServices, please refer to the specific guides inside [helloworld-push-android](../android#1-register-application-with-push-services) and [helloworld-push-ios](../ios-objc#2-register-application-with-push-services).
 
 ###2. Customize and Build Application
 In ```www/push-config.json``` change ```"pushServerURL"``` with the url of your AeroGear UnifiedPush Server instance. You also need to change ```"senderID"```, ```"variantID"``` and ```"variantSecret"``` with the values assigned by UnifiedPush Server and GCM or APNS:
