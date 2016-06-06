@@ -25,7 +25,7 @@ import android.widget.ListView;
 
 import org.jboss.aerogear.android.unifiedpush.MessageHandler;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
-import org.jboss.aerogear.android.unifiedpush.gcm.UnifiedPushMessage;
+import org.jboss.aerogear.android.unifiedpush.fcm.UnifiedPushMessage;
 import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
 import org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication;
 import org.jboss.aerogear.unifiedpush.helloworld.R;

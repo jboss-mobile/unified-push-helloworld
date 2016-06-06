@@ -25,7 +25,7 @@ import android.widget.Toast;
 import org.jboss.aerogear.android.core.Callback;
 import org.jboss.aerogear.android.unifiedpush.PushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
-import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushJsonConfiguration;
+import org.jboss.aerogear.android.unifiedpush.fcm.AeroGearFCMPushJsonConfiguration;
 import org.jboss.aerogear.unifiedpush.helloworld.R;
 
 import static org.jboss.aerogear.unifiedpush.helloworld.HelloWorldApplication.PUSH_REGISTER_NAME;
@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void register() {
 
-        RegistrarManager.config(PUSH_REGISTER_NAME, AeroGearGCMPushJsonConfiguration.class)
+        RegistrarManager.config(PUSH_REGISTER_NAME, AeroGearFCMPushJsonConfiguration.class)
                 .loadConfigJson(getApplicationContext())
                 .asRegistrar();
 
