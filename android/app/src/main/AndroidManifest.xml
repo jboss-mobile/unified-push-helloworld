@@ -27,6 +27,9 @@
         android:label="@string/app_name"
         android:name=".HelloWorldApplication"
         android:allowBackup="false">
+
+        <meta-data android:name="DEFAULT_MESSAGE_HANDLER_KEY" android:value="org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler"/>
+
         <activity android:name=".activities.SplashScreenActivity"
             android:theme="@style/MyTheme.Fullscreen">
             <intent-filter>
@@ -44,20 +47,7 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <service android:name="org.jboss.aerogear.android.unifiedpush.fcm.UnifiedPushInstanceIDListenerService" android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
 
-        <service
-            android:name="org.jboss.aerogear.android.unifiedpush.fcm.AeroGearFCMMessageReceiver">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-
-            <meta-data android:name="DEFAULT_MESSAGE_HANDLER_KEY" android:value="org.jboss.aerogear.unifiedpush.helloworld.handler.NotificationBarMessageHandler"/>
-        </service>
     </application>
 
 </manifest>
