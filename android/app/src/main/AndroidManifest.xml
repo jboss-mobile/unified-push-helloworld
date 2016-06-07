@@ -19,7 +19,6 @@
     package="org.jboss.aerogear.unifiedpush.helloworld"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 
@@ -52,8 +51,7 @@
         </service>
 
         <service
-            android:name="org.jboss.aerogear.android.unifiedpush.fcm.AeroGearFCMMessageReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            android:name="org.jboss.aerogear.android.unifiedpush.fcm.AeroGearFCMMessageReceiver">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
