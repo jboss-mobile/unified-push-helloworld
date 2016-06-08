@@ -20,7 +20,7 @@ import android.app.Application;
 
 import org.jboss.aerogear.android.core.Callback;
 import org.jboss.aerogear.android.unifiedpush.RegistrarManager;
-import org.jboss.aerogear.android.unifiedpush.gcm.AeroGearGCMPushRegistrar;
+import org.jboss.aerogear.android.unifiedpush.fcm.AeroGearFCMPushRegistrar;
 import org.jboss.aerogear.android.unifiedpush.metrics.UnifiedPushMetricsMessage;
 
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class HelloWorldApplication extends Application {
     }
 
     public void sendMetric(UnifiedPushMetricsMessage metricsMessage, Callback<UnifiedPushMetricsMessage> callback) {
-        AeroGearGCMPushRegistrar registrar = (AeroGearGCMPushRegistrar)
+        AeroGearFCMPushRegistrar registrar = (AeroGearFCMPushRegistrar)
                 RegistrarManager.getRegistrar(PUSH_REGISTER_NAME);
         registrar.sendMetrics(metricsMessage, callback);
     }
