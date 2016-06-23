@@ -38,6 +38,7 @@ If you want to change your bundleId later on, you will still have to run a ```co
 #### Android
 To deploy and run Cordova applications on Android the Android SDK needs to be [installed](http://developer.android.com/sdk/installing/index.html?pkg=tools).
 
+You need to have a valid Firebase Cloud Messaging project setup. Download the ```google-services.json``` file and put it into the ```www``` directory. You also need to use the package from the Firebase Cloud Messaging configuration inside of the config.xml file. At the root of this project, change the id attribute of the ```widget``` node, to match your package.
 
 ###1. Register Application with Push Services
 
