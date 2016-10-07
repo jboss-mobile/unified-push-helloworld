@@ -29,9 +29,9 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         // register to be notified when state changes
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "registered", name: "success_registered", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "errorRegistration", name: "error_register", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "messageReceived:", name: "message_received", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.registered), name: "success_registered", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.errorRegistration), name: "error_register", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.messageReceived(_:)), name: "message_received", object: nil)
     }
    
     func registered() {
