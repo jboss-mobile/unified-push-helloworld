@@ -13,8 +13,7 @@
 		4838934C194A35BF00C1C184 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4838934B194A35BF00C1C184 /* Images.xcassets */; };
 		48389358194A35BF00C1C184 /* HelloWorldSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48389357194A35BF00C1C184 /* HelloWorldSwiftTests.swift */; };
 		488C643D1B6A710F0045E535 /* pushconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 488C643C1B6A710F0045E535 /* pushconfig.plist */; };
-		6F7D0BF31A702C8900FDEB50 /* AeroGearPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7D0BF21A702C8900FDEB50 /* AeroGearPush.framework */; };
-		6F7D0BF41A702D5800FDEB50 /* AeroGearPush.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7D0BF21A702C8900FDEB50 /* AeroGearPush.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96E4C3C35AAFCCA052588D6F /* Pods_HelloWorldSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55ED13BEDDC9612E3C4040E /* Pods_HelloWorldSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +33,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6F7D0BF41A702D5800FDEB50 /* AeroGearPush.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		190187FD562835FB7039F3EB /* Pods-HelloWorldSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWorldSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-HelloWorldSwift/Pods-HelloWorldSwift.release.xcconfig"; sourceTree = "<group>"; };
 		4838933F194A35BF00C1C184 /* HelloWorldSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorldSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48389343194A35BF00C1C184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48389344194A35BF00C1C184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +51,8 @@
 		48389356194A35BF00C1C184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48389357194A35BF00C1C184 /* HelloWorldSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloWorldSwiftTests.swift; sourceTree = "<group>"; };
 		488C643C1B6A710F0045E535 /* pushconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pushconfig.plist; sourceTree = "<group>"; };
-		6F7D0BF21A702C8900FDEB50 /* AeroGearPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AeroGearPush.framework; sourceTree = "<group>"; };
+		5D9B98A11C1DF17BC3BDE083 /* Pods-HelloWorldSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HelloWorldSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HelloWorldSwift/Pods-HelloWorldSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		C55ED13BEDDC9612E3C4040E /* Pods_HelloWorldSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HelloWorldSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F7D0BF31A702C8900FDEB50 /* AeroGearPush.framework in Frameworks */,
+				96E4C3C35AAFCCA052588D6F /* Pods_HelloWorldSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +74,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A547B4CFB4D5EE77C211308 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5D9B98A11C1DF17BC3BDE083 /* Pods-HelloWorldSwift.debug.xcconfig */,
+				190187FD562835FB7039F3EB /* Pods-HelloWorldSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		48389336194A35BF00C1C184 = {
 			isa = PBXGroup;
 			children = (
-				6F7D0BF21A702C8900FDEB50 /* AeroGearPush.framework */,
 				48389341194A35BF00C1C184 /* HelloWorldSwift */,
 				48389354194A35BF00C1C184 /* HelloWorldSwiftTests */,
 				48389340194A35BF00C1C184 /* Products */,
+				1A547B4CFB4D5EE77C211308 /* Pods */,
+				9E3A3210B28D42FAC5D37CE1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +141,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9E3A3210B28D42FAC5D37CE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C55ED13BEDDC9612E3C4040E /* Pods_HelloWorldSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,10 +156,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4838935B194A35BF00C1C184 /* Build configuration list for PBXNativeTarget "HelloWorldSwift" */;
 			buildPhases = (
+				7184A6633705233514C81DA9 /* [CP] Check Pods Manifest.lock */,
 				4838933B194A35BF00C1C184 /* Sources */,
 				4838933C194A35BF00C1C184 /* Frameworks */,
 				4838933D194A35BF00C1C184 /* Resources */,
 				6FB58B2119A4EE2200024C5F /* Embed Frameworks */,
+				C67352F047411A2B189E00F0 /* [CP] Embed Pods Frameworks */,
+				886D5480DF91E15669113414 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,11 +198,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = aerogear;
 				TargetAttributes = {
 					4838933E194A35BF00C1C184 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -190,6 +212,7 @@
 					};
 					48389350194A35BF00C1C184 = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4838933E194A35BF00C1C184;
 					};
 				};
@@ -232,6 +255,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7184A6633705233514C81DA9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		886D5480DF91E15669113414 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HelloWorldSwift/Pods-HelloWorldSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C67352F047411A2B189E00F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HelloWorldSwift/Pods-HelloWorldSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4838933B194A35BF00C1C184 /* Sources */ = {
@@ -286,8 +357,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -296,6 +369,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -329,8 +403,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -338,6 +414,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -347,13 +424,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		4838935C194A35BF00C1C184 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D9B98A11C1DF17BC3BDE083 /* Pods-HelloWorldSwift.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -371,13 +451,16 @@
 				PROVISIONING_PROFILE = "8514c1f7-6b29-4a42-b6f3-1dbc29d57e63";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4838935D194A35BF00C1C184 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 190187FD562835FB7039F3EB /* Pods-HelloWorldSwift.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -394,6 +477,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8514c1f7-6b29-4a42-b6f3-1dbc29d57e63";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -402,10 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HelloWorldSwift.app/HelloWorldSwift";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -415,6 +496,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.aerogear.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -423,15 +505,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HelloWorldSwift.app/HelloWorldSwift";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = HelloWorldSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.aerogear.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;

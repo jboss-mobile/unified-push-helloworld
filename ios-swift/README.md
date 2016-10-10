@@ -11,65 +11,37 @@ Source: https://github.com/aerogear/aerogear-push-helloworld/ios-swift
 What is it?
 -----------
 
-This project is a very simple helloworld, to show how to get started with the UnifiedPush Server on iOS. The demo is implemented in [Swift 2.1](https://developer.apple.com/swift/) and uses the push-sdk [Swift|https://github.com/aerogear/aerogear-ios-push/tree/swift] port for registering to the UnifiedPush Server. 
+This project is a very simple helloworld, to show how to get started with the UnifiedPush Server on iOS. The demo is implemented in [Swift 2.3](https://developer.apple.com/swift/) and uses the push-sdk [Swift|https://github.com/aerogear/aerogear-ios-push/tree/master] for registering to the UnifiedPush Server. 
 
 System requirements
 -------------------
-- iOS 8.X, iOS 9.X
-- Xcode version 7.1+
+- iOS 8.X, iOS 9.X, iOS 10.X
+- Xcode version 8.0+
 
 Configure
 ---------
 * Have created an variant in UnifiedPush admin console
 * Have a valid provisioning profile as you will need to test on device (push notification not available on simulator)
 * Replace the bundleId with your bundleId (the one associated with your certificate).
-Go to HelloWorld target -> Info -> change Bundle Identifier field.
+Go to HelloWorldSwift target -> Info -> change Bundle Identifier field.
 
-![change helloworld bundle](../ios/doc/change-helloworld-bundle.png)
-
-Open **HelloWorld.xcodeproj** and that's it.
+![change HelloWorldSwift bundle](../ios-swift/doc/change-helloworld-bundle.png)
 
 Build and Deploy the HelloWorld
 -------------------------------
 
-### Change Push Configuration
+The project uses [CocoaPods](http://cocoapods.org) for handling its dependencies. As a pre-requisite, install [CocoaPods](http://cocoapods.org) and then install the pod. On the root directory of the project run:
 
-In HelloWorld/AGAppDelegate.m find and replace URL, variant and secret:
 
-```swift
-    func application(application: UIApplication!, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData!) {
-        NSLog("APN Success")
-        let registration = AGDeviceRegistration(serverURL: NSURL(string: "<# URL of the running AeroGear UnifiedPush Server #>"))
-        
-        registration.registerWithClientInfo({ (clientInfo: AGClientDeviceInformation!) -> () in
-            NSLog("UPS Register")
-            clientInfo.deviceToken = deviceToken
-            clientInfo.variantID = "<# Variant Id #>"
-            clientInfo.variantSecret = "<# Variant Secret #>"
-            
-                // apply the token, to identify THIS device
-                let currentDevice = UIDevice()
-            
-                // --optional config--
-                // set some 'useful' hardware information params
-                clientInfo.operatingSystem = currentDevice.systemName
-                clientInfo.osVersion = currentDevice.systemVersion
-                clientInfo.deviceType = currentDevice.model
-            }, success: { () -> () in
-                NSLog("UPS Success Register")
-                // Send NSNotification for success_registered, will be handle by registered AGViewController
-                let notification = NSNotification(name:"success_registered", object: nil)
-                NSNotificationCenter.defaultCenter().postNotification(notification)
-                
-            }, failure: { (error:NSError!) -> () in
-                NSLog("UPS Error Register")
-                let notification = NSNotification(name:"error_registered", object: nil)
-                NSNotificationCenter.defaultCenter().postNotification(notification)
-            })
-    }
-
+```bash
+pod install
 ```
 
+and then double click on the generated HelloWorldSwift.xcworkspace to open in Xcode.
+
+### Change Push Configuration
+
+In HelloWorldSwift/Supporting Files/pushconfig.plist fill the values for serverURL, variantID and variantSecret.
 
 Application Flow
 ----------------------
@@ -117,7 +89,7 @@ FAQ
 
 * Which iOS version is supported by AeroGear iOS libraries?
 
-AeroGear supports iOS 8.X
+AeroGear supports iOS 8.X+
 
 
 Debug the Application
