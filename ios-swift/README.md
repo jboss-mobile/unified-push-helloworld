@@ -1,5 +1,9 @@
 helloworld-push-ios: Basic Mobile Application showing the AeroGear Push feature on iOS
 ======================================================================================
+
+**This project has been moved to [Aerogear repository](https://github.com/aerogear/) and won't be updated here anymore. To get latest version check the [new project](https://github.com/aerogear/aerogear-ios-cookbook/tree/master/UnifiedPushHelloWorld).**
+
+
 Author: Corinne Krych (ckrych), Christos Vasilakis (cvasilak)
 Level: Beginner  
 Technologies: Swift, iOS  
