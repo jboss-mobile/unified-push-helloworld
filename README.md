@@ -1,6 +1,8 @@
 unified-push-helloworld
 =======================
 
+**Deprecated:** this sample repository is deprecated. Checkout the AeroGear community cookbooks instead!
+
 This repository contains the client's implementations showing off the basic usage of AeroGear UnifiedPush feature.
 
 |                 | Project Info  |
